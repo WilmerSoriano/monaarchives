@@ -22,9 +22,6 @@ _September 9, 2026_ - Did not find anything, spend 4-5hr researching what I want
 - looked up suggestion online such as well as in YouTube, Reddit, discord, online forum, and other list of idea found...
 What about Coffee place rating? User can create a rating for coffee place with: name, location, rating, and comment. Read review, update reviews, and delete as needed. The only thing I am trying to find is where can I apply some security into it...
 What about a Role Based Access Control API? Who is this user what they do what access can they have and so on and so forth.
-
-
-
 _September 11, 2026_ - I got an idea in the shower!...
 
 - Concept: A friendly user web api application design to archieve user's Manga, Manhwa, Manhua, LN, and Webnovel to favorite source/websites provider. So instead of having multiple website to scanner, official provider or pirated website. My API will create user account and user can create their own archives, make a list of man-books to save from the website instead of book marking them all or making account to providers.
@@ -32,10 +29,9 @@ _September 11, 2026_ - I got an idea in the shower!...
 ***** Name of product - Monarchives **** THIS IS IT !!! finally!!**
 I can probably make a mascot with Mona being name and librarian vibe
 ***** Note:** Something to remember, I provide service to only Manhwa/Manhua/Manga/ LN/ Webnovel - also for Resume sampling create 5 sample test account. No Live Users. ***
-
 GitHub has been created: [github.com/WilmerSoriano/monaarchives](https://github.com/WilmerSoriano/monaarchives) 
 
-Connected Erase and github.
+Connected Erase and github. Testing once again
 
 
 
