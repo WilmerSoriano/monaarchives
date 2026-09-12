@@ -1,4 +1,4 @@
-<p><a target="_blank" href="https://app.eraser.io/workspace/etNuthqWvZoKCjchUzlI" id="edit-in-eraser-github-link"><img alt="Edit in Eraser" src="https://firebasestorage.googleapis.com/v0/b/second-petal-295822.appspot.com/o/images%2Fgithub%2FOpen%20in%20Eraser.svg?alt=media&amp;token=968381c8-a7e7-472a-8ed6-4a6626da5501"></a></p>
+<p><a target="_blank" href="https://app.eraser.io/workspace/0NrRvaUA3N6qg5UqgB7u" id="edit-in-eraser-github-link"><img alt="Edit in Eraser" src="https://firebasestorage.googleapis.com/v0/b/second-petal-295822.appspot.com/o/images%2Fgithub%2FOpen%20in%20Eraser.svg?alt=media&amp;token=968381c8-a7e7-472a-8ed6-4a6626da5501"></a></p>
 
 ---
 
@@ -23,7 +23,6 @@ _September 9, 2026_ - Did not find anything, spend 4-5hr researching what I want
 What about Coffee place rating? User can create a rating for coffee place with: name, location, rating, and comment. Read review, update reviews, and delete as needed. The only thing I am trying to find is where can I apply some security into it...
 What about a Role Based Access Control API? Who is this user what they do what access can they have and so on and so forth.
 _September 11, 2026_ - I got an idea in the shower!...
-
 - Concept: A friendly user web api application design to archieve user's Manga, Manhwa, Manhua, LN, and Webnovel to favorite source/websites provider. So instead of having multiple website to scanner, official provider or pirated website. My API will create user account and user can create their own archives, make a list of man-books to save from the website instead of book marking them all or making account to providers.
 - Title: I wanted something that pictures a librarian or a book keeper of something that clicks right away.
 ***** Name of product - Monarchives **** THIS IS IT !!! finally!!**
@@ -31,8 +30,11 @@ I can probably make a mascot with Mona being name and librarian vibe
 ***** Note:** Something to remember, I provide service to only Manhwa/Manhua/Manga/ LN/ Webnovel - also for Resume sampling create 5 sample test account. No Live Users. ***
 GitHub has been created: [github.com/WilmerSoriano/monaarchives](https://github.com/WilmerSoriano/monaarchives) 
 
-Connected Erase and github. Testing1,2,3,4
+
+Connected Erase.io and github. Testing1,2,3,4... 
+
+Regarding [Erase.io](https://erase.io/) since erase-labs[bot] keeps replacing my commits, I created a Pull Request where it requires me to push this into different branch and later on github confirm those commit to display my name. 
 
 
 
-<!--- Eraser file: https://app.eraser.io/workspace/etNuthqWvZoKCjchUzlI --->
+<!--- Eraser file: https://app.eraser.io/workspace/0NrRvaUA3N6qg5UqgB7u --->
