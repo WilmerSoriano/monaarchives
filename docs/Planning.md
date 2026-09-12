@@ -14,7 +14,6 @@ _September 4th, 2026_ - Commence search and idea...
 What is user story:
 - TA-01: Create a Task
 [https://youtu.be/M2U4_t_PSRM?si=hRTO4qZLbmp_laMp](https://youtu.be/M2U4_t_PSRM?si=hRTO4qZLbmp_laMp) 
-
 ---
 
 ## **Brainstorming Idea of product!**
@@ -22,8 +21,9 @@ _September 9, 2026_ - Did not find anything, spend 4-5hr researching what I want
 
 - looked up suggestion online such as well as in YouTube, Reddit, discord, online forum, and other list of idea found...
 What about Coffee place rating? User can create a rating for coffee place with: name, location, rating, and comment. Read review, update reviews, and delete as needed. The only thing I am trying to find is where can I apply some security into it...
-
 What about a Role Based Access Control API? Who is this user what they do what access can they have and so on and so forth.
+
+
 
 _September 11, 2026_ - I got an idea in the shower!...
 
@@ -31,7 +31,6 @@ _September 11, 2026_ - I got an idea in the shower!...
 - Title: I wanted something that pictures a librarian or a book keeper of something that clicks right away.
 ***** Name of product - Monarchives **** THIS IS IT !!! finally!!**
 I can probably make a mascot with Mona being name and librarian vibe
-
 ***** Note:** Something to remember, I provide service to only Manhwa/Manhua/Manga/ LN/ Webnovel - also for Resume sampling create 5 sample test account. No Live Users. ***
 
 GitHub has been created: [github.com/WilmerSoriano/monaarchives](https://github.com/WilmerSoriano/monaarchives) 
