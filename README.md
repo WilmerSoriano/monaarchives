@@ -5,7 +5,7 @@ A friendly user web api application design to archive user's Manga, Manhwa, Manh
 
 🚧 Work in Progress... 🚧
 
-
+---
 Copyright © 2026 Wilmer Soriano
 
 This project is licensed under the GNU Affero General Public
