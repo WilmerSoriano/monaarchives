@@ -44,6 +44,7 @@ Connected Erase.io and github. Testing1,2,3,4...
 > September 16, 2026 - continue from previous plan...
 
 - I created a MainTask.md to help me keep track on what to work on and complete.
+- I created 2 UML to help me sort out the classes I am going to be needed, but during the process I encounter an issue: I needed to figure out the relationship between bookmark and filter. After thinking and searching ideas out. We need a 3rd class that will be the creator of bookmarks, delete them, and call upon the filter to sort as needed. but finish watching Deviro before commencing: https://www.youtube.com/watch?v=M2U4_t_PSRM&t=8852s
 
 
 
