@@ -46,6 +46,11 @@ Connected Erase.io and github. Testing1,2,3,4...
 - Sketch an idea out and diagram of everything including library backend frontend. Security and anything to note.
 
 
+> September 16, 2026 - continue to previous task...
+
+- Created User story. Check out Task.md file.
+
+
 
 
 <!--- Eraser file: https://app.eraser.io/workspace/0NrRvaUA3N6qg5UqgB7u --->
