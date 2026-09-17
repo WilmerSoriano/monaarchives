@@ -3,7 +3,7 @@
 ---
 
 ## **What am I building?**
->  _September 4th, 2026_ - Commence search and idea... 
+>   _September 4th, 2026_ - Commence search and idea...  
 
 - **<u>Must have</u>** CRUD RESTful architect. Springboot with Java and database etc...
 - Must be unique to some aspect.
@@ -17,16 +17,13 @@ What is user story:
 ---
 
 ## **Brainstorming Idea of product!**
->  _September 9, 2026_ - Did not find anything, spend 4-5hr researching project idea/brainstorming. 
+>   _September 9, 2026_ - Did not find anything, spend 4-5hr researching project idea/brainstorming.  
 
 - looked up suggestion online such as well as in YouTube, Reddit, discord, online forum, and other list of idea found...
 - What about Coffee place rating? User can create a rating for coffee place with: name, location, rating, and comment. Read review, update reviews, and delete as needed. The only thing I am trying to find is where can I apply some security into it...
-- What about a Role Based Access Control API? Who is this user what they do what access can they have and so on and so forth.
->  _September 11, 2026_ - I got an idea in the shower!... 
-
+- What about a Role Based Access Control API? Who is this user what they do what access can they have and so on and so forth.  _September 11, 2026_ - I got an idea in the shower!...  
 - **Concept:** A friendly user web api application design to achieve user's Manga, Manhwa, Manhua, LN, and Web-novel to favorite source/websites provider. So instead of having multiple website to scanner, official provider or pirated website. My API will create user account and user can create their own archives, make a list of man-books to save from the website instead of book marking them all or making account to providers.
 **Title:** I wanted something that pictures a librarian or a book keeper of something that clicks right away.
-
 ***** Name of product - Monarchives **** THIS IS IT !!! finally!!**
 
 I can probably make a mascot with Mona being name and librarian vibe
@@ -41,14 +38,12 @@ Connected Erase.io and github. Testing1,2,3,4...
 ---
 
 ## **Planning !**
-> September 14, 2026 - Now I need to plan this out a, get the material and envision myself of the design, architecture, and all the functionality of product including the tools/material that I need.
+>  September 14, 2026 - Now I need to plan this out a, get the material and envision myself of the design, architecture, and all the functionality of product including the tools/material that I need. 
 
 - Sketch an idea out and diagram of everything including library backend frontend. Security and anything to note.
+> September 16, 2026 - continue from previous plan...
 
-
-> September 16, 2026 - continue to previous task...
-
-- Created User story. Check out Task.md file.
+- I created a MainTask.md to help me keep track on what to work on and complete.
 
 
 
