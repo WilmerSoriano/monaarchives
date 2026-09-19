@@ -24,7 +24,7 @@ freeform-diagram
         "text": "Clients",
         "color": "#ffffff",
         "icon": "users",
-        "bgColor": "#c7dcfc"
+        "bgColor": "#1e9af7"
       },
       "id": "clients",
       "x": 15,
