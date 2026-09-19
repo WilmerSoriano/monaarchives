@@ -2,9 +2,8 @@
 
 Note: The design below is my overall goal for this architecture. My main goal is to have basic RESTful API for my program, having a proper UI, and handling database. While providing 5 simple account samples. Later in future updates, I would like to in hence security with API Gateway, Middleware, and a Cache with Message Queue for constant communication with users. At the moment these are not my highest priority, However, I would like them to be consider for future features.
 
-![Standard REST API Architecture](/.eraser/JsPkQfvnYXBh1gasfR7z___aIGbguIjZGYrfcx7gObUWAvxCc13___---diagram---KPiEZXf8bTdK1xNcxTLHA---id---8QHieopL7ssJfuEqdMUn.png "Standard REST API Architecture")
+![Standard REST API Architecture](/.eraser/JsPkQfvnYXBh1gasfR7z___aIGbguIjZGYrfcx7gObUWAvxCc13___---diagram---fMqaJytV6mi3P8sWtKMMI---id---8QHieopL7ssJfuEqdMUn.png "Standard REST API Architecture")
 
-## 
 ## **<u>Components in order:</u>**
 1. **Client UI:** Netlify, and  React + HTML + CSS
 2. **Communication data:** HTTP + JSON
