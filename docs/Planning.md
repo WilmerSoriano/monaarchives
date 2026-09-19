@@ -1,40 +1,77 @@
-<p><a target="_blank" href="https://app.eraser.io/workspace/0NrRvaUA3N6qg5UqgB7u" id="edit-in-eraser-github-link"><img alt="Edit in Eraser" src="https://firebasestorage.googleapis.com/v0/b/second-petal-295822.appspot.com/o/images%2Fgithub%2FOpen%20in%20Eraser.svg?alt=media&amp;token=968381c8-a7e7-472a-8ed6-4a6626da5501"></a></p>
+<p><a target="_blank" href="https://app.eraser.io/workspace/FcFjJhkAbnHcgysm6YmF" id="edit-in-eraser-github-link"><img alt="Edit in Eraser" src="https://firebasestorage.googleapis.com/v0/b/second-petal-295822.appspot.com/o/images%2Fgithub%2FOpen%20in%20Eraser.svg?alt=media&amp;token=968381c8-a7e7-472a-8ed6-4a6626da5501"></a></p>
 
+A User story will help me determine the main objective to complete this project and what user expect from this project.
+
+<u>User Story</u>
+
+===================================================================
+
+**TA-01**: Create a bookmark mapping to comic to website
+
+- **As a** ... manga reader enjoyer
+- **I want** ... to quickly look up my series from perfer website
+- **So that** ... I don't forget or bookmark website or create multiple account.
+**Acceptance Criteria**
+1. A User can create a bookmark
+2. Each bookmark has a title of comic, website link, status of comic (color indicated), current chapter, user personal rating.
+
+
+===================================================================
+
+**TA-02**: Updated a bookmark
+
+- **As a** ... manga reader enjoyer
+- **I want** ... to quickly update a book
+- **So that** ... I can keep up to date with current chapter and update the status of the overall comic
+**Acceptance Criteria**
+1. Users can edit the bookmark and change the title, link, status, and current chapter
+2. Chapter number should be able to update itself using the https link provided letting user know current status of their own chapter with current chapter on website. (e.g reader Ch 10 /200) Where 10 is where reader left off and 200 is current status author released ch. (NOTE: since all links are different, one thing I realize they all return "chapter" follow by a dash line and chapter#. (e.g chapter-229 or comic/chapter-220).
+
+
+===================================================================
+
+**TA-03**: Delete a bookmark/Archive a bookmark
+
+- **As a** ... manga reader enjoyer
+- **I want** ... to delete or archive comic
+- **So that** ... I can make more space or move it to archive if I ever decide to read it again.
+**Acceptance Criteria**
+1. Users can delete comic or archive their comic as they like.
+2. Select multiple at a time to delete or archive (low priority but awesome feature to be added). 
+
+
+===================================================================
+
+**TA-04**: Rearranging (Filter) bookmarks
+
+- **As a** ... manga reader enjoyer
+- **I want** ... to rearrange my bookmarks
+- **So that** ... I can see filter my comic as needed and see my prefer comics based on fillter.
+**Acceptance Criteria**
+1. Users can filter comic
+2. Can be filter to choose based on title, rating, recently added (date based), Last read (clicked), Updated (if comic has been updated). All given the option to be Ascending or Descending order.
+3. Can be filter using status such as Plan to read, Dropped, On Hold, Completed, Reading
+4. User should be able to filter Catched up vs Still reading.
 ---
 
-## **What am I building?**
-_September 4th, 2026_ - Commence search and idea...
+UML - (Ignore Figure 2. Read the 1st bullet point below for more information)
 
-- **<u>Must have</u>** CRUD RESTful architect. Springboot with Java and database etc...
-- Must be unique to some aspect.
-- provide service to users
-- Must relate to something a enjoy already doing
-- require security and cybersecurity concept now or in the future
-- Must be a long term project I can work on for most of my career until production.
-What is user story:
-- TA-01: Create a Task
-[https://youtu.be/M2U4_t_PSRM?si=hRTO4qZLbmp_laMp](https://youtu.be/M2U4_t_PSRM?si=hRTO4qZLbmp_laMp) 
----
+Figure 1 - Represent bookmark being created.
 
-## **Brainstorming Idea of product!**
-_September 9, 2026_ - Did not find anything, spend 4-5hr researching what I wanted to do... 
+![Figure 1](/.eraser/FcFjJhkAbnHcgysm6YmF___aIGbguIjZGYrfcx7gObUWAvxCc13___---figure---0ngbCi_80B_VJlZ7kUcQR---id---0gY_jta2DGExmL12ng8vX.png "Figure 1")
 
-- looked up suggestion online such as well as in YouTube, Reddit, discord, online forum, and other list of idea found...
-What about Coffee place rating? User can create a rating for coffee place with: name, location, rating, and comment. Read review, update reviews, and delete as needed. The only thing I am trying to find is where can I apply some security into it...
-What about a Role Based Access Control API? Who is this user what they do what access can they have and so on and so forth.
-_September 11, 2026_ - I got an idea in the shower!...
-- Concept: A friendly user web api application design to archieve user's Manga, Manhwa, Manhua, LN, and Webnovel to favorite source/websites provider. So instead of having multiple website to scanner, official provider or pirated website. My API will create user account and user can create their own archives, make a list of man-books to save from the website instead of book marking them all or making account to providers.
-- Title: I wanted something that pictures a librarian or a book keeper of something that clicks right away.
-***** Name of product - Monarchives **** THIS IS IT !!! finally!!**
-I can probably make a mascot with Mona being name and librarian vibe
-***** Note:** Something to remember, I provide service to only Manhwa/Manhua/Manga/ LN/ Webnovel - also for Resume sampling create 5 sample test account. No Live Users. ***
-GitHub has been created: [github.com/WilmerSoriano/monaarchives](https://github.com/WilmerSoriano/monaarchives) 
+(Ignore Figure 2, Read the 1st bullet point below for more information)
 
+Figure 2 - Filter will sort all user's bookmark, as needed based on the Sorting option. The bigger question is what is the bookmark and filter relationship?
 
-Connected Erase.io and github. Testing1,2,3,4... 
-
-Regarding [Erase.io](https://erase.io/) since erase-labs[bot] keeps replacing my commits, I created a Pull Request where it requires me to push this into different branch and later on github confirm those commit to display my name. 
+![Figure 2](/.eraser/FcFjJhkAbnHcgysm6YmF___aIGbguIjZGYrfcx7gObUWAvxCc13___---figure---vHqe80UT6a6gR_Rq36Dxk---id---2tc4_YRLVXybproQ9JXpk.png "Figure 2")
 
 
 
-<!--- Eraser file: https://app.eraser.io/workspace/0NrRvaUA3N6qg5UqgB7u --->
+- Figure 1 and 2 represent a Computer Science aspect of architecture in computer science. Normally I would create 3 classes such as: 1st class handle input for the bookmarked manga,  2nd class to handle filter logic, and 3rd class to be the middle man between class 1 and 2. Handling adding/deleting all bookmarks and logic calls as needed. After much though and realization. Figure 2 and 3rd class will <u>not be necessary</u>. Both logic will be handle in the Service layer and spring framework. Which will require less work for programmer. I can therefore focus in maintaining security within program. 
+- Next step is to design and adding components (adding requirements)
+
+
+
+
+<!--- Eraser file: https://app.eraser.io/workspace/FcFjJhkAbnHcgysm6YmF --->
