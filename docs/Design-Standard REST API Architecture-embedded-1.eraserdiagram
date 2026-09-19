@@ -1,0 +1,678 @@
+freeform-diagram
+
+{
+  "title": "Standard REST API Architecture",
+  "elements": [
+    {
+      "tag": "Textbox",
+      "text": "# RESTful API Architecture",
+      "color": "black",
+      "fontSize": 24,
+      "hAlign": "left",
+      "id": "title",
+      "x": 15,
+      "y": 15,
+      "width": 316.83331298828125,
+      "height": 35
+    },
+    {
+      "bgColor": "#eef4fd",
+      "borderColor": "blue",
+      "borderWidth": 0.75,
+      "tag": "Group",
+      "title": {
+        "text": "Clients",
+        "color": "#ffffff",
+        "icon": "users",
+        "bgColor": "#c7dcfc"
+      },
+      "id": "clients",
+      "x": 15,
+      "y": 81,
+      "width": 220,
+      "height": 330
+    },
+    {
+      "bgColor": "white",
+      "borderColor": "blue",
+      "tag": "Shape",
+      "shape": "rectangle",
+      "texts": [
+        {
+          "text": "Web App",
+          "fontSize": 16
+        }
+      ],
+      "icon": "monitor",
+      "id": "web",
+      "x": 42,
+      "y": 141,
+      "width": 166,
+      "height": 64,
+      "containerId": "clients"
+    },
+    {
+      "bgColor": "white",
+      "borderColor": "blue",
+      "tag": "Shape",
+      "shape": "rectangle",
+      "texts": [
+        {
+          "text": "Mobile App",
+          "fontSize": 16
+        }
+      ],
+      "icon": "smartphone",
+      "id": "mobile",
+      "x": 42,
+      "y": 291,
+      "width": 166,
+      "height": 64,
+      "containerId": "clients"
+    },
+    {
+      "bgColor": "#f3edfb",
+      "borderColor": "purple",
+      "tag": "Shape",
+      "shape": "rectangle",
+      "texts": [
+        {
+          "text": "API Gateway",
+          "fontSize": 17
+        },
+        {
+          "text": "TLS • Rate Limit",
+          "color": "gray",
+          "fontSize": 13
+        },
+        {
+          "text": "Routing",
+          "color": "gray",
+          "fontSize": 13
+        }
+      ],
+      "icon": "shield",
+      "vAlign": "middle",
+      "id": "gateway",
+      "x": 351,
+      "y": 189,
+      "width": 170,
+      "height": 114
+    },
+    {
+      "tag": "Relationship",
+      "from": "clients",
+      "to": "gateway",
+      "textSize": "small",
+      "label": "HTTPS / JSON",
+      "fromPort": "right",
+      "toPort": "left",
+      "labelPlacement": {
+        "x": 15,
+        "y": -7.5
+      },
+      "id": "r1",
+      "x": 235,
+      "y": 246,
+      "width": 116,
+      "height": 0,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          116,
+          0
+        ]
+      ],
+      "endArrowhead": "triangle",
+      "lineStyle": "solid",
+      "color": "#1c1c1c",
+      "lineWidth": 0.75
+    },
+    {
+      "bgColor": "#f7f3fd",
+      "borderColor": "purple",
+      "borderWidth": 0.75,
+      "tag": "Group",
+      "title": {
+        "text": "REST API Service",
+        "color": "white",
+        "icon": "server",
+        "bgColor": "purple"
+      },
+      "id": "api",
+      "x": 584,
+      "y": 81,
+      "width": 390,
+      "height": 330
+    },
+    {
+      "bgColor": "white",
+      "borderColor": "purple",
+      "tag": "Shape",
+      "shape": "rectangle",
+      "texts": [
+        {
+          "text": "Auth / JWT",
+          "fontSize": 15
+        }
+      ],
+      "icon": "lock",
+      "id": "auth",
+      "x": 614,
+      "y": 133,
+      "width": 150,
+      "height": 58,
+      "containerId": "api"
+    },
+    {
+      "bgColor": "white",
+      "borderColor": "purple",
+      "tag": "Shape",
+      "shape": "rectangle",
+      "texts": [
+        {
+          "text": "Middleware",
+          "fontSize": 15
+        }
+      ],
+      "icon": "filter",
+      "id": "middleware",
+      "x": 800,
+      "y": 133,
+      "width": 150,
+      "height": 58,
+      "containerId": "api"
+    },
+    {
+      "tag": "Relationship",
+      "from": "auth",
+      "to": "middleware",
+      "fromPort": "right",
+      "toPort": "left",
+      "id": "r3",
+      "x": 764,
+      "y": 162,
+      "width": 36,
+      "height": 0,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          36,
+          0
+        ]
+      ],
+      "endArrowhead": "triangle",
+      "lineStyle": "solid",
+      "color": "#1c1c1c",
+      "lineWidth": 0.75
+    },
+    {
+      "bgColor": "white",
+      "borderColor": "purple",
+      "tag": "Shape",
+      "shape": "rectangle",
+      "texts": [
+        {
+          "text": "Controllers",
+          "fontSize": 15
+        },
+        {
+          "text": "/v1 resources",
+          "color": "gray",
+          "fontSize": 12
+        }
+      ],
+      "icon": "route",
+      "id": "controllers",
+      "x": 614,
+      "y": 219,
+      "width": 150,
+      "height": 68,
+      "containerId": "api"
+    },
+    {
+      "tag": "Relationship",
+      "from": "middleware",
+      "to": "controllers",
+      "fromPort": "bottom",
+      "toPort": "top",
+      "id": "r4",
+      "x": 875,
+      "y": 191,
+      "width": 186,
+      "height": 28,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          12
+        ],
+        [
+          -186,
+          12
+        ],
+        [
+          -186,
+          28
+        ]
+      ],
+      "endArrowhead": "triangle",
+      "lineStyle": "solid",
+      "color": "#1c1c1c",
+      "lineWidth": 0.75
+    },
+    {
+      "bgColor": "white",
+      "borderColor": "purple",
+      "tag": "Shape",
+      "shape": "rectangle",
+      "texts": [
+        {
+          "text": "Services",
+          "fontSize": 15
+        },
+        {
+          "text": "Business logic",
+          "color": "gray",
+          "fontSize": 12
+        }
+      ],
+      "icon": "cog",
+      "id": "services",
+      "x": 800,
+      "y": 219,
+      "width": 150,
+      "height": 68,
+      "containerId": "api"
+    },
+    {
+      "tag": "Relationship",
+      "from": "controllers",
+      "to": "services",
+      "fromPort": "right",
+      "toPort": "left",
+      "id": "r5",
+      "x": 764,
+      "y": 253,
+      "width": 36,
+      "height": 0,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          36,
+          0
+        ]
+      ],
+      "endArrowhead": "triangle",
+      "lineStyle": "solid",
+      "color": "#1c1c1c",
+      "lineWidth": 0.75
+    },
+    {
+      "bgColor": "white",
+      "borderColor": "purple",
+      "tag": "Shape",
+      "shape": "rectangle",
+      "texts": [
+        {
+          "text": "Data Access Layer",
+          "fontSize": 15
+        }
+      ],
+      "icon": "layers",
+      "id": "repo",
+      "x": 614,
+      "y": 323,
+      "width": 336,
+      "height": 58,
+      "containerId": "api"
+    },
+    {
+      "tag": "Relationship",
+      "from": "services",
+      "to": "repo",
+      "fromPort": "bottom",
+      "toPort": "top",
+      "id": "r6",
+      "x": 875,
+      "y": 287,
+      "width": 0,
+      "height": 36,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          36
+        ]
+      ],
+      "endArrowhead": "triangle",
+      "lineStyle": "solid",
+      "color": "#1c1c1c",
+      "lineWidth": 0.75
+    },
+    {
+      "tag": "Relationship",
+      "from": "gateway",
+      "to": "api",
+      "textSize": "small",
+      "label": "REST",
+      "fromPort": "right",
+      "toPort": "left",
+      "labelPlacement": {
+        "x": 16,
+        "y": -8,
+        "width": 31,
+        "height": 16
+      },
+      "id": "r2",
+      "x": 521,
+      "y": 246,
+      "width": 63,
+      "height": 0,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          63,
+          0
+        ]
+      ],
+      "endArrowhead": "triangle",
+      "lineStyle": "solid",
+      "color": "#1c1c1c",
+      "lineWidth": 0.75
+    },
+    {
+      "bgColor": "#eef7f0",
+      "borderColor": "green",
+      "borderWidth": 0.75,
+      "tag": "Group",
+      "title": {
+        "text": "Data & Integrations",
+        "color": "white",
+        "icon": "database",
+        "bgColor": "green"
+      },
+      "id": "data",
+      "x": 15,
+      "y": 461,
+      "width": 959,
+      "height": 186
+    },
+    {
+      "bgColor": "white",
+      "borderColor": "green",
+      "tag": "Shape",
+      "shape": "cylinder",
+      "texts": [
+        {
+          "text": "Primary DB",
+          "fontSize": 15
+        },
+        {
+          "text": "PostgreSQL",
+          "color": "gray",
+          "fontSize": 12
+        }
+      ],
+      "icon": "database",
+      "vAlign": "middle",
+      "id": "db",
+      "x": 55,
+      "y": 521,
+      "width": 170,
+      "height": 96,
+      "containerId": "data"
+    },
+    {
+      "tag": "Relationship",
+      "from": "repo",
+      "to": "db",
+      "fromPort": "bottom",
+      "toPort": "right",
+      "id": "r7",
+      "x": 670,
+      "y": 381,
+      "width": 445,
+      "height": 188,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          15
+        ],
+        [
+          -414.5694478352864,
+          15
+        ],
+        [
+          -414.5694478352864,
+          188
+        ],
+        [
+          -445,
+          188
+        ]
+      ],
+      "endArrowhead": "triangle",
+      "lineStyle": "solid",
+      "color": "#1c1c1c",
+      "lineWidth": 0.75
+    },
+    {
+      "bgColor": "white",
+      "borderColor": "green",
+      "tag": "Shape",
+      "shape": "cylinder",
+      "texts": [
+        {
+          "text": "Cache",
+          "fontSize": 15
+        },
+        {
+          "text": "Redis",
+          "color": "gray",
+          "fontSize": 12
+        }
+      ],
+      "icon": "zap",
+      "vAlign": "middle",
+      "id": "cache",
+      "x": 265,
+      "y": 521,
+      "width": 170,
+      "height": 96,
+      "containerId": "data"
+    },
+    {
+      "tag": "Relationship",
+      "from": "repo",
+      "to": "cache",
+      "fromPort": "bottom",
+      "toPort": "top",
+      "id": "r8",
+      "x": 782,
+      "y": 381,
+      "width": 432,
+      "height": 140,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          18
+        ],
+        [
+          -71.69443766276027,
+          18
+        ],
+        [
+          -71.69443766276027,
+          61.16666666666663
+        ],
+        [
+          -432,
+          61.16666666666663
+        ],
+        [
+          -432,
+          140
+        ]
+      ],
+      "endArrowhead": "triangle",
+      "lineStyle": "solid",
+      "color": "#1c1c1c",
+      "lineWidth": 0.75
+    },
+    {
+      "bgColor": "white",
+      "borderColor": "green",
+      "tag": "Shape",
+      "shape": "rectangle",
+      "texts": [
+        {
+          "text": "Message Queue",
+          "fontSize": 15
+        },
+        {
+          "text": "Async jobs",
+          "color": "gray",
+          "fontSize": 12
+        }
+      ],
+      "icon": "list-ordered",
+      "id": "queue",
+      "x": 475,
+      "y": 533,
+      "width": 170,
+      "height": 72,
+      "containerId": "data"
+    },
+    {
+      "tag": "Relationship",
+      "from": "repo",
+      "to": "queue",
+      "fromPort": "bottom",
+      "toPort": "top",
+      "id": "r9",
+      "x": 894,
+      "y": 381,
+      "width": 334,
+      "height": 152,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          56
+        ],
+        [
+          -118.87497965494799,
+          56
+        ],
+        [
+          -118.87497965494799,
+          99.22220865885413
+        ],
+        [
+          -334,
+          99.22220865885413
+        ],
+        [
+          -334,
+          152
+        ]
+      ],
+      "endArrowhead": "triangle",
+      "lineStyle": "solid",
+      "color": "#1c1c1c",
+      "lineWidth": 0.75
+    },
+    {
+      "bgColor": "white",
+      "borderColor": "green",
+      "tag": "Shape",
+      "shape": "rectangle",
+      "texts": [
+        {
+          "text": "External APIs",
+          "fontSize": 15
+        },
+        {
+          "text": "Email",
+          "color": "gray",
+          "fontSize": 12
+        }
+      ],
+      "icon": "cloud",
+      "id": "external",
+      "x": 685,
+      "y": 533,
+      "width": 170,
+      "height": 72,
+      "containerId": "data"
+    },
+    {
+      "tag": "Relationship",
+      "from": "services",
+      "to": "external",
+      "fromPort": "right",
+      "toPort": "top",
+      "id": "r10",
+      "x": 950,
+      "y": 253,
+      "width": 220,
+      "height": 280,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          40,
+          0
+        ],
+        [
+          40,
+          250
+        ],
+        [
+          -180,
+          250
+        ],
+        [
+          -180,
+          280
+        ]
+      ],
+      "endArrowhead": "triangle",
+      "lineStyle": "solid",
+      "color": "#1c1c1c",
+      "lineWidth": 0.75
+    }
+  ]
+}
