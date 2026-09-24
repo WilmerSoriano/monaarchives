@@ -51,6 +51,10 @@ MAYBE IT'S NOT NECESSARY SINCE WE ARE USING CRUD AND SPRINGBOOT
 ## **Design**
 - I will be gathering all the tool and design how the overall architecture of my code will look like. I do want to commit to long term process for this project. So having a proper base architecture will be key to long term maintain success. (check out Design.md)
 - For next and final work. Gather the HTTP request requirements.
+> September 23, 2026 -  Finished design
+
+- I finally finished the design aspect of monaarchives. This includes HTTP respond, URL header, JSON and useful comments for future implementation features. (check out Design.md)
+- Moving forward I will be moving on to code, which means I won't be updating the Journal as often unless it's major such as completing the CRUD functionality or making huge update. I will be adding the dates and what I worked on that specific date, but nothing crazy details such as fixing syntax issue or making small changes. 
 
 
 
