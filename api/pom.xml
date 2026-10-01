@@ -1,85 +1,131 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>4.1.1</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath/> <!-- lookup parent from repository NOT NEEDED-->
 	</parent>
+	
+	<!--Software info-->
 	<groupId>com.monaarchives</groupId>
 	<artifactId>bookmark</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name/>
-	<description/>
-	<url/>
+	<name>bookmarkAPI</name>
+	<description>Bookmark management REST API built with Spring Boot and PostgreSQL</description>
+	<url/><!--To be added-->
+
+	<!--This software license and usage-->
 	<licenses>
-		<license/>
+		<license> 
+			<name>GNU Affero General Public License v3 (AGPLv3)</name> 
+			<url>https://www.gnu.org/licenses/agpl-3.0.html</url> 
+			<distribution>repo</distribution>
+			<comments>
+				This project is licensed under the GNU Affero General Public License v3 (AGPLv3). 
+				See LICENSE for the full license text. 
+				Additional author attribution terms apply. See NOTICE.
+			</comments>
+		</license>
 	</licenses>
+
+	<!--Creator-->
 	<developers>
-		<developer/>
+		<developer>
+			<name>Wilmer Soriano</name>
+			<email>soriano.w@outlook.com</email>
+			<organization>Mona Archives</organization>
+		</developer>
 	</developers>
+
+	<!--code source-->
 	<scm>
-		<connection/>
-		<developerConnection/>
-		<tag/>
-		<url/>
+		<connection>scm:git:git://github.com/WilmerSoriano/monaarchives.git</connection>
+		<developerConnection>scm:git:ssh://github.com/WilmerSoriano/monaarchives.git</developerConnection>
+		<tag>HEAD</tag>
+    	<url>https://github.com/WilmerSoriano/monaarchives.git</url>
 	</scm>
+
 	<properties>
 		<java.version>21</java.version>
 	</properties>
+
 	<dependencies>
+
+	<!--JPA Dependecy-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
+
+		<!--Security Dependecy-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
+
+		<!--validation Dependecy-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
+
+		<!--Web Dependecy-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-webmvc</artifactId>
 		</dependency>
 
+		<!--Docker Dependency-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-docker-compose</artifactId>
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
+
+		<!--Postgress Dependency-->
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+
+		<!--Testing JPA dependency-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- Testing Security Dependency-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<!--Testing Validation Dependency-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<!--Testing Web dependency-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-webmvc-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
 	</dependencies>
 
+	<!--Maven plug in-->
 	<build>
 		<plugins>
 			<plugin>
