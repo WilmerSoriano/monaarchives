@@ -52,11 +52,12 @@ MAYBE IT'S NOT NECESSARY SINCE WE ARE USING CRUD AND SPRINGBOOT
 - I will be gathering all the tool and design how the overall architecture of my code will look like. I do want to commit to long term process for this project. So having a proper base architecture will be key to long term maintain success. (check out Design.md)
 - For next and final work. Gather the HTTP request requirements.
 
-> September 23, 2026 -  Finished design
-
+> September 23, 2026 - Finished design
 - I finally finished the design aspect of monaarchives. This includes HTTP respond, URL header, JSON and useful comments for future implementation features. (check out Design.md)
 - Moving forward I will be moving on to code, which means I won't be updating the Journal as often unless it's major such as completing the CRUD functionality or making huge update. I will be adding the dates and what I worked on that specific date, but nothing crazy details such as fixing syntax issue or making small changes. 
 
 >  September 30, 2026 - The late September update! Making Docker work
 - On Friday, September 25. I worked on setting up the environment, but only recorded on github comments.
 - I am now working on creating docker, this will help me run both the frontend backend and database correctly in the future without any struggle and also help debug issue earlier on.
+
+- I decide not to work on docker. Doing frontend and docker takes great amount of time. This will be placed last. Instead, today I prepared database and organized file ready to start coding soon.
