@@ -1,0 +1,15 @@
+
+name: monaarchivesEnv
+services:
+  db:
+    image: postgres:latest
+    # FOR FUTURE REFRENCE CHANGE TO .ENV fil
+    environment:
+      - POSTGRES_DB=FINAL
+      - POSTGRES_PASSWORD=FINAL
+      - POSTGRES_USER=FINAL
+    ports:
+      - "5432:5432"
+    # Volume makes sure our Database is persistent even after docker container is removed.
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
