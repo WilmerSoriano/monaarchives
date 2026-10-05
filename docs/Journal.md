@@ -61,3 +61,8 @@ MAYBE IT'S NOT NECESSARY SINCE WE ARE USING CRUD AND SPRINGBOOT
 - I am now working on creating docker, this will help me run both the frontend backend and database correctly in the future without any struggle and also help debug issue earlier on.
 
 - I decide not to work on docker. Doing frontend and docker takes great amount of time. This will be placed last. Instead, today I prepared database and organized file ready to start coding soon.
+
+> October 4, 2026 - Created Enum and Entity.
+- I created Enum for status 
+- created the entity for bookmarks, next will be to create some constructors to be able to inject bookmark as needed,
+some Getters, Setters, and some method for date time management. 
