@@ -65,4 +65,11 @@ MAYBE IT'S NOT NECESSARY SINCE WE ARE USING CRUD AND SPRINGBOOT
 > October 4, 2026 - Created Enum and Entity.
 - I created Enum for status 
 - created the entity for bookmarks, next will be to create some constructors to be able to inject bookmark as needed,
-some Getters, Setters, and some method for date time management. 
+some Getters, Setters, and some method for date time management.
+
+> October 7, 2026 - Finished Entity, added Repository, record class
+- I finished entity with several methods such as constructors, setters and getters, equals, hashCode, and toString methods.
+- I added the Repository folder with repository JPA
+- Finally I added the record class that manages the needed Parameters to handle bookmarks and become intermediate between
+DTO, and Entity.
+- I definitely added lots of comments to help me understand what's going on.
