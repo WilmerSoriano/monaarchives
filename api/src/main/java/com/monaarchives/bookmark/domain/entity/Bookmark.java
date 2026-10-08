@@ -12,18 +12,10 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-/*
-    Reminder, to create a bookmark you MUST have
-    the following:
-    - title
-    - chapter
-    - status
-    - URL
-    ===================
-    - date will be generated
-    - everything else can be null or 0
+/* 
+    This is our entity class, which will be handle by JPA and Hibernate
+    to create our Database table and storing/getting information.
 */
-
 @Entity 
 @Table(name = "bookmark")
 public class Bookmark {
