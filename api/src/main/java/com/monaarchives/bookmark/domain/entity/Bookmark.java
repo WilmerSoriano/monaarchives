@@ -151,7 +151,7 @@ public class Bookmark {
         this.dateLastClicked = dateLastClicked;
     }
 
-    // =========================ID differentiationing=================================
+    // =========================ID differentiationing===========================
     // By default, Java's Object.equals() essentially compares whether they are the same object in memory. 
     // Hence we override this method to compare ID numbers rather then memory location.
     @Override
@@ -182,5 +182,21 @@ public class Bookmark {
         int result = 1;
         result = prime * result + ((id == null) ? 0 : id.hashCode());
         return result;
+    }
+
+    // ===========================helpful toString==============================
+    @Override
+    public String toString() {
+        return "Bookmark{" +
+            "id=" + id + 
+            ", title=" + title + 
+            ", chapter=" + chapter + 
+            ", status=" + status + 
+            ", website=" + website + 
+            ", rating=" + rating + 
+            ", dateCreated=" + dateCreated + 
+            ", dateUpdated=" + dateUpdated + 
+            ", dateLastClicked=" + dateLastClicked + 
+            "}";
     }
 }
