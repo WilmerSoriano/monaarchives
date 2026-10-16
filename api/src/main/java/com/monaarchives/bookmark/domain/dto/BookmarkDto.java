@@ -1,4 +1,4 @@
-/* Generic DTO, use as needed, this DTO will be used by REST API to return values. */
+/* Generic DTO, use as needed, this DTO will be used by REST API to return variables to user. */
 
 package com.monaarchives.bookmark.domain.dto;
 
