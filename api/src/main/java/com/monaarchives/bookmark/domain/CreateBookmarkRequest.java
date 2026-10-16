@@ -1,7 +1,3 @@
-package com.monaarchives.bookmark.domain;
-
-import com.monaarchives.bookmark.domain.entity.BookmarkStatus;
-
 /*
     As a reminder, to create a bookmark
     users MUST enter the following:
@@ -9,10 +5,15 @@ import com.monaarchives.bookmark.domain.entity.BookmarkStatus;
     - chapter
     - status
     - URL
+    - Rating (can be defaulted to 0)
     ===================
-    - date will be generated
-    - everything else can be null or 0
+    - date will be generated and controlled by Serivce layer
 */
+
+package com.monaarchives.bookmark.domain;
+
+import com.monaarchives.bookmark.domain.entity.BookmarkStatus;
+
 public record CreateBookmarkRequest(String title, int chapter, BookmarkStatus status, String website, int rating) {
     /*
         For context:
