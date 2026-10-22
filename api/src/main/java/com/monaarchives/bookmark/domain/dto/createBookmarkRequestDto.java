@@ -15,6 +15,8 @@ import org.hibernate.validator.constraints.Length;
 
 import com.monaarchives.bookmark.domain.entity.BookmarkStatus;
 
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
@@ -24,13 +26,15 @@ public record CreateBookmarkRequestDto
     @NotBlank (message = ERROR_MESSAGE_TITLE_LENGTH + " short")
     @Length (max = 180, message = ERROR_MESSAGE_TITLE_LENGTH + " long") 
     String title,
-    @Length (min = 0, max = 10000, message = ERROR_MESSAGE_NUMBER_LENGTH)  
+    @Min(value = 0, message = "Rating must be at least 0") // tesing purpose, will be changed...
+    @Max(value = 10000, message = "Rating must not exceed 10,000")
     int chapter,
     @NotNull 
     BookmarkStatus status, 
     @NotBlank
     String website,
-    @Length (min = 0, max = 5, message = ERROR_MESSAGE_NUMBER_LENGTH) 
+    @Min(value = 0, message = "Rating must be at least 0") // tesing purpose, will be changed...
+    @Max(value = 5, message = "Rating must not exceed 5")
     int rating
 ) {
 
