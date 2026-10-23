@@ -26,21 +26,25 @@ public record CreateBookmarkRequestDto
     @NotBlank (message = ERROR_MESSAGE_TITLE_LENGTH + " short")
     @Length (max = 180, message = ERROR_MESSAGE_TITLE_LENGTH + " long") 
     String title,
-    @Min(value = 0, message = "Rating must be at least 0") // tesing purpose, will be changed...
-    @Max(value = 10000, message = "Rating must not exceed 10,000")
+    @Min(value = 0, message = ERROR_MESSAGE_MIN_LENGTH + " 0") // tesing purpose, will be changed...
+    @Max(value = 10000, message = ERROR_MESSAGE_MAX_LENGTH +" 10,000")
     int chapter,
     @NotNull 
     BookmarkStatus status, 
     @NotBlank
     String website,
-    @Min(value = 0, message = "Rating must be at least 0") // tesing purpose, will be changed...
-    @Max(value = 5, message = "Rating must not exceed 5")
+    @Min(value = 0, message = ERROR_MESSAGE_MIN_LENGTH + " 0") // tesing purpose, will be changed...
+    @Max(value = 5, message = ERROR_MESSAGE_MAX_LENGTH + " 5")
     int rating
 ) {
 
         private static final String ERROR_MESSAGE_TITLE_LENGTH =
         "ERROR: Title is too";
-        private static final String ERROR_MESSAGE_NUMBER_LENGTH = 
-        "ERROR: Invalid value";
+
+        private static final String ERROR_MESSAGE_MIN_LENGTH = 
+        "ERROR: Rating must be at least";
+
+        private static final String ERROR_MESSAGE_MAX_LENGTH = 
+        "ERROR: Rating must not exceed";
 
 }
