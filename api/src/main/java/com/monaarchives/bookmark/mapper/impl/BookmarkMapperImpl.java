@@ -1,7 +1,11 @@
 /* 
-    NOTE!
-    Map struct library exsit to simplify this process...
-    coming soon in next update.
+    1st/4th
+
+    Mapper job is incharge of mapping the following:
+    convert raw data(dto) to object (Durring 1st process)
+    object to data(dto). (During 4th process)
+    [Map struct library exsit to simplify this process...
+    coming soon in next update]
 */
 package com.monaarchives.bookmark.mapper.impl;
 

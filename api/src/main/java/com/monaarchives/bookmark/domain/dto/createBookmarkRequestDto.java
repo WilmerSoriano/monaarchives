@@ -1,8 +1,7 @@
 /* 
-    Create bookmark request data to object class job 
-    is what the REST API is going to expect in 
-    order to create a bookmark, and in order to
-    call our service layer (logic).
+    2ND
+    Main objective is to take in the raw data, verfiy it, and
+    convert it into an java object.
 
     I decouple them so service layer and REST API 
     don't touch one another. This class will handle data
@@ -26,14 +25,14 @@ public record CreateBookmarkRequestDto
     @NotBlank (message = ERROR_MESSAGE_TITLE_LENGTH + " short")
     @Length (max = 180, message = ERROR_MESSAGE_TITLE_LENGTH + " long") 
     String title,
-    @Min(value = 0, message = ERROR_MESSAGE_MIN_LENGTH + " 0") // tesing purpose, will be changed...
+    @Min(value = 0, message = ERROR_MESSAGE_MIN_LENGTH + " 0")
     @Max(value = 10000, message = ERROR_MESSAGE_MAX_LENGTH +" 10,000")
     int chapter,
     @NotNull 
     BookmarkStatus status, 
     @NotBlank
     String website,
-    @Min(value = 0, message = ERROR_MESSAGE_MIN_LENGTH + " 0") // tesing purpose, will be changed...
+    @Min(value = 0, message = ERROR_MESSAGE_MIN_LENGTH + " 0") 
     @Max(value = 5, message = ERROR_MESSAGE_MAX_LENGTH + " 5")
     int rating
 ) {

@@ -1,3 +1,9 @@
+/*   
+    1ST 
+    Entry point of HTTP Request & Response.
+    Not reponsible for direct data saving
+*/
+
 package com.monaarchives.bookmark.controller;
 
 import org.springframework.http.HttpStatus;
@@ -34,11 +40,11 @@ public class BookmarkController {
         @Valid @RequestBody CreateBookmarkRequestDto createBookmarkRequestDto
     ){ // Valid annotation uses our parameter rules to validate and RequestBody also uses parameter rules to convert JSON into object. 
         
-        CreateBookmarkRequest createBookmarkRequest = bookmarkMapper.fromDto(createBookmarkRequestDto); // 1st take dto and map it to an object.
+        CreateBookmarkRequest createBookmarkRequest = bookmarkMapper.fromDto(createBookmarkRequestDto); // 1st take dto and map it to an object.(createBookmarkRequestDto -> CreateBookmarkRequest)
 
         Bookmark bookmark = bookmarkService.createBookmark(createBookmarkRequest); // 2nd now we can pass it to service layer.
 
-        BookmarkDto createBookmarkDto = bookmarkMapper.toDto(bookmark); // 3rd now we can return this as response entity
+        BookmarkDto createBookmarkDto = bookmarkMapper.toDto(bookmark); // 3rd now we can return this as a Response
 
         return new ResponseEntity<>(createBookmarkDto, HttpStatus.CREATED); // return all variables and display code 200
         

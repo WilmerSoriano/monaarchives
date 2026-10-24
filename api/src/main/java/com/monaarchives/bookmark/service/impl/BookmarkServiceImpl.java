@@ -1,3 +1,9 @@
+/*
+    3RD
+    Service Layer
+    Creates the entity with the data provided.
+*/
+
 package com.monaarchives.bookmark.service.impl;
 
 import java.time.Instant;
@@ -36,7 +42,7 @@ public class BookmarkServiceImpl implements BookmarkService{
             now
         );
 
-        return bookmarkRepository.save(bookmark);
+        return bookmarkRepository.save(bookmark); // Save it straight to database
     }
     
 }
