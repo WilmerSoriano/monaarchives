@@ -1,5 +1,5 @@
 /* 
-    1st/4th
+    2nd/4th
 
     Mapper job is incharge of mapping the following:
     convert raw data(dto) to object (Durring 1st process)

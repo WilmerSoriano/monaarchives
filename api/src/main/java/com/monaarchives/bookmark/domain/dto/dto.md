@@ -17,10 +17,8 @@ used to transfer raw data between layers of our application.
 ## Why do we do this?
 - DTO helps us maintain away raw data from our RESTful API code.
 We don't want raw data to touch our database or service layer. 
-Instead, we use DTO (A man with gloves touching radiation), who will maintain the raw data and hold it, 
-mapper (A man touching DTO radiation with a spatula on his left, and on his right using his hand to 
-touch his twin brother who can give it to server layer without a problem.) will map it to correct file
-who reflect what DTO performs.
+Instead, we use DTO, who will maintain the raw data and hold it, 
+mapper will map it to correct file who reflect what DTO performs.
 
 ## Fun logic example
 - Imagine 2 twin brothers (Bookmark and BookmarkDto). Bookmark has an amazing job

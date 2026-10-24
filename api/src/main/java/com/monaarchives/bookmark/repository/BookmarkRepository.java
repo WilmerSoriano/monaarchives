@@ -1,3 +1,9 @@
+/*
+    This doesn't have a step.
+    Repository litterly save data to database and call upon the data when neeeded.
+    Used in Service layer.
+*/
+
 package com.monaarchives.bookmark.repository;
 
 import java.util.UUID;

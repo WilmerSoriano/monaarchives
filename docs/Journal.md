@@ -80,3 +80,9 @@ debug some process related to connecting to server via HTTP and sending a simple
 data. [Check out git commit for more details]
 - Everything is running as expected the next step is to add some feature, managing more of the data
 my API expects, and creating a diagram to better understand what's going on from code to visualization.
+
+> October 23, 2026 - Note Update
+- I mostly spend most of my days making sure I understand every aspect of my code and all the notes
+added. From Dto and mapper, to Controller, Service, and Repository.
+- Next update I want to start adding features to display result back to user. I might create a 
+simple frontend to display info

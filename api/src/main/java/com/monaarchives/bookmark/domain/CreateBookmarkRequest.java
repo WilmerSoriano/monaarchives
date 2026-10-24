@@ -1,13 +1,8 @@
 /*
-    As a reminder, to create a bookmark
-    users MUST enter the following:
-    - title
-    - chapter
-    - status
-    - URL
-    - Rating (can be defaulted to 0)
-    ===================
-    - date will be generated and controlled by Serivce layer
+    2nd 1/2
+    The Dto version of this file hands over the data.
+    (CreateBookmarkRequestDto -> mapper-> CreateBookmarkRequest)
+    So now Service layer can call create bookmark request with clean data
 */
 
 package com.monaarchives.bookmark.domain;
