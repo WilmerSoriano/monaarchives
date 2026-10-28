@@ -6,6 +6,8 @@
 
 package com.monaarchives.bookmark.controller;
 
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -49,4 +51,13 @@ public class BookmarkController {
         return new ResponseEntity<>(createBookmarkDto, HttpStatus.CREATED); // return all variables and display code 200
         
     }
+
+    public ResponseEntity<List<BookmarkDto>> listBookmark(){
+        List<Bookmark> bookmarks = bookmarkService.listBookmark();// 1st. grab the list of bookmarks
+
+        List<BookmarkDto> bookmarkDtos = bookmarks.stream().map(bookmarkMapper::toDto).toList(); // 2nd convert bookmarks into dto 
+
+        return ResponseEntity.ok(bookmarkDtos);// 3rd send back to user, Http 200 response code
+    }
 }
+
