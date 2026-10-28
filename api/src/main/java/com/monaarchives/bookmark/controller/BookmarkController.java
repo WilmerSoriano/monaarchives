@@ -7,6 +7,7 @@
 package com.monaarchives.bookmark.controller;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,13 +18,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.monaarchives.bookmark.domain.CreateBookmarkRequest;
+import com.monaarchives.bookmark.domain.UpdateBookmarkRequest;
 import com.monaarchives.bookmark.domain.dto.BookmarkDto;
 import com.monaarchives.bookmark.domain.dto.CreateBookmarkRequestDto;
+import com.monaarchives.bookmark.domain.dto.UpdateBookmarkRequestDto;
 import com.monaarchives.bookmark.domain.entity.Bookmark;
 import com.monaarchives.bookmark.mapper.BookmarkMapper;
 import com.monaarchives.bookmark.service.BookmarkService;
 
 import jakarta.validation.Valid;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
 
 @RestController
 @RequestMapping (path="/api/v1/bookmarks")
@@ -60,6 +66,20 @@ public class BookmarkController {
         List<BookmarkDto> bookmarkDtos = bookmarks.stream().map(bookmarkMapper::toDto).toList(); // 2nd convert bookmarks into dto 
 
         return ResponseEntity.ok(bookmarkDtos);// 3rd send back to user, Http 200 response code
+    }
+
+    @PutMapping(path = "/{bookmarkId}") // display in http based on bookmarkId in argument.
+    public ResponseEntity<BookmarkDto> updateBookmark(
+        @PathVariable UUID bookmarkId, @Valid @RequestBody UpdateBookmarkRequestDto updateBookmarkRequestDto
+    ){
+        
+        UpdateBookmarkRequest bookmarkRequest = bookmarkMapper.fromDto(updateBookmarkRequestDto);// 1st Convert Dto to object
+
+        Bookmark bookmark = bookmarkService.updateBookmark(bookmarkId, bookmarkRequest);// 2nd Pass this request to service layer to handle
+
+        BookmarkDto bookmarkDto = bookmarkMapper.toDto(bookmark); // 3rd, after service layer returns, give the result back as Dto to user to see updates
+        
+        return ResponseEntity.ok(bookmarkDto);
     }
 }
 
