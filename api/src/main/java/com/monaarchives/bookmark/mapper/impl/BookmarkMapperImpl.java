@@ -12,8 +12,10 @@ package com.monaarchives.bookmark.mapper.impl;
 import org.springframework.stereotype.Component;
 
 import com.monaarchives.bookmark.domain.CreateBookmarkRequest;
+import com.monaarchives.bookmark.domain.UpdateBookmarkRequest;
 import com.monaarchives.bookmark.domain.dto.BookmarkDto;
 import com.monaarchives.bookmark.domain.dto.CreateBookmarkRequestDto;
+import com.monaarchives.bookmark.domain.dto.UpdateBookmarkRequestDto;
 import com.monaarchives.bookmark.domain.entity.Bookmark;
 import com.monaarchives.bookmark.mapper.BookmarkMapper;
 
@@ -23,6 +25,17 @@ public class BookmarkMapperImpl implements BookmarkMapper {
     @Override
     public CreateBookmarkRequest fromDto(CreateBookmarkRequestDto dto) {
         return new CreateBookmarkRequest(
+            dto.title(),
+            dto.chapter(),
+            dto.status(),
+            dto.website(),
+            dto.rating()
+        );
+    }
+
+    @Override
+    public UpdateBookmarkRequest fromDto(UpdateBookmarkRequestDto dto) {
+        return new UpdateBookmarkRequest(
             dto.title(),
             dto.chapter(),
             dto.status(),
