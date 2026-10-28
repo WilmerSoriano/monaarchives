@@ -7,7 +7,10 @@
 package com.monaarchives.bookmark.service.impl;
 
 import java.time.Instant;
+import java.util.List;
 
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.monaarchives.bookmark.domain.CreateBookmarkRequest;
@@ -42,7 +45,18 @@ public class BookmarkServiceImpl implements BookmarkService{
             now
         );
 
-        return bookmarkRepository.save(bookmark); // Save it straight to database
+        return bookmarkRepository.save(bookmark);
     }
+
+    /*
+        Currently sorting in Ascending order, but will need to create a 
+        dynamic sorting option for users.
+    */
+    @Override
+    public List<Bookmark> listBookmark(){
+        // For testing purpose
+        return bookmarkRepository.findAll(Sort.by(Direction.ASC, "dateCreated"));
+    }
+
     
 }
