@@ -7,6 +7,8 @@
 */
 package com.monaarchives.bookmark.controller;
 
+import java.util.UUID;
+
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import com.monaarchives.bookmark.domain.dto.ErrorDto;
+import com.monaarchives.bookmark.exception.BookmarkNotFoundExeception;
 
 @ControllerAdvice //An annotation that speceficies this class as an exception handler
 public class GlobalExceptionHandler {
@@ -26,6 +29,18 @@ public class GlobalExceptionHandler {
         .findFirst()
         .map(DefaultMessageSourceResolvable::getDefaultMessage)
         .orElse("A Validation Failed");
+
+        ErrorDto errorDto = new ErrorDto(errorMessage);
+
+        return new ResponseEntity<>(errorDto, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(BookmarkNotFoundExeception.class)
+    public ResponseEntity<ErrorDto> handleBookmarkNotFoundException(BookmarkNotFoundExeception ex){
+        
+        UUID bookmarkNotFoundId = ex.getId();
+
+        String errorMessage = String.format("Bookmark with ID %s not found", bookmarkNotFoundId);
 
         ErrorDto errorDto = new ErrorDto(errorMessage);
 
