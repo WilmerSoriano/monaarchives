@@ -60,6 +60,7 @@ public class BookmarkServiceImpl implements BookmarkService{
         // For testing purpose
         return bookmarkRepository.findAll(Sort.by(Direction.ASC, "dateCreated"));
     }
+    
     @Override 
     public Bookmark updateBookmark(UUID bookmarkId, UpdateBookmarkRequest request){
         Bookmark bookmark = bookmarkRepository.findById(bookmarkId).orElseThrow(() -> new BookmarkNotFoundExeception(bookmarkId)); // Instead of if-statment (faster for us)

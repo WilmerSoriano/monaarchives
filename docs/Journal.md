@@ -86,3 +86,10 @@ my API expects, and creating a diagram to better understand what's going on from
 added. From Dto and mapper, to Controller, Service, and Repository.
 - Next update I want to start adding features to display result back to user. I might create a 
 simple frontend to display info
+
+> October 28, 2026 - The Update Request & List feature has been added
+- The update request has been created and running. Including exception handling.
+I will update to also be dynamic as possible. Including Desc, by date, by state,
+by Alpha-bet order etc...
+- The display list of bookmark has been created
+- Final step is to add the ability to delete bookmark
