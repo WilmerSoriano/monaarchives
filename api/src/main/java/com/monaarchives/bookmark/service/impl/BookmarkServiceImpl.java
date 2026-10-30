@@ -10,6 +10,7 @@ import java.time.Instant;
 import java.util.List;
 import java.util.UUID;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
@@ -22,9 +23,10 @@ import com.monaarchives.bookmark.repository.BookmarkRepository;
 import com.monaarchives.bookmark.service.BookmarkService;
 
 @Service 
-public class BookmarkServiceImpl implements BookmarkService{
+public class BookmarkServiceImpl implements BookmarkService{    
 
-    private final BookmarkRepository bookmarkRepository; // We need this dependency to be able to interact with database
+    @Autowired 
+    private BookmarkRepository bookmarkRepository; // We need this dependency to be able to interact with database
 
     public BookmarkServiceImpl(BookmarkRepository bookmarkRepository){
         this.bookmarkRepository = bookmarkRepository;
@@ -57,7 +59,6 @@ public class BookmarkServiceImpl implements BookmarkService{
     */
     @Override
     public List<Bookmark> listBookmark(){
-        // For testing purpose
         return bookmarkRepository.findAll(Sort.by(Direction.ASC, "dateCreated"));// Non type-safe property reference for domain type 'Bookmark'
     }
     

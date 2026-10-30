@@ -62,11 +62,12 @@ public class BookmarkController {
 
     @GetMapping 
     public ResponseEntity<List<BookmarkDto>> listBookmark(){
-        List<Bookmark> bookmarks = bookmarkService.listBookmark();// 1st. grab the list of bookmarks
 
-        List<BookmarkDto> bookmarkDtos = bookmarks.stream().map(bookmarkMapper::toDto).toList(); // 2nd convert bookmarks into dto 
+        List<Bookmark> bookmarks = bookmarkService.listBookmark();
 
-        return ResponseEntity.ok(bookmarkDtos);// 3rd send back to user, Http 200 response code
+        List<BookmarkDto> bookmarkDtos = bookmarks.stream().map(bookmarkMapper::toDto).toList(); 
+
+        return ResponseEntity.ok(bookmarkDtos);
     }
 
     @PutMapping(path = "/{bookmarkId}") // display in http based on bookmarkId in argument.
