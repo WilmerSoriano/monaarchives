@@ -58,7 +58,7 @@ public class BookmarkServiceImpl implements BookmarkService{
     @Override
     public List<Bookmark> listBookmark(){
         // For testing purpose
-        return bookmarkRepository.findAll(Sort.by(Direction.ASC, "dateCreated"));
+        return bookmarkRepository.findAll(Sort.by(Direction.ASC, "dateCreated"));// Non type-safe property reference for domain type 'Bookmark'
     }
     
     @Override 
@@ -75,5 +75,10 @@ public class BookmarkServiceImpl implements BookmarkService{
         bookmark.setDateUpdated(newUpdate);
 
         return bookmarkRepository.save(bookmark);
+    }
+
+    @Override 
+    public void deleteBookmark(UUID bookmarkId){
+        bookmarkRepository.deleteById(bookmarkId);
     }
 }

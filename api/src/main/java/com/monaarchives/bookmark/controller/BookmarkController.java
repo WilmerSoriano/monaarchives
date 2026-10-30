@@ -11,6 +11,7 @@ import java.util.UUID;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -80,6 +81,14 @@ public class BookmarkController {
         BookmarkDto bookmarkDto = bookmarkMapper.toDto(bookmark); // 3rd, after service layer returns, give the result back as Dto to user to see updates
         
         return ResponseEntity.ok(bookmarkDto);
+    }
+
+    @DeleteMapping (path = "/{bookmarkId}")
+    public ResponseEntity<Void> deleteBookmark(@PathVariable UUID bookmarkId){ //only info we need is the ID to delete bookmark (no Dto or mapping needing)
+        
+        bookmarkService.deleteBookmark(bookmarkId);
+
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
 

@@ -14,5 +14,7 @@ public interface BookmarkService {
     List<Bookmark> listBookmark();
 
     Bookmark updateBookmark(UUID bookmarkId, UpdateBookmarkRequest request); // updateBookmark request contains all the info we want to update
+
+    void deleteBookmark(UUID bookmarkId);
     
 }
