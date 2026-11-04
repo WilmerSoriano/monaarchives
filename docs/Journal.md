@@ -90,6 +90,17 @@ simple frontend to display info
 > October 28, 2026 - The Update Request & List feature has been added
 - The update request has been created and running. Including exception handling.
 I will update to also be dynamic as possible. Including Desc, by date, by state,
-by Alpha-bet order etc...
+by Alpha-bet order etc... 
 - The display list of bookmark has been created
 - Final step is to add the ability to delete bookmark
+
+
+> October 30, 2026 - Debugging
+- I added Autowired annotation. Encounter an issue where http request for list
+resulted in a null. Adding Autowired means that Spring will automatically inject the required 
+dependencies (beans) at runtime using its Dependency Injection mechanism.
+- Everything should be working as expected, the following changes are required:
+    - Http request: Requires PATCH for partial updates
+    - Service layer: requires the ability to change sorting option
+    - Spring Boot Database Management: Make the database persistent even after Docker shuts down.
+    - Need a UI to continue debugging. 
