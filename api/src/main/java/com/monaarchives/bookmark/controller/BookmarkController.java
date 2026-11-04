@@ -13,15 +13,18 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.monaarchives.bookmark.domain.CreateBookmarkRequest;
+import com.monaarchives.bookmark.domain.PatchBookmarkRequest;
 import com.monaarchives.bookmark.domain.UpdateBookmarkRequest;
 import com.monaarchives.bookmark.domain.dto.BookmarkDto;
 import com.monaarchives.bookmark.domain.dto.CreateBookmarkRequestDto;
+import com.monaarchives.bookmark.domain.dto.PatchBookmarkRequestDto;
 import com.monaarchives.bookmark.domain.dto.UpdateBookmarkRequestDto;
 import com.monaarchives.bookmark.domain.entity.Bookmark;
 import com.monaarchives.bookmark.mapper.BookmarkMapper;
@@ -82,6 +85,20 @@ public class BookmarkController {
         BookmarkDto bookmarkDto = bookmarkMapper.toDto(bookmark); // 3rd, after service layer returns, give the result back as Dto to user to see updates
         
         return ResponseEntity.ok(bookmarkDto);
+    }
+
+    @PatchMapping (path = "/{bookmarkId}")
+    public ResponseEntity<BookmarkDto> patchBookmark(
+        @PathVariable UUID bookmarkId, @Valid @RequestBody PatchBookmarkRequestDto patchBookmarkRequestDto
+    ){
+        PatchBookmarkRequest bookmarkRequest = bookmarkMapper.fromDto(patchBookmarkRequestDto);
+
+        Bookmark bookmark = bookmarkService.patchBookmark(bookmarkId, bookmarkRequest);
+
+        BookmarkDto bookmarkDto = bookmarkMapper.toDto(bookmark);
+
+        return ResponseEntity.ok(bookmarkDto);
+
     }
 
     @DeleteMapping (path = "/{bookmarkId}")

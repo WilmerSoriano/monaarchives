@@ -9,6 +9,7 @@ package com.monaarchives.bookmark.service.impl;
 import java.time.Instant;
 import java.util.List;
 import java.util.UUID;
+import java.util.function.Consumer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -16,6 +17,7 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.monaarchives.bookmark.domain.CreateBookmarkRequest;
+import com.monaarchives.bookmark.domain.PatchBookmarkRequest;
 import com.monaarchives.bookmark.domain.UpdateBookmarkRequest;
 import com.monaarchives.bookmark.domain.entity.Bookmark;
 import com.monaarchives.bookmark.exception.BookmarkNotFoundExeception;
@@ -76,6 +78,30 @@ public class BookmarkServiceImpl implements BookmarkService{
         bookmark.setDateUpdated(newUpdate);
 
         return bookmarkRepository.save(bookmark);
+    }
+
+    @Override 
+    public Bookmark patchBookmark(UUID bookmarkId, PatchBookmarkRequest request){
+        Bookmark bookmark = bookmarkRepository.findById(bookmarkId).orElseThrow(() -> new BookmarkNotFoundExeception(bookmarkId)); // Instead of if-statment (faster for us)
+
+        Instant newUpdate = Instant.now();
+
+        updateIfNotNull(request.title(), bookmark::setTitle);
+        updateIfNotNull(request.chapter(), bookmark::setChapter);
+        updateIfNotNull(request.status(), bookmark::setStatus);
+        updateIfNotNull(request.website(), bookmark::setWebsite);
+        updateIfNotNull(request.rating(), bookmark::setRating);
+        
+        bookmark.setDateUpdated(newUpdate);
+
+        return bookmarkRepository.save(bookmark);
+    }
+
+    @Override 
+    public <T>void updateIfNotNull(T checkRequest, Consumer<T> setter){ // Consumer main job is to represet the Setter method for the Requested value.
+        if(checkRequest != null){
+            setter.accept(checkRequest);
+        }
     }
 
     @Override 
