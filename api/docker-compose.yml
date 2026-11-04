@@ -1,5 +1,5 @@
 
-name: testdb
+name: testDB
 services:
   postgres:
     image: postgres:latest
