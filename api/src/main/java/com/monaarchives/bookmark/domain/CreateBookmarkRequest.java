@@ -9,7 +9,7 @@ package com.monaarchives.bookmark.domain;
 
 import com.monaarchives.bookmark.domain.entity.BookmarkStatus;
 
-public record CreateBookmarkRequest(String title, int chapter, BookmarkStatus status, String website, int rating) {
+public record CreateBookmarkRequest(String title, Integer chapter, BookmarkStatus status, String website, Integer rating) {
     /*
         For context:
         Record class provides the following:

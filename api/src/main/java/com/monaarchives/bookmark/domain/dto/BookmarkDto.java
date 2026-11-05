@@ -10,10 +10,10 @@ import com.monaarchives.bookmark.domain.entity.BookmarkStatus;
 public record BookmarkDto( 
     UUID id, 
     String title, 
-    int chapter, 
+    Integer chapter, 
     BookmarkStatus status, 
     String website, 
-    int rating, 
+    Integer rating, 
     Instant dateCreated, 
     Instant dateUpdated, 
     Instant dateLastClicked) {

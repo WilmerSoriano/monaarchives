@@ -15,13 +15,13 @@ public record PatchBookmarkRequestDto
     String title,
     @Min(value = 0, message = ERROR_MESSAGE_MIN_LENGTH + " 0")
     @Max(value = 10000, message = ERROR_MESSAGE_MAX_LENGTH +" 10,000")
-    int chapter,
+    Integer chapter,
     @NotNull(message = ERROR_MESSAGE_STATUS)
     BookmarkStatus status, 
     String website,
     @Min(value = 0, message = ERROR_MESSAGE_MIN_LENGTH + " 0") 
     @Max(value = 5, message = ERROR_MESSAGE_MAX_LENGTH + " 5")
-    int rating
+    Integer rating
 ) {
 
         private static final String ERROR_MESSAGE_TITLE_LENGTH =

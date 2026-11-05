@@ -29,7 +29,7 @@ public class Bookmark {
     private String title;
 
     @Column (name = "chapter")
-    private int chapter;
+    private Integer chapter;
 
     @Enumerated (EnumType.STRING)
     @Column (name = "status", nullable = false)
@@ -39,7 +39,7 @@ public class Bookmark {
     private String website;
 
     @Column (name = "rating") // 0-5 stars
-    private int rating;
+    private Integer rating;
 
     @Column (name = "date_created", updatable = false, nullable = false)
     private Instant dateCreated;
@@ -56,7 +56,7 @@ public class Bookmark {
     public Bookmark() {} // Hibernate needs to be able to create an entity by itself.
                         // It's able to inject itself and later populate the fields from database or somewhere else.
 
-    public Bookmark(UUID id, String title, int chapter, BookmarkStatus status, String website, int rating,
+    public Bookmark(UUID id, String title, Integer chapter, BookmarkStatus status, String website, Integer rating,
             Instant dateCreated, Instant dateUpdated, Instant dateLastClicked) {
         this.id = id;
         this.title = title;
@@ -87,11 +87,11 @@ public class Bookmark {
         this.title = title;
     }
 
-    public int getChapter() {
+    public Integer getChapter() {
         return chapter;
     }
 
-    public void setChapter(int chapter) {
+    public void setChapter (Integer chapter) {
         this.chapter = chapter;
     }
 
@@ -111,11 +111,11 @@ public class Bookmark {
         this.website = website;
     }
 
-    public int getRating() {
+    public Integer getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating (Integer rating) {
         this.rating = rating;
     }
 
@@ -148,13 +148,13 @@ public class Bookmark {
     // Hence we override this method to compare ID numbers rather then memory location.
     @Override
     public boolean equals(Object obj) { // Remember if argument is bookmark1.equals(bookmark2) then the parameter inside this method would be ("this" = bookmark1) and ("obj" = bookmark2)
-        if (this == obj) // If both objects point to same memory address, then they must be the same. (true)
+        if (this == obj) // If both objects p Integer to same memory address, then they must be the same. (true)
             return true;
         if (obj == null)
             return false;
         if (getClass() != obj.getClass()) // again, if "this" class is not equal to the obj class then return false. 
             return false;
-        Bookmark other = (Bookmark) obj; // Convert object into bookmark to check ID next.
+        Bookmark other = (Bookmark) obj; // Convert object Integero bookmark to check ID next.
         
         if (id == null) { // checks "this" ID.
             if (other.id != null)
@@ -170,8 +170,8 @@ public class Bookmark {
     // Therefore the logic for hashCode must also be using ID variable compare.
     @Override
     public int hashCode() {
-        final int prime = 31; // Why?, Common use number in Java hash-code calculations.
-        int result = 1;
+        final Integer prime = 31; // Why?, Common use number in Java hash-code calculations.
+     Integer result = 1;
         result = prime * result + ((id == null) ? 0 : id.hashCode());
         return result;
     }
