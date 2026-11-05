@@ -7,8 +7,6 @@ import com.monaarchives.bookmark.domain.entity.BookmarkStatus;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 
-import jakarta.validation.constraints.NotNull;
-
 public record PatchBookmarkRequestDto
 (  
     @Length (max = 180, message = ERROR_MESSAGE_TITLE_LENGTH + " long") 
@@ -16,7 +14,6 @@ public record PatchBookmarkRequestDto
     @Min(value = 0, message = ERROR_MESSAGE_MIN_LENGTH + " 0")
     @Max(value = 10000, message = ERROR_MESSAGE_MAX_LENGTH +" 10,000")
     Integer chapter,
-    @NotNull(message = ERROR_MESSAGE_STATUS)
     BookmarkStatus status, 
     String website,
     @Min(value = 0, message = ERROR_MESSAGE_MIN_LENGTH + " 0") 
@@ -32,7 +29,4 @@ public record PatchBookmarkRequestDto
 
         private static final String ERROR_MESSAGE_MAX_LENGTH = 
         "ERROR: Rating must not exceed";
-
-        private static final String ERROR_MESSAGE_STATUS = 
-        "ERROR: Status must be provided";
 }
