@@ -1,5 +1,5 @@
 
-name: testDB
+name: testdb
 services:
   postgres:
     image: postgres:latest
@@ -10,6 +10,6 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - postgres_data:/var/lib/postgresql/data # Volume makes data persistent when composed down.
+      - postgres_data:/var/lib/postgresql # Volume makes data persistent when composed down.
 volumes:
   postgres_data:
