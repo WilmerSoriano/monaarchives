@@ -94,7 +94,6 @@ by Alpha-bet order etc...
 - The display list of bookmark has been created
 - Final step is to add the ability to delete bookmark
 
-
 > October 30, 2026 - Debugging
 - I added Autowired annotation. Encounter an issue where http request for list
 resulted in a null. Adding Autowired means that Spring will automatically inject the required 
@@ -104,3 +103,8 @@ dependencies (beans) at runtime using its Dependency Injection mechanism.
     - Service layer: requires the ability to change sorting option
     - Spring Boot Database Management: Make the database persistent even after Docker shuts down.
     - Need a UI to continue debugging. 
+
+> November 4, 2026 - Backend complete for now.
+- Applied fix to make Docker container Postgres persistent data even after shutdown.
+- API now takes PATCH updates
+- Working on the UI... 
