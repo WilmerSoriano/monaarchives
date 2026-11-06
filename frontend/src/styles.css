@@ -407,7 +407,7 @@ body {
 .table-head {
   padding: 0 22px 8px;
   color: #cfc5d4;
-  font-size: 21px;
+  font-size: 24px;
   font-weight: 700;
 }
 
@@ -475,7 +475,7 @@ body {
 }
 
 .book-title strong {
-  font-size: 13px;
+  font-size: 20px;
   font-weight: 700;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -488,7 +488,7 @@ body {
 }
 
 .chapter-value {
-  font-size: 17px;
+  font-size: 20px;
 }
 
 
@@ -503,7 +503,7 @@ body {
   border-radius: 20px;
   background: #ffffffa8;
   padding: 7px 12px;
-  font-size: 9px;
+  font-size: 14px;
   letter-spacing: .35px;
   font-weight: 800;
   white-space: nowrap;
@@ -511,19 +511,19 @@ body {
 
 /* Individual status text colors. */
 .status-badge.completed {
-  color: #443c50;
+  color: #058305;
 }
 
 .status-badge.reading {
-  color: #443c50;
+  color: #3454e2;
 }
 
 .status-badge.planned {
-  color: #443c50;
+  color: #cf8b31;
 }
 
 .status-badge.hiatus {
-  color: #674a3e;
+  color: #cec217;
 }
 
 .status-badge.dropped {
@@ -531,7 +531,7 @@ body {
 }
 
 .status-badge.axed {
-  color: #4b514a;
+  color: #a00000;
 }
 
 
@@ -544,7 +544,7 @@ body {
   display: flex;
   align-items: center;
   gap: 9px;
-  font-size: 11px;
+  font-size: 18px;
   min-width: 0;
   white-space: nowrap;
 }
@@ -577,13 +577,13 @@ body {
 .stars {
   display: flex;
   gap: 4px;
-  color: #a79cad;
-  font-size: 17px;
+  color: #a8a4aa;
+  font-size: 20px;
   white-space: nowrap;
 }
 
 .stars .filled {
-  color: #8061bd;
+  color: #673cbd;
 }
 
 
@@ -883,15 +883,10 @@ body {
     margin-left: auto;
   }
 
-  /* Removes the rating column from the bookmark list. */
+  /*Organizes booklist based on tab size */
   .table-head,
   .bookmark-row {
     grid-template-columns: minmax(170px, 2fr) .5fr .8fr .9fr;
-  }
-
-  .table-head span:nth-child(5),
-  .bookmark-row .stars {
-    display: none;
   }
 
   .table-head {
@@ -1265,40 +1260,31 @@ body {
   color: white;
 }
 
-
-/* =========================================
-   BOOKMARK TABLE LAYOUT
-========================================= */
-
+/* Bookmark information columns + separate Edit column */
 .table-head,
 .bookmark-row {
+  display: grid;
   grid-template-columns:
-    minmax(220px, 2.2fr)
+    minmax(250px, 2.2fr)
     0.55fr
     0.78fr
     1fr
     0.65fr
-    auto;
+    90px;
+  align-items: center;
+  column-gap: 12px;
 }
 
-
-/* =========================================
-   TABLET
-========================================= */
-
-@media (max-width: 900px) {
-  .table-head,
-  .bookmark-row {
-    grid-template-columns:
-      minmax(150px, 2fr)
-      0.5fr
-      0.8fr
-      0.9fr
-      auto;
-  }
+.bookmark-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
-
+.website-value,
+.stars {
+  min-width: 0;
+}
 /* =========================================
    MOBILE
 ========================================= */
