@@ -1,3 +1,1048 @@
-*{box-sizing:border-box} :root{font-family:"DM Sans",sans-serif;color:#f4eff7;background:#1b1721;font-synthesis:none;text-rendering:optimizeLegibility} body{margin:0;min-width:320px;background:#1b1721}.page{width:min(1280px,calc(100% - 64px));margin:0 auto;padding:54px 0 28px}.brand{text-align:center;margin:0 0 48px}.mascot-placeholder{width:78px;height:44px;margin:0 auto 7px;border-radius:13px;background:#5c91e8;border:2px solid #8eb5ff;box-shadow:0 4px 0 #342d43}.brand h1{font-size:48px;line-height:1.08;letter-spacing:-2px;margin:0;font-weight:800}.brand p{color:#aaa1b3;font-size:13px;margin:6px 0 0}.toolbar{display:grid;grid-template-columns:minmax(240px,1fr) auto auto;gap:12px;align-items:center;margin-bottom:14px}.searchbox,.website-input{height:52px;border:1px solid #51475b;border-radius:30px;background:#2a2430;display:flex;align-items:center;gap:13px;padding:0 20px;color:#c7bdce}.searchbox input,.website-input input{background:none;border:0;outline:0;color:#f5eff8;min-width:0;flex:1;font:inherit;font-size:14px}.searchbox input::placeholder,.website-input input::placeholder{color:#c0b7c7}.searchbox>span{font-size:10px;color:#a69bad;white-space:nowrap}.button{border:1px solid transparent;border-radius:28px;padding:0 19px;height:50px;display:inline-flex;align-items:center;justify-content:center;gap:10px;font:600 13px "DM Sans",sans-serif;cursor:pointer;white-space:nowrap}.filter-toggle{background:#eee7fa;color:#6f55ad;min-width:123px}.filter-toggle:not(.active){background:#2a2430;color:#d4cadd;border-color:#51475b}.rotate{transform:rotate(180deg)}.primary{background:#8061bd;color:white;min-width:154px}.primary:hover{background:#9273ce}.filters{border:1px solid #51475b;border-radius:23px;background:#2a2430;padding:20px 21px 18px;margin-bottom:28px}.filter-top{display:grid;grid-template-columns:2.3fr 1fr .85fr 1.25fr;gap:28px}.filter-group{min-width:0}.filter-label{display:block;color:#d1c8d6;font-size:13px;font-weight:600;margin-bottom:9px}.pills{display:flex;align-items:center;gap:5px;flex-wrap:wrap}.pill{height:34px;padding:0 12px;border-radius:22px;background:transparent;border:1px solid #51475b;color:#d1c8d6;font:500 11px "DM Sans",sans-serif;cursor:pointer}.pill.selected{background:#eee7fa;border-color:#eee7fa;color:#7257b3}.rating-number{height:30px;min-width:24px;border:0;border-radius:20px;background:transparent;color:#d4cbd9;font:12px "DM Sans",sans-serif;cursor:pointer}.rating-number.chosen{background:#eee7fa;color:#7257b3}.chapter-inputs{display:flex;align-items:center;gap:8px}.chapter-inputs input{width:68px;min-width:0;background:transparent;border:0;border-bottom:1px solid #51475b;padding:8px 4px;color:#f5eff8;outline:0;font:12px "DM Sans",sans-serif}.chapter-inputs span{color:#bdb2c4}.website-input{height:34px;border:0;background:transparent;border-radius:0;padding:0 8px;gap:8px}.website-input input{font-size:11px}.status-line{display:flex;align-items:center;gap:12px;margin-top:20px}.status-line .filter-label{margin:0;white-space:nowrap}.status-line .pills{gap:6px}.status-line .pill{height:34px}.reset{margin-left:auto;background:none;border:0;color:#eee7f4;font:600 13px "DM Sans",sans-serif;cursor:pointer}.filter-hint{font-size:10px;color:#b9afc1;margin:16px 0 0}.library-heading{display:flex;align-items:center;gap:12px;margin:0 0 13px}.library-heading h2{font-size:21px;letter-spacing:-.5px;margin:0;font-weight:700}.count{background:#8061bd;color:white;border-radius:50%;width:28px;height:28px;display:grid;place-items:center;font-size:12px}.library-heading p{margin:0 0 0 auto;color:#a99fb0;font-size:11px}.table-head,.bookmark-row{display:grid;grid-template-columns:minmax(250px,2.2fr) .55fr .78fr 1fr .65fr;align-items:center;column-gap:12px}.table-head{padding:0 22px 8px;color:#cfc5d4;font-size:21px;font-weight:700}.table-head b{color:#8061bd;font-size:17px}.bookmark-list{display:flex;flex-direction:column;gap:8px}.bookmark-row{min-height:69px;border-radius:21px;padding:11px 22px;color:#383146}.bookmark-row.lilac{background:#eee7f7}.bookmark-row.peach{background:#f7e9de}.bookmark-row.mint{background:#e6f0e6}.bookmark-row.blue{background:#e7ebf6}.bookmark-row.cream{background:#f4eedb}.bookmark-row.pink{background:#f4e6ed}.book-title{min-width:0;display:flex;flex-direction:column;gap:4px}.book-title strong{font-size:13px;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.book-title small{font-size:10px;color:#8d8496}.chapter-value{font-size:17px}.status-badge{display:inline-flex;border-radius:20px;background:#ffffffa8;padding:7px 12px;font-size:9px;letter-spacing:.35px;font-weight:800;white-space:nowrap}.website-value{display:flex;align-items:center;gap:9px;font-size:11px;min-width:0;white-space:nowrap}.site-icon{width:25px;height:25px;display:grid;place-items:center;border-radius:9px;background:#ffffffa8;font-size:12px;font-weight:700;flex:none}.website-value a{display:inline-flex;color:#786c85}.stars{display:flex;gap:4px;color:#a79cad;font-size:17px;white-space:nowrap}.stars .filled{color:#8061bd}.empty-state{text-align:center;padding:45px 15px;color:#bdb3c6;border:1px dashed #51475b;border-radius:18px}.page-footer{display:flex;justify-content:space-between;padding:17px 8px 0;color:#b3a9bb;font-size:11px}.modal-backdrop{position:fixed;inset:0;background:rgba(5,4,8,.68);display:grid;place-items:center;padding:22px;z-index:5}.modal{width:min(562px,100%);border:1px solid #55495f;border-radius:29px;background:#2c2532;padding:31px 31px 30px;box-shadow:0 22px 70px #08060c88}.modal-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}.modal-icon{width:40px;height:40px;border-radius:14px;background:#eee7fa;color:#8061bd;display:grid;place-items:center}.close-button{width:31px;height:31px;border-radius:50%;border:1px solid #55495f;background:transparent;color:#d8cfe0;display:grid;place-items:center;cursor:pointer}.modal h2{font-size:24px;letter-spacing:-.7px;margin:0 0 24px}.field{display:flex;flex-direction:column;gap:7px;min-width:0}.field>span{font-size:14px;font-weight:600;color:#d9d0df}.field input,.select-wrap select{width:100%;height:44px;border:1px solid #55495f;border-radius:15px;background:#2c2532;color:#f4eff7;padding:0 13px;font:13px "DM Sans",sans-serif;outline:none}.field input:focus,.select-wrap select:focus{border-color:#9273ce}.field input::placeholder{color:#958a9d}.field-grid{display:grid;grid-template-columns:160px 1fr;gap:14px;margin:17px 0}.select-wrap{position:relative}.select-wrap select{appearance:none;padding-right:35px}.select-wrap svg{position:absolute;right:13px;top:14px;color:#9f94a8;pointer-events:none}.field-note{display:flex;align-items:center;gap:6px;color:#bdb2c4;font-size:10px;margin-top:0}.field.full+.field.full{margin-top:17px}.rating-picker{height:58px;border-radius:16px;background:#eee7fa;color:#7257b3;display:flex;align-items:center;justify-content:space-between;padding:0 16px}.rating-stars{display:flex;gap:8px}.rating-stars button{border:0;background:none;padding:0;color:#a79cad;font-size:28px;line-height:1;cursor:pointer}.rating-stars button.on{color:#8061bd}.rating-picker strong{font-size:13px}.modal-actions{display:flex;gap:11px;margin-top:31px}.modal-actions .cancel{background:transparent;border-color:#55495f;color:#f2ebf6;min-width:118px}.modal-actions .submit{flex:1}.status-badge.completed{color:#443c50}.status-badge.reading{color:#443c50}.status-badge.planned{color:#443c50}.status-badge.hiatus{color:#674a3e}.status-badge.dropped{color:#4c5368}.status-badge.axed{color:#4b514a}
-@media(max-width:900px){.page{width:min(100% - 36px,720px);padding-top:35px}.brand{margin-bottom:32px}.brand h1{font-size:40px}.filter-top{grid-template-columns:1fr 1fr;gap:18px}.status-line{align-items:flex-start;flex-wrap:wrap}.status-line .reset{margin-left:auto}.table-head,.bookmark-row{grid-template-columns:minmax(170px,2fr) .5fr .8fr .9fr}.table-head span:nth-child(5),.bookmark-row .stars{display:none}.table-head{font-size:17px}.bookmark-row{padding:11px 16px}.library-heading p{display:none}}
-@media(max-width:620px){.page{width:calc(100% - 28px);padding-top:25px}.brand h1{font-size:34px}.toolbar{grid-template-columns:1fr 1fr}.searchbox{grid-column:1/-1}.searchbox>span{display:none}.button{height:45px;padding:0 12px}.filter-toggle,.primary{min-width:0}.filter-top{grid-template-columns:1fr 1fr}.filters{padding:16px}.sort-group{grid-column:1/-1}.status-line{gap:8px}.status-line .pills{width:100%}.reset{margin-left:0}.table-head{display:none}.bookmark-row{grid-template-columns:1fr auto;gap:8px 12px;border-radius:16px}.book-title{grid-column:1/2}.chapter-value{grid-column:2;grid-row:1;text-align:right}.bookmark-row>span:nth-child(3){grid-column:1;grid-row:2}.website-value{grid-column:2;grid-row:2;justify-content:flex-end}.page-footer{font-size:9px;gap:12px}.page-footer span:last-child{display:none}.modal{padding:23px 19px;border-radius:23px}.field-grid{grid-template-columns:110px 1fr;gap:10px}.modal h2{font-size:22px}.modal-actions .cancel{min-width:90px}.rating-stars{gap:4px}.rating-stars button{font-size:25px}}
+
+/* =========================================================
+   1. GLOBAL RESET & BASE STYLES
+   Defines the default box-sizing, typography, text color,
+   background color, and basic page behavior.
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: "DM Sans", sans-serif;
+  color: #f4eff7;
+  background: #1b1721;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #1b1721;
+}
+
+
+/* =========================================================
+   2. MAIN PAGE LAYOUT
+   Controls the overall content width, centering, and
+   vertical spacing of the page.
+   ========================================================= */
+
+.page {
+  width: min(1280px, calc(100% - 64px));
+  margin: 0 auto;
+  padding: 54px 0 28px;
+}
+
+
+/* =========================================================
+   3. BRAND / HEADER SECTION
+   Styles the application branding, logo placeholder,
+   main heading, and supporting tagline.
+   ========================================================= */
+
+.brand {
+  text-align: center;
+  margin: 0 0 48px;
+}
+
+.mascot-placeholder {
+  width: 78px;
+  height: 44px;
+  margin: 0 auto 7px;
+  border-radius: 13px;
+  background: #5c91e8;
+  border: 2px solid #8eb5ff;
+  box-shadow: 0 4px 0 #342d43;
+}
+
+.brand h1 {
+  font-size: 48px;
+  line-height: 1.08;
+  letter-spacing: -2px;
+  margin: 0;
+  font-weight: 800;
+}
+
+.brand p {
+  color: #aaa1b3;
+  font-size: 13px;
+  margin: 6px 0 0;
+}
+
+
+/* =========================================================
+   4. TOOLBAR
+   Contains the search field, filter toggle, and primary
+   action button used to add new bookmarks.
+   ========================================================= */
+
+.toolbar {
+  display: grid;
+  grid-template-columns: minmax(240px, 1fr) auto auto;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+/* Shared styling for search and website URL input containers. */
+.searchbox,
+.website-input {
+  height: 52px;
+  border: 1px solid #51475b;
+  border-radius: 30px;
+  background: #2a2430;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 0 20px;
+  color: #c7bdce;
+}
+
+/* Input fields inside the toolbar. */
+.searchbox input,
+.website-input input {
+  background: none;
+  border: 0;
+  outline: 0;
+  color: #f5eff8;
+  min-width: 0;
+  flex: 1;
+  font: inherit;
+  font-size: 14px;
+}
+
+/* Placeholder text styling. */
+.searchbox input::placeholder,
+.website-input input::placeholder {
+  color: #c0b7c7;
+}
+
+/* Optional keyboard shortcut or search hint. */
+.searchbox > span {
+  font-size: 10px;
+  color: #a69bad;
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   5. BUTTONS
+   Defines the shared button appearance and individual
+   styles for filter and primary action buttons.
+   ========================================================= */
+
+.button {
+  border: 1px solid transparent;
+  border-radius: 28px;
+  padding: 0 19px;
+  height: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font: 600 13px "DM Sans", sans-serif;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* Filter visibility toggle button. */
+.filter-toggle {
+  background: #eee7fa;
+  color: #6f55ad;
+  min-width: 123px;
+}
+
+/* Appearance when the filter toggle is inactive. */
+.filter-toggle:not(.active) {
+  background: #2a2430;
+  color: #d4cadd;
+  border-color: #51475b;
+}
+
+/* Rotates the arrow icon when filters are expanded. */
+.rotate {
+  transform: rotate(180deg);
+}
+
+/* Main action button, such as adding a bookmark. */
+.primary {
+  background: #8061bd;
+  color: white;
+  min-width: 154px;
+}
+
+.primary:hover {
+  background: #9273ce;
+}
+
+
+/* =========================================================
+   6. FILTER PANEL
+   Controls the filter container, filter groups, labels,
+   filter options, rating selection, and chapter inputs.
+   ========================================================= */
+
+.filters {
+  border: 1px solid #51475b;
+  border-radius: 23px;
+  background: #2a2430;
+  padding: 20px 21px 18px;
+  margin-bottom: 28px;
+}
+
+/* Main filter layout: category, rating, chapter, and website. */
+.filter-top {
+  display: grid;
+  grid-template-columns: 2.3fr 1fr .85fr 1.25fr;
+  gap: 28px;
+}
+
+.filter-group {
+  min-width: 0;
+}
+
+/* Labels identifying each filter category. */
+.filter-label {
+  display: block;
+  color: #d1c8d6;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 9px;
+}
+
+
+/* =========================================================
+   7. FILTER PILLS & RATING OPTIONS
+   Styles selectable filter chips and numerical rating
+   buttons, including their selected states.
+   ========================================================= */
+
+.pills {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.pill {
+  height: 34px;
+  padding: 0 12px;
+  border-radius: 22px;
+  background: transparent;
+  border: 1px solid #51475b;
+  color: #d1c8d6;
+  font: 500 11px "DM Sans", sans-serif;
+  cursor: pointer;
+}
+
+/* Highlight for an actively selected filter. */
+.pill.selected {
+  background: #eee7fa;
+  border-color: #eee7fa;
+  color: #7257b3;
+}
+
+/* Individual numerical rating options. */
+.rating-number {
+  height: 30px;
+  min-width: 24px;
+  border: 0;
+  border-radius: 20px;
+  background: transparent;
+  color: #d4cbd9;
+  font: 12px "DM Sans", sans-serif;
+  cursor: pointer;
+}
+
+.rating-number.chosen {
+  background: #eee7fa;
+  color: #7257b3;
+}
+
+
+/* =========================================================
+   8. CHAPTER & WEBSITE FILTER INPUTS
+   Styles the minimum/maximum chapter inputs and the
+   website filter field.
+   ========================================================= */
+
+.chapter-inputs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.chapter-inputs input {
+  width: 68px;
+  min-width: 0;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #51475b;
+  padding: 8px 4px;
+  color: #f5eff8;
+  outline: 0;
+  font: 12px "DM Sans", sans-serif;
+}
+
+.chapter-inputs span {
+  color: #bdb2c4;
+}
+
+/* Compact website input variant used inside the filters. */
+.website-input {
+  height: 34px;
+  border: 0;
+  background: transparent;
+  border-radius: 0;
+  padding: 0 8px;
+  gap: 8px;
+}
+
+.website-input input {
+  font-size: 11px;
+}
+
+
+/* =========================================================
+   9. STATUS FILTERS & RESET
+   Controls the status filter row, its selectable pills,
+   and the button that clears all active filters.
+   ========================================================= */
+
+.status-line {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.status-line .filter-label {
+  margin: 0;
+  white-space: nowrap;
+}
+
+.status-line .pills {
+  gap: 6px;
+}
+
+.status-line .pill {
+  height: 34px;
+}
+
+/* Reset filters action, aligned to the right. */
+.reset {
+  margin-left: auto;
+  background: none;
+  border: 0;
+  color: #eee7f4;
+  font: 600 13px "DM Sans", sans-serif;
+  cursor: pointer;
+}
+
+/* Small explanatory text below the filter controls. */
+.filter-hint {
+  font-size: 10px;
+  color: #b9afc1;
+  margin: 16px 0 0;
+}
+
+
+/* =========================================================
+   10. LIBRARY SECTION HEADER
+   Displays the library title, bookmark count, and
+   optional supporting information.
+   ========================================================= */
+
+.library-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 13px;
+}
+
+.library-heading h2 {
+  font-size: 21px;
+  letter-spacing: -.5px;
+  margin: 0;
+  font-weight: 700;
+}
+
+/* Circular badge showing the total number of bookmarks. */
+.count {
+  background: #8061bd;
+  color: white;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+}
+
+.library-heading p {
+  margin: 0 0 0 auto;
+  color: #a99fb0;
+  font-size: 11px;
+}
+
+
+/* =========================================================
+   11. BOOKMARK TABLE LAYOUT
+   Defines the column structure shared by the table header
+   and individual bookmark rows.
+   ========================================================= */
+
+.table-head,
+.bookmark-row {
+  display: grid;
+  grid-template-columns: minmax(250px, 2.2fr) .55fr .78fr 1fr .65fr;
+  align-items: center;
+  column-gap: 12px;
+}
+
+/* Column headings above the bookmark list. */
+.table-head {
+  padding: 0 22px 8px;
+  color: #cfc5d4;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.table-head b {
+  color: #8061bd;
+  font-size: 17px;
+}
+
+
+/* =========================================================
+   12. BOOKMARK LIST & ROWS
+   Controls the vertical arrangement and appearance of
+   individual saved bookmark entries.
+   ========================================================= */
+
+.bookmark-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bookmark-row {
+  min-height: 69px;
+  border-radius: 21px;
+  padding: 11px 22px;
+  color: #383146;
+}
+
+/* Alternating pastel backgrounds for bookmark rows. */
+.bookmark-row.lilac {
+  background: #eee7f7;
+}
+
+.bookmark-row.peach {
+  background: #f7e9de;
+}
+
+.bookmark-row.mint {
+  background: #e6f0e6;
+}
+
+.bookmark-row.blue {
+  background: #e7ebf6;
+}
+
+.bookmark-row.cream {
+  background: #f4eedb;
+}
+
+.bookmark-row.pink {
+  background: #f4e6ed;
+}
+
+
+/* =========================================================
+   13. BOOKMARK INFORMATION
+   Styles the bookmark title, subtitle, and chapter value.
+   ========================================================= */
+
+.book-title {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.book-title strong {
+  font-size: 13px;
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.book-title small {
+  font-size: 10px;
+  color: #8d8496;
+}
+
+.chapter-value {
+  font-size: 17px;
+}
+
+
+/* =========================================================
+   14. BOOKMARK STATUS BADGES
+   Provides a consistent badge appearance for different
+   reading statuses.
+   ========================================================= */
+
+.status-badge {
+  display: inline-flex;
+  border-radius: 20px;
+  background: #ffffffa8;
+  padding: 7px 12px;
+  font-size: 9px;
+  letter-spacing: .35px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+/* Individual status text colors. */
+.status-badge.completed {
+  color: #443c50;
+}
+
+.status-badge.reading {
+  color: #443c50;
+}
+
+.status-badge.planned {
+  color: #443c50;
+}
+
+.status-badge.hiatus {
+  color: #674a3e;
+}
+
+.status-badge.dropped {
+  color: #4c5368;
+}
+
+.status-badge.axed {
+  color: #4b514a;
+}
+
+
+/* =========================================================
+   15. WEBSITE INFORMATION
+   Displays the website icon and bookmark source link.
+   ========================================================= */
+
+.website-value {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 11px;
+  min-width: 0;
+  white-space: nowrap;
+}
+
+/* Small icon representing the bookmark's source website. */
+.site-icon {
+  width: 25px;
+  height: 25px;
+  display: grid;
+  place-items: center;
+  border-radius: 9px;
+  background: #ffffffa8;
+  font-size: 12px;
+  font-weight: 700;
+  flex: none;
+}
+
+.website-value a {
+  display: inline-flex;
+  color: #786c85;
+}
+
+
+/* =========================================================
+   16. STAR RATING DISPLAY
+   Styles the bookmark rating, distinguishing filled
+   stars from unfilled stars.
+   ========================================================= */
+
+.stars {
+  display: flex;
+  gap: 4px;
+  color: #a79cad;
+  font-size: 17px;
+  white-space: nowrap;
+}
+
+.stars .filled {
+  color: #8061bd;
+}
+
+
+/* =========================================================
+   17. EMPTY STATE
+   Displayed when there are no bookmarks or when the
+   current search/filter combination has no results.
+   ========================================================= */
+
+.empty-state {
+  text-align: center;
+  padding: 45px 15px;
+  color: #bdb3c6;
+  border: 1px dashed #51475b;
+  border-radius: 18px;
+}
+
+
+/* =========================================================
+   18. PAGE FOOTER
+   Controls the layout and typography of the bottom
+   information section.
+   ========================================================= */
+
+.page-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 17px 8px 0;
+  color: #b3a9bb;
+  font-size: 11px;
+}
+
+
+/* =========================================================
+   19. MODAL / OVERLAY
+   Controls the full-screen dark backdrop and centered
+   dialog container used for adding or editing bookmarks.
+   ========================================================= */
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 4, 8, .68);
+  display: grid;
+  place-items: center;
+  padding: 22px;
+  z-index: 5;
+}
+
+.modal {
+  width: min(562px, 100%);
+  border: 1px solid #55495f;
+  border-radius: 29px;
+  background: #2c2532;
+  padding: 31px 31px 30px;
+  box-shadow: 0 22px 70px #08060c88;
+}
+
+
+/* =========================================================
+   20. MODAL HEADER
+   Contains the modal icon, title, and close button.
+   ========================================================= */
+
+.modal-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.modal-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 14px;
+  background: #eee7fa;
+  color: #8061bd;
+  display: grid;
+  place-items: center;
+}
+
+/* Button used to dismiss the modal. */
+.close-button {
+  width: 31px;
+  height: 31px;
+  border-radius: 50%;
+  border: 1px solid #55495f;
+  background: transparent;
+  color: #d8cfe0;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.modal h2 {
+  font-size: 24px;
+  letter-spacing: -.7px;
+  margin: 0 0 24px;
+}
+
+
+/* =========================================================
+   21. MODAL FORM FIELDS
+   Styles labels and input fields used in the bookmark
+   creation or editing form.
+   ========================================================= */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  min-width: 0;
+}
+
+.field > span {
+  font-size: 14px;
+  font-weight: 600;
+  color: #d9d0df;
+}
+
+.field input,
+.select-wrap select {
+  width: 100%;
+  height: 44px;
+  border: 1px solid #55495f;
+  border-radius: 15px;
+  background: #2c2532;
+  color: #f4eff7;
+  padding: 0 13px;
+  font: 13px "DM Sans", sans-serif;
+  outline: none;
+}
+
+/* Highlight form fields when users interact with them. */
+.field input:focus,
+.select-wrap select:focus {
+  border-color: #9273ce;
+}
+
+.field input::placeholder {
+  color: #958a9d;
+}
+
+
+/* =========================================================
+   22. FORM GRID & DROPDOWN SELECT
+   Controls the side-by-side form layout and custom
+   dropdown appearance.
+   ========================================================= */
+
+.field-grid {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 14px;
+  margin: 17px 0;
+}
+
+.select-wrap {
+  position: relative;
+}
+
+/* Removes the browser's default select arrow. */
+.select-wrap select {
+  appearance: none;
+  padding-right: 35px;
+}
+
+/* Custom dropdown arrow positioned inside the select. */
+.select-wrap svg {
+  position: absolute;
+  right: 13px;
+  top: 14px;
+  color: #9f94a8;
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   23. FORM HELP TEXT & FIELD SPACING
+   Styles small notes and spacing between full-width
+   form fields.
+   ========================================================= */
+
+.field-note {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #bdb2c4;
+  font-size: 10px;
+  margin-top: 0;
+}
+
+.field.full + .field.full {
+  margin-top: 17px;
+}
+
+
+/* =========================================================
+   24. MODAL RATING PICKER
+   Styles the interactive star-rating selector inside
+   the bookmark form.
+   ========================================================= */
+
+.rating-picker {
+  height: 58px;
+  border-radius: 16px;
+  background: #eee7fa;
+  color: #7257b3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+}
+
+.rating-stars {
+  display: flex;
+  gap: 8px;
+}
+
+.rating-stars button {
+  border: 0;
+  background: none;
+  padding: 0;
+  color: #a79cad;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+/* Highlight stars selected by the user. */
+.rating-stars button.on {
+  color: #8061bd;
+}
+
+.rating-picker strong {
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   25. MODAL ACTION BUTTONS
+   Controls the cancel and submit buttons at the bottom
+   of the bookmark form.
+   ========================================================= */
+
+.modal-actions {
+  display: flex;
+  gap: 11px;
+  margin-top: 31px;
+}
+
+.modal-actions .cancel {
+  background: transparent;
+  border-color: #55495f;
+  color: #f2ebf6;
+  min-width: 118px;
+}
+
+.modal-actions .submit {
+  flex: 1;
+}
+
+
+/* =========================================================
+   26. RESPONSIVE DESIGN — TABLET
+   Adjusts page width, filter layout, bookmark columns,
+   typography, and spacing for screens up to 900px.
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .page {
+    width: min(100% - 36px, 720px);
+    padding-top: 35px;
+  }
+
+  .brand {
+    margin-bottom: 32px;
+  }
+
+  .brand h1 {
+    font-size: 40px;
+  }
+
+  /* Simplifies the filter grid for smaller screens. */
+  .filter-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+
+  .status-line {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .status-line .reset {
+    margin-left: auto;
+  }
+
+  /* Removes the rating column from the bookmark list. */
+  .table-head,
+  .bookmark-row {
+    grid-template-columns: minmax(170px, 2fr) .5fr .8fr .9fr;
+  }
+
+  .table-head span:nth-child(5),
+  .bookmark-row .stars {
+    display: none;
+  }
+
+  .table-head {
+    font-size: 17px;
+  }
+
+  .bookmark-row {
+    padding: 11px 16px;
+  }
+
+  /* Hides secondary library information to save space. */
+  .library-heading p {
+    display: none;
+  }
+}
+
+
+/* =========================================================
+   27. RESPONSIVE DESIGN — MOBILE
+   Rearranges the toolbar, filters, bookmark rows, and
+   modal form for screens up to 620px.
+   ========================================================= */
+
+@media (max-width: 620px) {
+
+  .page {
+    width: calc(100% - 28px);
+    padding-top: 25px;
+  }
+
+  .brand h1 {
+    font-size: 34px;
+  }
+
+  /* Places the search field above the toolbar buttons. */
+  .toolbar {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .searchbox {
+    grid-column: 1 / -1;
+  }
+
+  .searchbox > span {
+    display: none;
+  }
+
+  .button {
+    height: 45px;
+    padding: 0 12px;
+  }
+
+  .filter-toggle,
+  .primary {
+    min-width: 0;
+  }
+
+  /* Stacks filter groups into two columns. */
+  .filter-top {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .filters {
+    padding: 16px;
+  }
+
+  /* Gives the sort filter its own full-width row. */
+  .sort-group {
+    grid-column: 1 / -1;
+  }
+
+  .status-line {
+    gap: 8px;
+  }
+
+  .status-line .pills {
+    width: 100%;
+  }
+
+  .reset {
+    margin-left: 0;
+  }
+
+  /* Hides desktop table headings on mobile. */
+  .table-head {
+    display: none;
+  }
+
+  /* Rearranges bookmark information into a compact card. */
+  .bookmark-row {
+    grid-template-columns: 1fr auto;
+    gap: 8px 12px;
+    border-radius: 16px;
+  }
+
+  .book-title {
+    grid-column: 1 / 2;
+  }
+
+  .chapter-value {
+    grid-column: 2;
+    grid-row: 1;
+    text-align: right;
+  }
+
+  /* Places the status below the bookmark title. */
+  .bookmark-row > span:nth-child(3) {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .website-value {
+    grid-column: 2;
+    grid-row: 2;
+    justify-content: flex-end;
+  }
+
+  /* Simplifies footer information on smaller screens. */
+  .page-footer {
+    font-size: 9px;
+    gap: 12px;
+  }
+
+  .page-footer span:last-child {
+    display: none;
+  }
+
+  /* Makes the modal more compact on mobile. */
+  .modal {
+    padding: 23px 19px;
+    border-radius: 23px;
+  }
+
+  .field-grid {
+    grid-template-columns: 110px 1fr;
+    gap: 10px;
+  }
+
+  .modal h2 {
+    font-size: 22px;
+  }
+
+  .modal-actions .cancel {
+    min-width: 90px;
+  }
+
+  .rating-stars {
+    gap: 4px;
+  }
+
+  .rating-stars button {
+    font-size: 25px;
+  }
+}
