@@ -80,11 +80,10 @@ function App() {
     <header className="brand">
       <div className="mascot-placeholder" aria-label="Mascot image placeholder" />
       <h1>MonaArchives</h1>
-      <p>A happy little home for your next chapter.</p>
     </header>
 
     <section className="toolbar">
-      <label className="searchbox"><Search size={19}/><input value={search} onChange={e => setSearch(e.target.value)} placeholder="Find a story by name..." /><span>Search bookmarks</span></label>
+      <label className="searchbox"><Search size={19}/><input value={search} onChange={e => setSearch(e.target.value)} placeholder="Find your series by title..." /></label>
       <button className={`button filter-toggle ${filtersOpen ? "active" : ""}`} onClick={() => setFiltersOpen(v => !v)}><SlidersHorizontal size={17}/> Filters <ChevronDown className={filtersOpen ? "rotate" : ""} size={16}/></button>
       <button className="button primary" onClick={() => setModalOpen(true)}><Plus size={18}/> Add bookmark</button>
     </section>
@@ -107,11 +106,11 @@ function App() {
         <button className={`pill ${statusFilter === "ALL" ? "selected" : ""}`} onClick={() => setStatusFilter("ALL")}>All</button>
         {statuses.map(s => <button key={s} className={`pill ${statusFilter === s ? "selected" : ""}`} onClick={() => setStatusFilter(s)}>{s}</button>)}
       </div><button className="reset" onClick={resetFilters}>Reset filters</button></div>
-      <p className="filter-hint">{ratingFilter === null ? "A rating of 0 finds stories you haven’t rated yet." : `Showing stories rated ${ratingFilter} out of 5.`}</p>
+      <p className="filter-hint">{ratingFilter === null ? "A rating of 0 are stories yet to be rated yet." : `Showing stories rated ${ratingFilter} out of 5.`}</p>
     </section>}
 
     <section className="library">
-      <div className="library-heading"><h2>Your bookmarks</h2><span className="count">{visibleBookmarks.length}</span><p>A little order. A lot of stories.</p></div>
+      <div className="library-heading"><h2>Manga/Manhwa/Manhua/LN/WN</h2><span className="count">{visibleBookmarks.length}</span></div>
       <div className="table-head"><span>Title <b>{sortBy === "title" ? (direction === "asc" ? "↑" : "↓") : ""}</b></span><span>Chapter</span><span>Status</span><span>Website</span><span>Rating</span></div>
       <div className="bookmark-list">
         {visibleBookmarks.map((b, i) => <article className={`bookmark-row ${pastelClasses[i % pastelClasses.length]}`} key={b.id}>
@@ -123,7 +122,7 @@ function App() {
         </article>)}
         {visibleBookmarks.length === 0 && <div className="empty-state">No bookmarks found. Try changing your filters or add a new story.</div>}
       </div>
-      <footer className="page-footer"><span>All {visibleBookmarks.length} bookmarks · Sorted by {sortBy}, {direction === "asc" ? "A–Z" : "Z–A"}</span><span>♧ Your place is always saved here.</span></footer>
+      <footer className="page-footer"><span>All {visibleBookmarks.length} bookmarks · Sorted by {sortBy}, {direction === "asc" ? "A–Z" : "Z–A"}</span></footer>
     </section>
 
     {modalOpen && <div className="modal-backdrop" onMouseDown={e => { if (e.target === e.currentTarget) setModalOpen(false); }}>
@@ -135,7 +134,7 @@ function App() {
           <label className="field"><span>Chapter</span><input type="number" min="0" value={form.chapter} onChange={e => setForm({...form, chapter: e.target.value})}/></label>
           <label className="field"><span>Reading status</span><div className="select-wrap"><select value={form.status} onChange={e => setForm({...form, status: e.target.value as Status})}>{statuses.map(s => <option key={s}>{s}</option>)}</select><ChevronDown size={16}/></div></label>
         </div>
-        <label className="field full"><span>Reading URL</span><input type="url" placeholder="https://..." value={form.url} onChange={e => setForm({...form, url: e.target.value})}/><small className="field-note"><Link2 size={12}/> Shown on your shelf as the website name</small></label>
+        <label className="field full"><span>Reading URL</span><input type="url" placeholder="https://..." value={form.url} onChange={e => setForm({...form, url: e.target.value})}/></label>
         <div className="field full"><span>Rating</span><div className="rating-picker"><div className="rating-stars">{[1,2,3,4,5].map(n => <button type="button" key={n} onClick={() => setForm({...form, rating: n})} aria-label={`Rate ${n} out of 5`} className={n <= form.rating ? "on" : ""}>★</button>)}</div><strong>{form.rating} / 5</strong></div></div>
         <div className="modal-actions"><button type="button" className="button cancel" onClick={() => setModalOpen(false)}>Cancel</button><button type="submit" className="button primary submit"><Plus size={17}/> Add bookmark</button></div>
       </form>
