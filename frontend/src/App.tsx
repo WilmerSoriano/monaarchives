@@ -22,7 +22,6 @@ type Status =
 type Bookmark = {
   id: number;
   title: string;
-  kind: string;
   chapter: number;
   status: Status;
   website: string;
@@ -37,7 +36,6 @@ const starterBookmarks: Bookmark[] = [
   {
     id: 1,
     title: "A Returner’s Magic Should Be Special",
-    kind: "Manhwa",
     chapter: 269,
     status: "COMPLETED",
     website: "tappytoon.com",
@@ -48,7 +46,6 @@ const starterBookmarks: Bookmark[] = [
   {
     id: 2,
     title: "Berserk",
-    kind: "Manga",
     chapter: 378,
     status: "HIATUS",
     website: "mangadex.org",
@@ -59,7 +56,6 @@ const starterBookmarks: Bookmark[] = [
   {
     id: 3,
     title: "Chainsaw Man",
-    kind: "Manga",
     chapter: 180,
     status: "READING",
     website: "MANGA Plus",
@@ -70,7 +66,6 @@ const starterBookmarks: Bookmark[] = [
   {
     id: 4,
     title: "Cheating Men Must Die",
-    kind: "Manhua",
     chapter: 112,
     status: "DROPPED",
     website: "mangadex.org",
@@ -81,7 +76,6 @@ const starterBookmarks: Bookmark[] = [
   {
     id: 5,
     title: "Solo Leveling",
-    kind: "Manhwa",
     chapter: 200,
     status: "COMPLETED",
     website: "tappytoon.com",
@@ -92,7 +86,6 @@ const starterBookmarks: Bookmark[] = [
   {
     id: 6,
     title: "The Apothecary Diaries",
-    kind: "Light novel",
     chapter: 42,
     status: "READING",
     website: "j-novel.club",
@@ -103,7 +96,6 @@ const starterBookmarks: Bookmark[] = [
   {
     id: 7,
     title: "The Beginning After the End",
-    kind: "Manhwa",
     chapter: 0,
     status: "PLANNED",
     website: "tapas.io",
@@ -114,7 +106,6 @@ const starterBookmarks: Bookmark[] = [
   {
     id: 8,
     title: "The Hunters Guild: Red Hood",
-    kind: "Manga",
     chapter: 18,
     status: "AXED",
     website: "MANGA Plus",
@@ -390,7 +381,6 @@ function App() {
       const newBookmark: Bookmark = {
         id: Date.now(),
         title: form.title.trim(),
-        kind: "Manga",
         chapter: Number(form.chapter),
         status: form.status,
         website,
@@ -667,7 +657,6 @@ function App() {
             >
               <div className="book-title">
                 <strong>{bookmark.title}</strong>
-                <small>{bookmark.kind}</small>
               </div>
 
               <span className="chapter-value">{bookmark.chapter}</span>
