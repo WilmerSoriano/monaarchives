@@ -108,3 +108,17 @@ dependencies (beans) at runtime using its Dependency Injection mechanism.
 - Applied fix to make Docker container Postgres persistent data even after shutdown.
 - API now takes PATCH updates
 - Working on the UI... 
+
+> November 4, 2026 - Making the UI come to live
+- make huge update changes to CSS file and App.TSX file this includes:
+    - Removing unnecessary wording.
+    - Interactive UI
+    - Added edit button to display when hovering 
+    - Edit some text
+    - feature to block user from adding unnecessary characters
+    - Rating now takes in zeros
+
+- I still need to fix text size on all words. At the moment everything
+seems to look small.
+- Change the color for bookmark, right now the brightness is overtaking everything else in the text
+- continue to review and edit UI.
