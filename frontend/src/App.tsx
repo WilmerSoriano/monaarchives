@@ -142,10 +142,6 @@ function isValidHttpUrl(value: string): boolean {
 function getWebsiteName(url: URL): string {
   const hostname = url.hostname.replace(/^www\./, "");
 
-  if (hostname === "mangaplus.shueisha.co.jp") {
-    return "MANGA Plus";
-  }
-
   return hostname;
 }
 
@@ -169,11 +165,11 @@ function App() {
     }
   });
 
+  // === The Search and filter options === 
   const [search, setSearch] = useState("");
   const [filtersOpen, setFiltersOpen] = useState(true);
-  const [sortBy, setSortBy] = useState<"title" | "chapter" | "rating">(
-    "title"
-  );
+
+  const [sortBy, setSortBy] = useState<"title" | "chapter" | "rating">("title");
   const [direction, setDirection] = useState<"asc" | "desc">("asc");
   const [ratingFilter, setRatingFilter] = useState<number | null>(null);
   const [statusFilter, setStatusFilter] = useState<Status | "ALL">("ALL");
@@ -184,9 +180,7 @@ function App() {
   const [websiteFilter, setWebsiteFilter] = useState("");
 
   const [modalOpen, setModalOpen] = useState(false);
-  const [editingBookmarkId, setEditingBookmarkId] = useState<number | null>(
-    null
-  );
+  const [editingBookmarkId, setEditingBookmarkId] = useState<number | null>(null);
 
   const [form, setForm] = useState({
     title: "",
@@ -198,7 +192,9 @@ function App() {
 
   const [formChapterWarning, setFormChapterWarning] = useState(false);
   const [hoverRating, setHoverRating] = useState(0);
+// ============================================================
 
+  // Saves bookmark changes to local storage so the library persists after refreshing the page.
   useEffect(() => {
     localStorage.setItem(
       "monaarchives-bookmarks",
@@ -206,6 +202,7 @@ function App() {
     );
   }, [bookmarks]);
 
+  // Filters and sorts bookmarks based on the user's selected search and filter options.
   const visibleBookmarks = useMemo(() => {
     const term = search.trim().toLowerCase();
 
@@ -262,6 +259,7 @@ function App() {
     sortBy,
     direction,
   ]);
+  // =========================================
 
   const resetFilters = () => {
     setSortBy("title");
@@ -644,7 +642,7 @@ function App() {
           <span>Status</span>
           <span>Website</span>
           <span>Rating</span>
-          <span className="actions-heading">Actions</span>
+          <span></span>        
         </div>
 
         <div className="bookmark-list">
@@ -700,7 +698,7 @@ function App() {
                 ))}
               </span>
 
-              <div className="bookmark-actions">
+              <div className="bookmark-edit">
                 <button
                   type="button"
                   className="edit-bookmark"
@@ -889,7 +887,7 @@ function App() {
               </div>
             </div>
 
-            <div className="modal-actions">
+            <div className="modal-edit">
               <button
                 type="button"
                 className="button cancel"
