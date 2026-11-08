@@ -38,31 +38,39 @@ body {
 
 
 /* =========================================================
-   3. BRAND / HEADER SECTION
+   3. BRAND / HEADER SECTION / MonaArchives
    Styles the application branding, logo placeholder,
    main heading, and supporting tagline.
    ========================================================= */
 
 .brand {
-  text-align: center;
-  margin: 0 0 48px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  min-height: 40px;
+  text-align: left;
 }
 
 .mascot-placeholder {
-  width: 78px;
-  height: 44px;
-  margin: 0 auto 7px;
-  border-radius: 13px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-60%) translateX(100%);
+  width: 90px;
+  height: 40px;
+  margin: 0;
   background: #5c91e8;
-  border: 2px solid #8eb5ff;
-  box-shadow: 0 4px 0 #342d43;
+  z-index: 0;
 }
 
 .brand h1 {
+  position: relative;
+  z-index: 1;
+  margin: 0;
   font-size: 48px;
   line-height: 1.08;
   letter-spacing: -2px;
-  margin: 0;
   font-weight: 800;
 }
 
@@ -143,7 +151,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  font: 600 13px "DM Sans", sans-serif;
+  font: 600 16px "DM Sans", sans-serif;
   cursor: pointer;
   white-space: nowrap;
 }
@@ -208,7 +216,7 @@ body {
 .filter-label {
   display: block;
   color: #d1c8d6;
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 600;
   margin-bottom: 9px;
 }
@@ -338,7 +346,7 @@ body {
   background: none;
   border: 0;
   color: #eee7f4;
-  font: 600 13px "DM Sans", sans-serif;
+  font: 600 16px "DM Sans", sans-serif;
   cursor: pointer;
 }
 
@@ -364,7 +372,7 @@ body {
 }
 
 .library-heading h2 {
-  font-size: 21px;
+  font-size: 24px;
   letter-spacing: -.5px;
   margin: 0;
   font-weight: 700;
@@ -379,7 +387,7 @@ body {
   height: 28px;
   display: grid;
   place-items: center;
-  font-size: 12px;
+  font-size: 16px;
 }
 
 .library-heading p {
@@ -523,11 +531,11 @@ body {
 }
 
 .status-badge.hiatus {
-  color: #cec217;
+  color: #9e9516;
 }
 
 .status-badge.dropped {
-  color: #4c5368;
+  color: #3b4050;
 }
 
 .status-badge.axed {
@@ -564,7 +572,7 @@ body {
 
 .website-value a {
   display: inline-flex;
-  color: #786c85;
+  color: #8326e6;
 }
 
 
@@ -829,10 +837,12 @@ body {
    of the bookmark form.
    ========================================================= */
 
-.modal-actions {
+.modal-edit {
   display: flex;
-  gap: 11px;
-  margin-top: 31px;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 14px;
+  margin-top: 32px;
 }
 
 .modal-actions .cancel {
@@ -1201,7 +1211,7 @@ body {
 }
 
 .website-link:hover {
-  color: var(--accent, #9b7bea);
+  color: var(--accent, #ea7b7b);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
@@ -1279,6 +1289,7 @@ body {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  
 }
 
 .website-value,
