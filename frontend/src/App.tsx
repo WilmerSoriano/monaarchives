@@ -27,21 +27,22 @@ type Bookmark = {
   website: string;
   rating: number;
   url: string;
-  lastVisitedAt: string;
+  dateLastClicked: string;
 };
 
-const INSTANT_EPOCH = "1970-01-01T00:00:00Z";
+const INSTANT_EPOCH = "1970-01-01T00:00:00Z"; // default date
 
+// Back up samples just in case
 const starterBookmarks: Bookmark[] = [
   {
     id: 1,
-    title: "A Returner’s Magic Should Be Special",
-    chapter: 269,
-    status: "COMPLETED",
-    website: "tappytoon.com",
-    rating: 5,
-    url: "https://www.tappytoon.com/",
-    lastVisitedAt: INSTANT_EPOCH,
+    title: "Unable to retrieve bookmarks",
+    chapter: 1,
+    status: "PLANNED",
+    website: "example.com",
+    rating: 0,
+    url: "https://www.example.com/",
+    dateLastClicked: INSTANT_EPOCH,
   },
   {
     id: 2,
@@ -51,7 +52,7 @@ const starterBookmarks: Bookmark[] = [
     website: "mangadex.org",
     rating: 5,
     url: "https://mangadex.org/",
-    lastVisitedAt: INSTANT_EPOCH,
+    dateLastClicked: INSTANT_EPOCH,
   },
   {
     id: 3,
@@ -61,57 +62,7 @@ const starterBookmarks: Bookmark[] = [
     website: "MANGA Plus",
     rating: 4,
     url: "https://mangaplus.shueisha.co.jp/",
-    lastVisitedAt: INSTANT_EPOCH,
-  },
-  {
-    id: 4,
-    title: "Cheating Men Must Die",
-    chapter: 112,
-    status: "DROPPED",
-    website: "mangadex.org",
-    rating: 2,
-    url: "https://mangadex.org/",
-    lastVisitedAt: INSTANT_EPOCH,
-  },
-  {
-    id: 5,
-    title: "Solo Leveling",
-    chapter: 200,
-    status: "COMPLETED",
-    website: "tappytoon.com",
-    rating: 5,
-    url: "https://www.tappytoon.com/",
-    lastVisitedAt: INSTANT_EPOCH,
-  },
-  {
-    id: 6,
-    title: "The Apothecary Diaries",
-    chapter: 42,
-    status: "READING",
-    website: "j-novel.club",
-    rating: 5,
-    url: "https://j-novel.club/",
-    lastVisitedAt: INSTANT_EPOCH,
-  },
-  {
-    id: 7,
-    title: "The Beginning After the End",
-    chapter: 0,
-    status: "PLANNED",
-    website: "tapas.io",
-    rating: 0,
-    url: "https://tapas.io/",
-    lastVisitedAt: INSTANT_EPOCH,
-  },
-  {
-    id: 8,
-    title: "The Hunters Guild: Red Hood",
-    chapter: 18,
-    status: "AXED",
-    website: "MANGA Plus",
-    rating: 3,
-    url: "https://mangaplus.shueisha.co.jp/",
-    lastVisitedAt: INSTANT_EPOCH,
+    dateLastClicked: INSTANT_EPOCH,
   },
 ];
 
@@ -124,7 +75,7 @@ const statuses: Status[] = [
   "AXED",
 ];
 
-const pastelClasses = ["lilac", "peach", "mint", "blue", "cream", "pink"];
+const pastelClasses = ["lilac", "peach", "mint", "blue", "cream", "pink"]; // Colors from CSS file
 
 function isValidHttpUrl(value: string): boolean {
   try {
@@ -158,7 +109,7 @@ function App() {
 
       return parsed.map((bookmark: Partial<Bookmark>) => ({
         ...bookmark,
-        lastVisitedAt: bookmark.lastVisitedAt ?? INSTANT_EPOCH,
+        lastVisitedAt: bookmark.dateLastClicked ?? INSTANT_EPOCH,
       })) as Bookmark[];
     } catch {
       return starterBookmarks;
@@ -384,7 +335,7 @@ function App() {
         website,
         rating: form.rating,
         url: parsedUrl.toString(),
-        lastVisitedAt: INSTANT_EPOCH,
+        dateLastClicked: INSTANT_EPOCH,
       };
 
       setBookmarks((current) => [...current, newBookmark]);
@@ -400,7 +351,7 @@ function App() {
         bookmark.id === id
           ? {
               ...bookmark,
-              lastVisitedAt: new Date().toISOString(),
+              dateLastClicked: new Date().toISOString(),
             }
           : bookmark
       )
