@@ -122,3 +122,7 @@ dependencies (beans) at runtime using its Dependency Injection mechanism.
 seems to look small.
 - Change the color for bookmark, right now the brightness is overtaking everything else in the text
 - continue to review and edit UI.
+
+> November 7, 2026 - Ongoing fixing of UI
+- Fixed some issue with UI and formatting. (NOTE: I also worked on UI on 11/06)
+- Next step is to connect frontend to backend
