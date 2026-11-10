@@ -126,3 +126,9 @@ seems to look small.
 > November 7, 2026 - Ongoing fixing of UI
 - Fixed some issue with UI and formatting. (NOTE: I also worked on UI on 11/06)
 - Next step is to connect frontend to backend
+
+> November 9, 2026 - Quick note update
+- Need to add delete option for bookmark
+- Fix the size of the Stars
+- Adjust some of the bookmark colors
+- Attempt to connect frontend to backend.
