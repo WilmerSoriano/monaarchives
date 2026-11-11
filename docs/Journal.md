@@ -132,3 +132,12 @@ seems to look small.
 - Fix the size of the Stars
 - Adjust some of the bookmark colors
 - Attempt to connect frontend to backend.
+
+> November 10, 2026 - Directory organization, cleaning up code, comments update
+- I reorganized the files into separate directory folder for simpler maintenance,
+UI logic, and CSS file updates.
+- Each file, for most part, got a comment to better understand what the code integration is about.
+- Fixed Star size, Added delete button to each bookmark, bookmark got a small color update, 
+and update how URL is displayed to user.
+
+- FINALLY... we can start connecting frontend to backend.
