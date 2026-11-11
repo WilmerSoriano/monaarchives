@@ -446,27 +446,27 @@ body {
 
 /* Alternating pastel backgrounds for bookmark rows. */
 .bookmark-row.lilac {
-  background: #eee7f7;
+  background: #eee7f7ef;
 }
 
 .bookmark-row.peach {
-  background: #f7e9de;
+  background: #f3e0d1f1;
 }
 
 .bookmark-row.mint {
-  background: #e6f0e6;
+  background: #e6f0e6ef;
 }
 
 .bookmark-row.blue {
-  background: #e7ebf6;
+  background: #e7ebf6ec;
 }
 
 .bookmark-row.cream {
-  background: #f4eedb;
+  background: #f0e8cff3;
 }
 
 .bookmark-row.pink {
-  background: #f4e6ed;
+  background: #f4e6edef;
 }
 
 
@@ -586,7 +586,7 @@ body {
   display: flex;
   gap: 4px;
   color: #a8a4aa;
-  font-size: 20px;
+  font-size: 24px;
   white-space: nowrap;
 }
 
@@ -604,7 +604,7 @@ body {
 .empty-state {
   text-align: center;
   padding: 45px 15px;
-  color: #bdb3c6;
+  color: #514d55;
   border: 1px dashed #51475b;
   border-radius: 18px;
 }
@@ -1218,56 +1218,70 @@ body {
 
 
 /* =========================================
-   BOOKMARK EDIT BUTTON
+   BOOKMARK ACTION BUTTONS
 ========================================= */
 
 .bookmark-actions {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  gap: 8px;
+  min-width: 0;
 }
 
-.edit-bookmark {
+.edit-bookmark,
+.delete-bookmark {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
-
-  padding: 7px 11px;
-
-  border: 1px solid var(--border, #333);
+  padding: 7px 9px;
+  border: 1px solid var(--border, #665b70);
   border-radius: 8px;
-
-  background: transparent;
-  color: var(--text-secondary, #999);
-
+  background: rgba(35, 29, 43, 0.12);
+  color: #62566e;
   font: inherit;
   font-size: 12px;
   cursor: pointer;
-
   opacity: 0;
   visibility: hidden;
-  transform: translateX(5px);
-
+  transform: translateY(3px);
   transition:
     opacity 0.2s ease,
     visibility 0.2s ease,
     transform 0.2s ease,
     background 0.2s ease,
+    border-color 0.2s ease,
     color 0.2s ease;
 }
 
 .bookmark-row:hover .edit-bookmark,
-.bookmark-row:focus-within .edit-bookmark {
+.bookmark-row:hover .delete-bookmark,
+.bookmark-row:focus-within .edit-bookmark,
+.bookmark-row:focus-within .delete-bookmark {
   opacity: 1;
   visibility: visible;
-  transform: translateX(0);
+  transform: translateY(0);
 }
 
 .edit-bookmark:hover {
-  background: var(--accent, #9b7bea);
-  border-color: var(--accent, #9b7bea);
+  background: var(--accent, #8061bd);
+  border-color: var(--accent, #8061bd);
   color: white;
+}
+
+.delete-bookmark:hover {
+  background: #c74755;
+  border-color: #c74755;
+  color: white;
+}
+
+.edit-bookmark:focus-visible,
+.delete-bookmark:focus-visible,
+.delete-no-button:focus-visible,
+.delete-yes-button:focus-visible {
+  outline: 2px solid #a88be0;
+  outline-offset: 3px;
 }
 
 /* Bookmark information columns + separate Edit column */
@@ -1280,7 +1294,7 @@ body {
     0.78fr
     1fr
     0.65fr
-    90px;
+    150px;
   align-items: center;
   column-gap: 12px;
 }
@@ -1344,7 +1358,8 @@ body {
 ========================================= */
 
 @media (hover: none) {
-  .edit-bookmark {
+  .edit-bookmark,
+  .delete-bookmark {
     opacity: 1;
     visibility: visible;
     transform: none;
@@ -1358,7 +1373,102 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .edit-bookmark,
+  .delete-bookmark,
   .website-link {
+    transition: none;
+  }
+}
+
+/* =========================================
+   DELETE BOOKMARK CONFIRMATION DIALOG
+========================================= */
+
+.delete-confirm-backdrop {
+  z-index: 10;
+}
+
+.delete-confirm-modal {
+  width: min(420px, 100%);
+  padding: 28px;
+  border: 1px solid #665875;
+  border-radius: 22px;
+  background: #2c2532;
+  color: #f4eff7;
+  box-shadow: 0 22px 70px rgba(8, 6, 12, 0.6);
+}
+
+.delete-confirm-icon {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 16px;
+  border-radius: 14px;
+  background: rgba(199, 71, 85, 0.14);
+  color: #e16b78;
+}
+
+.delete-confirm-modal h2 {
+  margin: 0 0 9px;
+  font-size: 20px;
+  line-height: 1.35;
+}
+
+.delete-confirm-modal p {
+  margin: 0;
+  color: #bdb2c4;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.delete-confirm-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 26px;
+}
+
+.delete-no-button,
+.delete-yes-button {
+  min-width: 82px;
+  padding: 9px 17px;
+  border: 1px solid #665875;
+  border-radius: 10px;
+  font: 600 13px "DM Sans", sans-serif;
+  cursor: pointer;
+  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+}
+
+.delete-no-button {
+  background: transparent;
+  color: #e5ddeb;
+}
+
+.delete-no-button:hover {
+  background: #403648;
+  border-color: #8a789c;
+}
+
+.delete-yes-button {
+  background: #b83f4d;
+  border-color: #b83f4d;
+  color: #fff;
+}
+
+.delete-yes-button:hover {
+  background: #d04d5c;
+  border-color: #d04d5c;
+}
+
+@media (max-width: 620px) {
+  .delete-confirm-modal {
+    padding: 23px 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .delete-no-button,
+  .delete-yes-button {
     transition: none;
   }
 }
