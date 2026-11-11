@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import type { FormEvent } from "react";
 import { BookmarkPlus, ChevronDown, Pencil, Plus, X } from "lucide-react";
@@ -12,8 +13,10 @@ type Props = {
 };
 
 export function BookmarkModal({ bookmark, onClose, onSubmit }: Props) {
+  // Determines whether the modal is being used to add a new bookmark or edit an existing one.
   const isEditing = bookmark !== null;
 
+  // Initializes the form with existing bookmark data when editing, or default values when adding.
   const [form, setForm] = useState(() => ({
     title: bookmark?.title ?? "",
     chapter: bookmark ? String(bookmark.chapter) : "",
@@ -22,9 +25,11 @@ export function BookmarkModal({ bookmark, onClose, onSubmit }: Props) {
     rating: bookmark?.rating ?? 0,
   }));
 
+  // Tracks invalid chapter input and the currently hovered rating star.
   const [formChapterWarning, setFormChapterWarning] = useState(false);
   const [hoverRating, setHoverRating] = useState(0);
 
+  // Restricts chapter input to numbers and displays a warning when non-numeric characters are entered.
   const handleFormChapterChange = (rawValue: string) => {
     if (rawValue !== "" && !/^\d+$/.test(rawValue)) {
       setFormChapterWarning(true);
@@ -39,11 +44,13 @@ export function BookmarkModal({ bookmark, onClose, onSubmit }: Props) {
     setForm((current) => ({ ...current, chapter: rawValue }));
   };
 
+  // Checks the required fields and URL format to determine whether the form can be submitted.
   const titleIsValid = form.title.trim().length > 0;
   const chapterIsValid = form.chapter.trim() !== "" && /^\d+$/.test(form.chapter);
   const urlIsValid = isValidHttpUrl(form.url);
   const canSubmit = titleIsValid && chapterIsValid && urlIsValid;
 
+  // Validates the form, converts the chapter to a number, normalizes the URL, and sends the data to the parent component.
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!canSubmit) return;
@@ -59,6 +66,7 @@ export function BookmarkModal({ bookmark, onClose, onSubmit }: Props) {
     });
   };
 
+  // Renders the add/edit modal, including bookmark fields, reading status, rating selection, and form actions.
   return (
     <div
       className="modal-backdrop"
@@ -196,6 +204,7 @@ export function BookmarkModal({ bookmark, onClose, onSubmit }: Props) {
           </div>
         </div>
 
+        {/* Provides actions to cancel the form, submit the new, or updated bookmark. */}
         <div className="modal-edit">
           <button type="button" className="button cancel" onClick={onClose}>
             Cancel

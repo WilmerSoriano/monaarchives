@@ -1,3 +1,4 @@
+
 import { ChevronDown, Search } from "lucide-react";
 import { STATUSES } from "../constants/bookmarks";
 import type { Filters as FiltersState } from "../hooks/useFilters";
@@ -7,9 +8,11 @@ type Props = {
 };
 
 export function Filters({ filters }: Props) {
+  // Renders the library's filtering and sorting controls using the filter state provided by the parent component.
   return (
     <section className="filters">
       <div className="filter-top">
+        {/* Allows bookmarks to be sorted by title, chapter, or rating, with ascending or descending order. */}
         <div className="filter-group sort-group">
           <span className="filter-label">Sort by</span>
 
@@ -40,6 +43,7 @@ export function Filters({ filters }: Props) {
           </div>
         </div>
 
+        {/* Filters bookmarks by their selected rating, including unrated bookmarks (0), or displays all ratings. */}
         <div className="filter-group rating-group">
           <span className="filter-label">Rating</span>
 
@@ -65,6 +69,7 @@ export function Filters({ filters }: Props) {
           </div>
         </div>
 
+        {/* Sets minimum and maximum chapter values to narrow the library to a specific chapter range. */}
         <div className="filter-group chapter-group">
           <span className="filter-label">Chapter number</span>
 
@@ -113,6 +118,7 @@ export function Filters({ filters }: Props) {
           )}
         </div>
 
+        {/* Searches bookmarks by website name to help locate stories from a particular reading platform. */}
         <div className="filter-group website-group">
           <span className="filter-label">Website name</span>
 
@@ -128,6 +134,7 @@ export function Filters({ filters }: Props) {
         </div>
       </div>
 
+      {/* Filters bookmarks by reading status and provides an option to restore all filter settings to their defaults. */}
       <div className="status-line">
         <span className="filter-label">Status</span>
 
@@ -155,6 +162,7 @@ export function Filters({ filters }: Props) {
         </button>
       </div>
 
+      {/* Displays a contextual hint explaining the current rating filter selection. */}
       <p className="filter-hint">
         {filters.ratingFilter === null
           ? "A rating of 0 are stories yet to be rated yet."

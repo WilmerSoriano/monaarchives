@@ -1,3 +1,4 @@
+
 import type { Bookmark } from "../types/bookmark";
 import type { SortBy, SortDirection } from "../hooks/useFilters";
 import { BookmarkRow } from "./BookmarkRow";
@@ -19,6 +20,7 @@ export function Library({
   onDelete,
   onVisit,
 }: Props) {
+  // Renders the bookmark library and displays the current number of bookmarks.
   return (
     <section className="library">
       <div className="library-heading">
@@ -26,6 +28,7 @@ export function Library({
         <span className="count">{bookmarks.length}</span>
       </div>
 
+      {/* Displays the column labels and indicates the active title sorting direction. */}
       <div className="table-head">
         <span>
           Title{" "}
@@ -41,6 +44,7 @@ export function Library({
         <span></span>
       </div>
 
+      {/* Maps each bookmark to an individual row and passes down its edit, delete, and visit actions. */}
       <div className="bookmark-list">
         {bookmarks.map((bookmark, index) => (
           <BookmarkRow
@@ -53,6 +57,7 @@ export function Library({
           />
         ))}
 
+        {/* Displays a message when no bookmarks match the current search or filter settings. */}
         {bookmarks.length === 0 && (
           <div className="empty-state">
             No bookmarks found. Try changing your filters or add a new story.
@@ -60,6 +65,7 @@ export function Library({
         )}
       </div>
 
+      {/* Summarizes the displayed bookmark count and current sorting configuration. */}
       <footer className="page-footer">
         <span>
           All {bookmarks.length} bookmarks · Sorted by {sortBy},{" "}

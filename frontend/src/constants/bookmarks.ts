@@ -1,6 +1,6 @@
 import type { Bookmark, Status } from "../types/bookmark";
 
-export const INSTANT_EPOCH = "1970-01-01T00:00:00Z";
+export const INSTANT_EPOCH = "1970-01-01T00:00:00Z"; // default date when creating bookmark
 
 export const STARTER_BOOKMARKS: Bookmark[] = [
   {

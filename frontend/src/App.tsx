@@ -1,3 +1,4 @@
+
 import { useMemo, useState } from "react";
 import type { Bookmark, BookmarkFormData } from "./types/bookmark";
 import { useBookmarks } from "./hooks/useBookmarks";
@@ -20,7 +21,7 @@ function App() {
 
   const filters = useFilters();
 
-  // Destructured for useMemo deps (individual values, not the filter object).
+  // Destructures individual filter values for useMemo dependencies.
   const {
     search,
     statusFilter,
@@ -32,10 +33,13 @@ function App() {
     direction,
   } = filters;
 
+  // Controls the add/edit modal and stores the bookmark currently being edited or deleted.
   const [modalOpen, setModalOpen] = useState(false);
   const [editingBookmark, setEditingBookmark] = useState<Bookmark | null>(null);
   const [bookmarkToDelete, setBookmarkToDelete] = useState<Bookmark | null>(null);
 
+  // Filters and sorts bookmarks based on the current search term and filter settings.
+  // useMemo recalculates the visible list only when its dependencies change.
   const visibleBookmarks = useMemo(() => {
     const term = search.trim().toLowerCase();
 
@@ -91,21 +95,25 @@ function App() {
     direction,
   ]);
 
+  // Opens the bookmark form in add mode by clearing any previously selected bookmark.
   const openAddModal = () => {
     setEditingBookmark(null);
     setModalOpen(true);
   };
 
+  // Opens the bookmark form with the selected bookmark's existing information.
   const openEditModal = (bookmark: Bookmark) => {
     setEditingBookmark(bookmark);
     setModalOpen(true);
   };
 
+  // Closes the bookmark form and clears the current editing selection.
   const closeModal = () => {
     setModalOpen(false);
     setEditingBookmark(null);
   };
 
+  // Saves the submitted form data by either updating an existing bookmark or adding a new one.
   const handleSubmit = (data: BookmarkFormData) => {
     if (editingBookmark) {
       updateBookmark(editingBookmark.id, data);
@@ -115,6 +123,7 @@ function App() {
     closeModal();
   };
 
+  // Renders the main application layout and connects the shared state to each UI component.
   return (
     <main className="page">
       <Header />
@@ -127,8 +136,10 @@ function App() {
         onAddBookmark={openAddModal}
       />
 
+      {/* Shows the additional filtering and sorting controls when the filter panel is open. */}
       {filters.filtersOpen && <Filters filters={filters} />}
 
+      {/* Displays the filtered bookmark list and passes down its available actions. */}
       <Library
         bookmarks={visibleBookmarks}
         sortBy={filters.sortBy}
@@ -138,6 +149,7 @@ function App() {
         onVisit={markVisited}
       />
 
+      {/* Displays the add/edit form when requested. */}
       {modalOpen && (
         <BookmarkModal
           key={editingBookmark?.id ?? "new"}
@@ -147,6 +159,7 @@ function App() {
         />
       )}
 
+      {/* Displays a confirmation dialog before permanently deleting a bookmark. */}
       {bookmarkToDelete && (
         <DeleteConfirmModal
           onCancel={() => setBookmarkToDelete(null)}

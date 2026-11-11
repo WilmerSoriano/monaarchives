@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import type { Status } from "../types/bookmark";
 
@@ -5,9 +6,11 @@ export type SortBy = "title" | "chapter" | "rating";
 export type SortDirection = "asc" | "desc";
 
 export function useFilters() {
+  // Manages the library search input and controls whether the filter panel is visible.
   const [search, setSearch] = useState("");
   const [filtersOpen, setFiltersOpen] = useState(true);
 
+  // Stores the active sorting preferences and filtering criteria used to narrow down the bookmark collection.
   const [sortBy, setSortBy] = useState<SortBy>("title");
   const [direction, setDirection] = useState<SortDirection>("asc");
   const [ratingFilter, setRatingFilter] = useState<number | null>(null);
@@ -31,6 +34,7 @@ export function useFilters() {
     setSearch("");
   };
 
+  // Validates chapter filter input, removes non-numeric characters, and updates the corresponding warning state.
   const handleFilterChapterChange = (
     rawValue: string,
     setValue: (value: string) => void,
