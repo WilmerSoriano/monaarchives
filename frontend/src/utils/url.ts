@@ -13,7 +13,10 @@ export function isValidHttpUrl(value: string): boolean {
   }
 }
 
-// Extracts the website's hostname from a URL and removes the "www." prefix for cleaner display in the bookmark library.
+// Extracts ONLY the main website name between the first and second dots in the hostname.
 export function getWebsiteName(url: URL): string {
-  return url.hostname.replace(/^www\./, "");
+  const hostname = url.hostname.replace(/^www\./, "");
+  const parts = hostname.split(".");
+
+  return parts.length > 1 ? parts[0] : hostname;
 }
