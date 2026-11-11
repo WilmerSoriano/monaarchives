@@ -1,0 +1,24 @@
+/* src/styles/index.css
+   Single entry point. Import order = cascade order — do not reorder
+   without checking which rules rely on coming later. */
+
+/* 1. Base */
+@import "./base/reset.css";
+
+/* 2. Layout */
+@import "./layout/page.css";
+@import "./layout/header.css";
+@import "./layout/toolbar.css";
+
+/* 3. Components (must come after layout so shared selectors win) */
+@import "./components/filters.css";
+@import "./components/library.css";
+@import "./components/bookmark-row.css";
+@import "./components/modal.css";
+@import "./components/delete-confirm.css";
+
+/* 4. Responsive overrides (must come after all base component rules) */
+@import "./responsive.css";
+
+/* 5. Cross-cutting polish: focus, validation, touch, reduced-motion (last) */
+@import "./utilities/interactions.css";

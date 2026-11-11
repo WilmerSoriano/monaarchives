@@ -1,0 +1,118 @@
+/* ===== Responsive: tablet ===== */
+@media (max-width: 900px) {
+  .page {
+    width: min(100% - 36px, 720px);
+    padding-top: 35px;
+  }
+
+  .brand { margin-bottom: 32px; }
+  .brand h1 { font-size: 40px; }
+
+  .filter-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+
+  .status-line {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .status-line .reset { margin-left: auto; }
+
+  .table-head,
+  .bookmark-row {
+    grid-template-columns: minmax(170px, 2fr) .5fr .8fr .9fr;
+  }
+
+  .table-head { font-size: 17px; }
+  .bookmark-row { padding: 11px 16px; }
+  .library-heading p { display: none; }
+}
+
+/* ===== Responsive: mobile ===== */
+@media (max-width: 620px) {
+  .page {
+    width: calc(100% - 28px);
+    padding-top: 25px;
+  }
+
+  .brand h1 { font-size: 34px; }
+
+  .toolbar { grid-template-columns: 1fr 1fr; }
+  .searchbox { grid-column: 1 / -1; }
+  .searchbox > span { display: none; }
+
+  .button { height: 45px; padding: 0 12px; }
+  .filter-toggle,
+  .primary { min-width: 0; }
+
+  .filter-top { grid-template-columns: 1fr 1fr; }
+  .filters { padding: 16px; }
+  .sort-group { grid-column: 1 / -1; }
+
+  .status-line { gap: 8px; }
+  .status-line .pills { width: 100%; }
+  .reset { margin-left: 0; }
+
+  .table-head { display: none; }
+
+  .bookmark-row {
+    grid-template-columns: 1fr auto;
+    gap: 8px 12px;
+    border-radius: 16px;
+  }
+
+  .book-title { grid-column: 1 / 2; }
+
+  .chapter-value {
+    grid-column: 2;
+    grid-row: 1;
+    text-align: right;
+  }
+
+  .bookmark-row > span:nth-child(3) {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .website-value {
+    grid-column: 2;
+    grid-row: 2;
+    justify-content: flex-end;
+  }
+
+  .page-footer { font-size: 9px; gap: 12px; }
+  .page-footer span:last-child { display: none; }
+
+  .modal { padding: 23px 19px; border-radius: 23px; }
+  .field-grid { grid-template-columns: 110px 1fr; gap: 10px; }
+  .modal h2 { font-size: 22px; }
+  .modal-actions .cancel { min-width: 90px; }
+  .rating-stars { gap: 4px; }
+  .rating-stars button { font-size: 25px; }
+}
+
+/* ===== Mobile bookmark-row card layout (polish block) ===== */
+@media (max-width: 620px) {
+  .bookmark-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .bookmark-row > :nth-child(1) { grid-row: 1; grid-column: 1; }
+  .bookmark-row > :nth-child(2) { grid-row: 1; grid-column: 2; }
+  .bookmark-row > :nth-child(3) { grid-row: 2; grid-column: 1; }
+  .bookmark-row > :nth-child(4) { grid-row: 3; grid-column: 1; }
+
+  .bookmark-row > .bookmark-actions {
+    grid-row: 2 / span 2;
+    grid-column: 2;
+    align-self: center;
+  }
+
+  .edit-bookmark {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+}

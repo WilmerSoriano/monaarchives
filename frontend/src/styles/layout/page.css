@@ -1,0 +1,15 @@
+/* ===== Page shell & footer ===== */
+
+.page {
+  width: min(1280px, calc(100% - 64px));
+  margin: 0 auto;
+  padding: 54px 0 28px;
+}
+
+.page-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 17px 8px 0;
+  color: #b3a9bb;
+  font-size: 11px;
+}

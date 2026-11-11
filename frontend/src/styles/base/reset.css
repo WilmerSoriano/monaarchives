@@ -1,0 +1,19 @@
+/* ===== Global reset & root defaults ===== */
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: "DM Sans", sans-serif;
+  color: #f4eff7;
+  background: #1b1721;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #1b1721;
+}

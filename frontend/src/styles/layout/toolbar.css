@@ -1,0 +1,87 @@
+/* ===== Toolbar, search box, buttons ===== */
+
+.toolbar {
+  display: grid;
+  grid-template-columns: minmax(240px, 1fr) auto auto;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+/* Shared base for search + website inputs.
+   NOTE: .website-input is fully re-styled later in filters.css. */
+.searchbox,
+.website-input {
+  height: 52px;
+  border: 1px solid #51475b;
+  border-radius: 30px;
+  background: #2a2430;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 0 20px;
+  color: #c7bdce;
+}
+
+.searchbox input,
+.website-input input {
+  background: none;
+  border: 0;
+  outline: 0;
+  color: #f5eff8;
+  min-width: 0;
+  flex: 1;
+  font: inherit;
+  font-size: 14px;
+}
+
+.searchbox input::placeholder,
+.website-input input::placeholder {
+  color: #c0b7c7;
+}
+
+.searchbox > span {
+  font-size: 10px;
+  color: #a69bad;
+  white-space: nowrap;
+}
+
+.button {
+  border: 1px solid transparent;
+  border-radius: 28px;
+  padding: 0 19px;
+  height: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font: 600 16px "DM Sans", sans-serif;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.filter-toggle {
+  background: #eee7fa;
+  color: #6f55ad;
+  min-width: 123px;
+}
+
+.filter-toggle:not(.active) {
+  background: #2a2430;
+  color: #d4cadd;
+  border-color: #51475b;
+}
+
+.rotate {
+  transform: rotate(180deg);
+}
+
+.primary {
+  background: #8061bd;
+  color: white;
+  min-width: 154px;
+}
+
+.primary:hover {
+  background: #9273ce;
+}

@@ -1,0 +1,38 @@
+/* ===== Brand / header ===== */
+
+.brand {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  min-height: 40px;
+  text-align: left;
+}
+
+.mascot-placeholder {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-60%) translateX(100%);
+  width: 90px;
+  height: 40px;
+  margin: 0;
+  background: #5c91e8;
+  z-index: 0;
+}
+
+.brand h1 {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-size: 48px;
+  line-height: 1.08;
+  letter-spacing: -2px;
+  font-weight: 800;
+}
+
+.brand p {
+  color: #aaa1b3;
+  font-size: 13px;
+  margin: 6px 0 0;
+}

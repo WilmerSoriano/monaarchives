@@ -1,0 +1,214 @@
+/* ===== Add / edit bookmark modal ===== */
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 4, 8, .68);
+  display: grid;
+  place-items: center;
+  padding: 22px;
+  z-index: 5;
+}
+
+.modal {
+  width: min(562px, 100%);
+  border: 1px solid #55495f;
+  border-radius: 29px;
+  background: #2c2532;
+  padding: 31px 31px 30px;
+  box-shadow: 0 22px 70px #08060c88;
+}
+
+.modal-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.modal-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 14px;
+  background: #eee7fa;
+  color: #8061bd;
+  display: grid;
+  place-items: center;
+}
+
+.close-button {
+  width: 31px;
+  height: 31px;
+  border-radius: 50%;
+  border: 1px solid #55495f;
+  background: transparent;
+  color: #d8cfe0;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.modal h2 {
+  font-size: 24px;
+  letter-spacing: -.7px;
+  margin: 0 0 24px;
+}
+
+/* ----- Form fields ----- */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  min-width: 0;
+}
+
+.field > span {
+  font-size: 14px;
+  font-weight: 600;
+  color: #d9d0df;
+}
+
+.field input,
+.select-wrap select {
+  width: 100%;
+  height: 44px;
+  border: 1px solid #55495f;
+  border-radius: 15px;
+  background: #2c2532;
+  color: #f4eff7;
+  padding: 0 13px;
+  font: 13px "DM Sans", sans-serif;
+  outline: none;
+}
+
+.field input:focus,
+.select-wrap select:focus {
+  border-color: #9273ce;
+}
+
+.field input::placeholder {
+  color: #958a9d;
+}
+
+.field-grid {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 14px;
+  margin: 17px 0;
+}
+
+.select-wrap {
+  position: relative;
+}
+
+.select-wrap select {
+  appearance: none;
+  padding-right: 35px;
+}
+
+.select-wrap svg {
+  position: absolute;
+  right: 13px;
+  top: 14px;
+  color: #9f94a8;
+  pointer-events: none;
+}
+
+.field-note {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #bdb2c4;
+  font-size: 10px;
+  margin-top: 0;
+}
+
+.field.full + .field.full {
+  margin-top: 17px;
+}
+
+/* ----- Rating picker ----- */
+
+.rating-picker {
+  height: 58px;
+  border-radius: 16px;
+  background: #eee7fa;
+  color: #7257b3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+}
+
+.rating-stars {
+  display: flex;
+  gap: 8px;
+}
+
+.rating-stars button {
+  border: 0;
+  background: none;
+  padding: 0;
+  color: #a79cad;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 120ms ease, transform 120ms ease;
+}
+
+.rating-stars button:hover {
+  transform: scale(1.12);
+}
+
+.rating-stars button.on {
+  color: #8061bd;
+}
+
+.rating-picker:focus-within .rating-stars button:focus-visible {
+  outline: 2px solid #8061bd;
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.rating-picker strong {
+  font-size: 13px;
+}
+
+/* ----- Modal footer buttons -----
+   NOTE: .modal-actions is not used in the current App.tsx JSX (it renders
+   .modal-edit). These rules are preserved as-is from the original and are
+   currently dead. Change the selectors to ".modal-edit .cancel" /
+   ".modal-edit .submit" if you want them to take effect. */
+
+.modal-edit {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 14px;
+  margin-top: 32px;
+}
+
+.modal-actions .cancel {
+  background: transparent;
+  border-color: #55495f;
+  color: #f2ebf6;
+  min-width: 118px;
+}
+
+.modal-actions .submit {
+  flex: 1;
+}
+
+.modal-actions .submit:disabled {
+  background: #51485d;
+  border-color: #51485d;
+  color: #aaa1b2;
+  cursor: not-allowed;
+  opacity: 1;
+  box-shadow: none;
+}
+
+.modal-actions .submit:disabled:hover {
+  background: #51485d;
+}

@@ -1,0 +1,83 @@
+/* ===== Cross-cutting polish: focus, validation, touch, reduced motion =====
+   Imported LAST so these rules can win against component defaults. */
+
+/* Focus rings */
+.reset:focus-visible,
+.button:focus-visible,
+.pill:focus-visible,
+.rating-number:focus-visible {
+  outline: 2px solid #b59ae9;
+  outline-offset: 3px;
+}
+
+.edit-bookmark:focus-visible,
+.delete-bookmark:focus-visible,
+.delete-no-button:focus-visible,
+.delete-yes-button:focus-visible {
+  outline: 2px solid #a88be0;
+  outline-offset: 3px;
+}
+
+/* Numeric text inputs: strip native number affordances */
+.chapter-inputs input,
+.field input[inputmode="numeric"] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+.chapter-inputs input::-webkit-inner-spin-button,
+.chapter-inputs input::-webkit-outer-spin-button,
+.field input[inputmode="numeric"]::-webkit-inner-spin-button,
+.field input[inputmode="numeric"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Validation states */
+.chapter-inputs input[aria-invalid="true"],
+.field input[aria-invalid="true"] {
+  border-color: #e36b78;
+}
+
+.input-warning {
+  display: block;
+  margin-top: 5px;
+  color: #ff858e;
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.chapter-group .input-warning {
+  margin-top: 7px;
+}
+
+/* Touch devices: always show row action buttons */
+@media (hover: none) {
+  .edit-bookmark,
+  .delete-bookmark {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .bookmark-row,
+  .reset,
+  .filters .website-input,
+  .rating-stars button,
+  .edit-bookmark,
+  .delete-bookmark,
+  .website-link,
+  .delete-no-button,
+  .delete-yes-button {
+    transition: none;
+  }
+
+  .bookmark-row:hover,
+  .reset:hover,
+  .rating-stars button:hover {
+    transform: none;
+  }
+}

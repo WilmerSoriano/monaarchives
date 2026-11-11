@@ -1,0 +1,84 @@
+/* ===== Delete confirmation dialog ===== */
+
+.delete-confirm-backdrop {
+  z-index: 10;
+}
+
+.delete-confirm-modal {
+  width: min(420px, 100%);
+  padding: 28px;
+  border: 1px solid #665875;
+  border-radius: 22px;
+  background: #2c2532;
+  color: #f4eff7;
+  box-shadow: 0 22px 70px rgba(8, 6, 12, 0.6);
+}
+
+.delete-confirm-icon {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 16px;
+  border-radius: 14px;
+  background: rgba(199, 71, 85, 0.14);
+  color: #e16b78;
+}
+
+.delete-confirm-modal h2 {
+  margin: 0 0 9px;
+  font-size: 20px;
+  line-height: 1.35;
+}
+
+.delete-confirm-modal p {
+  margin: 0;
+  color: #bdb2c4;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.delete-confirm-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 26px;
+}
+
+.delete-no-button,
+.delete-yes-button {
+  min-width: 82px;
+  padding: 9px 17px;
+  border: 1px solid #665875;
+  border-radius: 10px;
+  font: 600 13px "DM Sans", sans-serif;
+  cursor: pointer;
+  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+}
+
+.delete-no-button {
+  background: transparent;
+  color: #e5ddeb;
+}
+
+.delete-no-button:hover {
+  background: #403648;
+  border-color: #8a789c;
+}
+
+.delete-yes-button {
+  background: #b83f4d;
+  border-color: #b83f4d;
+  color: #fff;
+}
+
+.delete-yes-button:hover {
+  background: #d04d5c;
+  border-color: #d04d5c;
+}
+
+@media (max-width: 620px) {
+  .delete-confirm-modal {
+    padding: 23px 20px;
+  }
+}
