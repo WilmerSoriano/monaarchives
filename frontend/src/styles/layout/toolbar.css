@@ -40,12 +40,6 @@
   color: #c0b7c7;
 }
 
-.searchbox > span {
-  font-size: 10px;
-  color: #a69bad;
-  white-space: nowrap;
-}
-
 .button {
   border: 1px solid transparent;
   border-radius: 28px;

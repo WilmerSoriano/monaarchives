@@ -133,7 +133,7 @@
 }
 
 .website-link:hover {
-  color: var(--accent, #ea7b7b);
+  color: var(--accent-link, #ea7b7b);
   text-decoration: underline;
   text-underline-offset: 3px;
 }

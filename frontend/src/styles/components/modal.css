@@ -115,15 +115,6 @@
   pointer-events: none;
 }
 
-.field-note {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  color: #bdb2c4;
-  font-size: 10px;
-  margin-top: 0;
-}
-
 .field.full + .field.full {
   margin-top: 17px;
 }
@@ -175,11 +166,7 @@
   font-size: 13px;
 }
 
-/* ----- Modal footer buttons -----
-   NOTE: .modal-actions is not used in the current App.tsx JSX (it renders
-   .modal-edit). These rules are preserved as-is from the original and are
-   currently dead. Change the selectors to ".modal-edit .cancel" /
-   ".modal-edit .submit" if you want them to take effect. */
+/* ----- Modal footer buttons ----- */
 
 .modal-edit {
   display: flex;
@@ -189,18 +176,18 @@
   margin-top: 32px;
 }
 
-.modal-actions .cancel {
+.modal-edit .cancel {
   background: transparent;
   border-color: #55495f;
   color: #f2ebf6;
   min-width: 118px;
 }
 
-.modal-actions .submit {
+.modal-edit .submit {
   flex: 1;
 }
 
-.modal-actions .submit:disabled {
+.modal-edit .submit:disabled {
   background: #51485d;
   border-color: #51485d;
   color: #aaa1b2;
@@ -209,6 +196,6 @@
   box-shadow: none;
 }
 
-.modal-actions .submit:disabled:hover {
+.modal-edit .submit:disabled:hover {
   background: #51485d;
 }

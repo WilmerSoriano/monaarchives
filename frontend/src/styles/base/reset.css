@@ -10,6 +10,11 @@
   background: #1b1721;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
+
+  --accent: #8061bd;
+  --accent-link: #ea7b7b;
+  /* Neutral border used by row action buttons */
+  --border: #665b70;
 }
 
 body {

@@ -25,12 +25,6 @@
   font-size: 16px;
 }
 
-.library-heading p {
-  margin: 0 0 0 auto;
-  color: #a99fb0;
-  font-size: 11px;
-}
-
 /* Shared table grid — final 6-column layout (includes the actions column).
    (Original had a 5-col rule that a later block overrode; consolidated here.) */
 .table-head,

@@ -27,7 +27,6 @@
 
   .table-head { font-size: 17px; }
   .bookmark-row { padding: 11px 16px; }
-  .library-heading p { display: none; }
 }
 
 /* ===== Responsive: mobile ===== */
@@ -41,7 +40,6 @@
 
   .toolbar { grid-template-columns: 1fr 1fr; }
   .searchbox { grid-column: 1 / -1; }
-  .searchbox > span { display: none; }
 
   .button { height: 45px; padding: 0 12px; }
   .filter-toggle,
@@ -88,7 +86,7 @@
   .modal { padding: 23px 19px; border-radius: 23px; }
   .field-grid { grid-template-columns: 110px 1fr; gap: 10px; }
   .modal h2 { font-size: 22px; }
-  .modal-actions .cancel { min-width: 90px; }
+  .modal-edit .cancel { min-width: 90px; }   /* was .modal-actions .cancel */
   .rating-stars { gap: 4px; }
   .rating-stars button { font-size: 25px; }
 }
