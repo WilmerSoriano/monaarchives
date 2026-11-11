@@ -8,6 +8,7 @@ import {
   Plus,
   Search,
   SlidersHorizontal,
+  Trash2,
   X,
 } from "lucide-react";
 
@@ -36,8 +37,8 @@ const INSTANT_EPOCH = "1970-01-01T00:00:00Z"; // default date
 const starterBookmarks: Bookmark[] = [
   {
     id: 1,
-    title: "Unable to retrieve bookmarks",
-    chapter: 1,
+    title: "One Piece",
+    chapter: 0,
     status: "PLANNED",
     website: "example.com",
     rating: 0,
@@ -56,12 +57,12 @@ const starterBookmarks: Bookmark[] = [
   },
   {
     id: 3,
-    title: "Chainsaw Man",
+    title: "Solo leveling",
     chapter: 180,
     status: "READING",
-    website: "MANGA Plus",
-    rating: 4,
-    url: "https://mangaplus.shueisha.co.jp/",
+    website: "Asura Scans",
+    rating: 3,
+    url: "https://asurascans.com/comics/solo-leveling-f212c582",
     dateLastClicked: INSTANT_EPOCH,
   },
 ];
@@ -75,7 +76,7 @@ const statuses: Status[] = [
   "AXED",
 ];
 
-const pastelClasses = ["lilac", "peach", "mint", "blue", "cream", "pink"]; // Colors from CSS file
+const pastelClasses = ["lilac", "peach", "pink","mint", "blue", "cream"]; // Colors from CSS file
 
 function isValidHttpUrl(value: string): boolean {
   try {
@@ -132,6 +133,7 @@ function App() {
 
   const [modalOpen, setModalOpen] = useState(false);
   const [editingBookmarkId, setEditingBookmarkId] = useState<number | null>(null);
+  const [bookmarkToDelete, setBookmarkToDelete] = useState<Bookmark | null>(null);
 
   const [form, setForm] = useState({
     title: "",
@@ -342,6 +344,26 @@ function App() {
     }
 
     closeModal();
+  };
+
+  // Open the confirmation dialog for the selected bookmark.
+  const requestBookmarkDelete = (bookmark: Bookmark) => {
+    setBookmarkToDelete(bookmark);
+  };
+
+  // Delete only after the user confirms the action.
+  const confirmBookmarkDelete = () => {
+    if (!bookmarkToDelete) return;
+
+    setBookmarks((current) =>
+      current.filter((bookmark) => bookmark.id !== bookmarkToDelete.id)
+    );
+    setBookmarkToDelete(null);
+  };
+
+  // Close the confirmation dialog without changing the bookmark list.
+  const cancelBookmarkDelete = () => {
+    setBookmarkToDelete(null);
   };
 
   // Update the hidden visit timestamp when the website link is clicked.
@@ -649,7 +671,7 @@ function App() {
                 ))}
               </span>
 
-              <div className="bookmark-edit">
+              <div className="bookmark-actions">
                 <button
                   type="button"
                   className="edit-bookmark"
@@ -658,6 +680,16 @@ function App() {
                 >
                   <Pencil size={14} />
                   <span>Edit</span>
+                </button>
+
+                <button
+                  type="button"
+                  className="delete-bookmark"
+                  onClick={() => requestBookmarkDelete(bookmark)}
+                  aria-label={`Delete ${bookmark.title}`}
+                >
+                  <Trash2 size={14} />
+                  <span>Delete</span>
                 </button>
               </div>
             </article>
@@ -869,8 +901,50 @@ function App() {
           </form>
         </div>
       )}
+
+      {bookmarkToDelete && (
+        <div
+          className="modal-backdrop delete-confirm-backdrop"
+          onMouseDown={(event) => {
+            if (event.target === event.currentTarget) cancelBookmarkDelete();
+          }}
+        >
+          <section
+            className="delete-confirm-modal"
+            role="alertdialog"
+            aria-modal="true"
+            aria-labelledby="delete-confirm-title"
+            aria-describedby="delete-confirm-message"
+          >
+            <div className="delete-confirm-icon">
+              <Trash2 size={21} />
+            </div>
+
+            <h2 id="delete-confirm-title">Are you sure you want to Delete?</h2>
+            <p id="delete-confirm-message">All bookmark info will be lost.</p>
+
+            <div className="delete-confirm-actions">
+              <button
+                type="button"
+                className="delete-no-button"
+                onClick={cancelBookmarkDelete}
+              >
+                No
+              </button>
+              <button
+                type="button"
+                className="delete-yes-button"
+                onClick={confirmBookmarkDelete}
+              >
+                Yes
+              </button>
+            </div>
+          </section>
+        </div>
+      )}
     </main>
   );
 }
 
 export default App;
+
