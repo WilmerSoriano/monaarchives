@@ -98,7 +98,20 @@ public class BookmarkController {
         BookmarkDto bookmarkDto = bookmarkMapper.toDto(bookmark);
 
         return ResponseEntity.ok(bookmarkDto);
+    }
+    /*
+        Java will handle last time user visited a bookmark based on ID. e.g TypeScript
+        will send us an ID with the the following path (annotation). This will
+        indicate we just need to update current time.
+    */
+    @PatchMapping (path = "/{bookmarkId}/visit")
+    public ResponseEntity<BookmarkDto> patchVisitedBookmark(@PathVariable UUID bookmarkId){
 
+        Bookmark bookmark = bookmarkService.patchVisitedBookmark(bookmarkId);
+
+        BookmarkDto bookmarkDto = bookmarkMapper.toDto(bookmark);
+
+        return ResponseEntity.ok(bookmarkDto);
     }
 
     @DeleteMapping (path = "/{bookmarkId}")

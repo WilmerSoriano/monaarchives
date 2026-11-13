@@ -20,6 +20,8 @@ public interface BookmarkService {
     Bookmark patchBookmark(UUID bookmarkId, PatchBookmarkRequest request);
     <T>void updateIfNotNull(T checkRequest, Consumer<T> setter); // little generic helper to identify updated fields vs none update fields
 
+    Bookmark patchVisitedBookmark(UUID bookmarkId);
+
     void deleteBookmark(UUID bookmarkId);
     
 }

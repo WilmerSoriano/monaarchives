@@ -38,7 +38,7 @@ public class BookmarkServiceImpl implements BookmarkService{
     public Bookmark createBookmark(CreateBookmarkRequest request){
         // 1st we need to get the current date right away!
     
-        Instant now = Instant.now();// Given that this is the create Bookmark, by default all 3 time staps (current, updated, and lastClicked ) will be using the current time.
+        Instant currentTime = Instant.now();// Given that this is the create Bookmark, by default all 3 time staps (current, updated, and lastClicked ) will be using the current time.
 
         Bookmark bookmark = new Bookmark(
             null,// ID is generated
@@ -48,9 +48,9 @@ public class BookmarkServiceImpl implements BookmarkService{
             request.dns(),
             request.url(),
             request.rating(),
-            now,
-            now,
-            now
+            currentTime,
+            currentTime,
+            currentTime
         );
 
         return bookmarkRepository.save(bookmark);
@@ -69,7 +69,7 @@ public class BookmarkServiceImpl implements BookmarkService{
     public Bookmark updateBookmark(UUID bookmarkId, UpdateBookmarkRequest request){
         Bookmark bookmark = bookmarkRepository.findById(bookmarkId).orElseThrow(() -> new BookmarkNotFoundExeception(bookmarkId)); // Instead of if-statment (faster for us)
 
-        Instant newUpdate = Instant.now();// Again, we control anything related to date/time
+        Instant currentTime = Instant.now();// Again, we control anything related to date/time
 
         bookmark.setTitle(request.title());
         bookmark.setChapter(request.chapter());
@@ -77,7 +77,7 @@ public class BookmarkServiceImpl implements BookmarkService{
         bookmark.setDns(request.dns());
         bookmark.setUrl(request.url());
         bookmark.setRating(request.rating());
-        bookmark.setDateUpdated(newUpdate);
+        bookmark.setDateUpdated(currentTime);
 
         return bookmarkRepository.save(bookmark);
     }
@@ -86,7 +86,7 @@ public class BookmarkServiceImpl implements BookmarkService{
     public Bookmark patchBookmark(UUID bookmarkId, PatchBookmarkRequest request){
         Bookmark bookmark = bookmarkRepository.findById(bookmarkId).orElseThrow(() -> new BookmarkNotFoundExeception(bookmarkId)); // Instead of if-statment (faster for us)
 
-        Instant newUpdate = Instant.now();
+        Instant currentTime = Instant.now();
 
         updateIfNotNull(request.title(), bookmark::setTitle);
         updateIfNotNull(request.chapter(), bookmark::setChapter);
@@ -95,7 +95,7 @@ public class BookmarkServiceImpl implements BookmarkService{
         updateIfNotNull(request.url(), bookmark::setUrl);
         updateIfNotNull(request.rating(), bookmark::setRating);
         
-        bookmark.setDateUpdated(newUpdate);
+        bookmark.setDateUpdated(currentTime);
 
         return bookmarkRepository.save(bookmark);
     }
@@ -105,6 +105,16 @@ public class BookmarkServiceImpl implements BookmarkService{
         if(checkRequest != null){
             setter.accept(checkRequest);
         }
+    }
+
+    @Override
+    public Bookmark patchVisitedBookmark(UUID bookmarkId) {
+        Bookmark bookmark = bookmarkRepository.findById(bookmarkId).orElseThrow(() -> new BookmarkNotFoundExeception(bookmarkId));
+
+        Instant currentTime = Instant.now();
+        bookmark.setDateLastClicked(currentTime);
+        
+        return bookmarkRepository.save(bookmark);
     }
 
     @Override 
