@@ -8,7 +8,7 @@ type Props = {
   index: number;
   onEdit: (bookmark: Bookmark) => void;
   onDelete: (bookmark: Bookmark) => void;
-  onVisit: (id: number) => void;
+  onVisit: (id: string) => void;
 };
 
 export function BookmarkRow({
@@ -40,7 +40,7 @@ export function BookmarkRow({
       {/* Displays the website name and icon, and opens the reading URL while notifying the parent component of the visit. */}
       <span className="website-value">
         <span className="site-icon">
-          {bookmark.website.charAt(0).toUpperCase()}
+          {bookmark.dns.charAt(0).toUpperCase()}
         </span>
 
         <a
@@ -49,9 +49,9 @@ export function BookmarkRow({
           target="_blank"
           rel="noreferrer"
           onClick={() => onVisit(bookmark.id)}
-          aria-label={`Open ${bookmark.website}`}
+          aria-label={`Open ${bookmark.dns}`}
         >
-          {bookmark.website}
+          {bookmark.dns}
         </a>
       </span>
 

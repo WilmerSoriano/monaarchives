@@ -4,12 +4,12 @@ import type { FormEvent } from "react";
 import { BookmarkPlus, ChevronDown, Pencil, Plus, X } from "lucide-react";
 import type { Bookmark, BookmarkFormData, Status } from "../types/bookmark";
 import { STATUSES } from "../constants/bookmarks";
-import { isValidHttpUrl } from "../utils/url";
+import { getWebsiteName, isValidHttpUrl } from "../utils/url";
 
 type Props = {
   bookmark: Bookmark | null; // null = "Add" mode
   onClose: () => void;
-  onSubmit: (data: BookmarkFormData) => void;
+  onSubmit: (data: BookmarkFormData) => void | Promise<void>;
 };
 
 export function BookmarkModal({ bookmark, onClose, onSubmit }: Props) {
@@ -25,9 +25,11 @@ export function BookmarkModal({ bookmark, onClose, onSubmit }: Props) {
     rating: bookmark?.rating ?? 0,
   }));
 
-  // Tracks invalid chapter input and the currently hovered rating star.
+  // Tracks invalid chapter input, the currently hovered rating star, and submission state.
   const [formChapterWarning, setFormChapterWarning] = useState(false);
   const [hoverRating, setHoverRating] = useState(0);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   // Restricts chapter input to numbers and displays a warning when non-numeric characters are entered.
   const handleFormChapterChange = (rawValue: string) => {
@@ -44,26 +46,59 @@ export function BookmarkModal({ bookmark, onClose, onSubmit }: Props) {
     setForm((current) => ({ ...current, chapter: rawValue }));
   };
 
-  // Checks the required fields and URL format to determine whether the form can be submitted.
-  const titleIsValid = form.title.trim().length > 0;
-  const chapterIsValid = form.chapter.trim() !== "" && /^\d+$/.test(form.chapter);
-  const urlIsValid = isValidHttpUrl(form.url);
-  const canSubmit = titleIsValid && chapterIsValid && urlIsValid;
+  // Checks the form fields against the validation constraints defined by the Java request DTOs.
+  const titleIsValid =
+    form.title.trim().length > 0 && form.title.trim().length <= 180;
+  const chapterNumber = Number(form.chapter);
+  const chapterIsValid =
+    form.chapter.trim() !== "" &&
+    /^\d+$/.test(form.chapter) &&
+    chapterNumber >= 0 &&
+    chapterNumber <= 10000;
+  const urlIsValid =
+    form.url.trim().length <= 1000 && isValidHttpUrl(form.url);
+  const dnsIsValid =
+    urlIsValid &&
+    getWebsiteName(new URL(form.url.trim())).length <= 128;
+  const ratingIsValid =
+    Number.isInteger(form.rating) && form.rating >= 0 && form.rating <= 5;
 
-  // Validates the form, converts the chapter to a number, normalizes the URL, and sends the data to the parent component.
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const canSubmit =
+    titleIsValid &&
+    chapterIsValid &&
+    urlIsValid &&
+    dnsIsValid &&
+    ratingIsValid &&
+    !submitting;
+
+  // Validates the form, extracts the website name, and submits the six fields expected by the Java DTO.
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!canSubmit) return;
 
     const parsedUrl = new URL(form.url.trim());
 
-    onSubmit({
+    const data: BookmarkFormData = {
       title: form.title.trim(),
-      chapter: Number(form.chapter),
+      chapter: chapterNumber,
       status: form.status,
+      dns: getWebsiteName(parsedUrl),
       url: parsedUrl.toString(),
       rating: form.rating,
-    });
+    };
+
+    setSubmitting(true);
+    setSubmitError(null);
+
+    try {
+      await onSubmit(data);
+    } catch (error) {
+      setSubmitError(
+        error instanceof Error ? error.message : "Failed to save bookmark."
+      );
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   // Renders the add/edit modal, including bookmark fields, reading status, rating selection, and form actions.
@@ -71,7 +106,7 @@ export function BookmarkModal({ bookmark, onClose, onSubmit }: Props) {
     <div
       className="modal-backdrop"
       onMouseDown={(event) => {
-        if (event.target === event.currentTarget) onClose();
+        if (!submitting && event.target === event.currentTarget) onClose();
       }}
     >
       <form className="modal" onSubmit={handleSubmit} noValidate>
@@ -85,6 +120,7 @@ export function BookmarkModal({ bookmark, onClose, onSubmit }: Props) {
             className="close-button"
             onClick={onClose}
             aria-label="Close"
+            disabled={submitting}
           >
             <X size={18} />
           </button>
@@ -98,6 +134,7 @@ export function BookmarkModal({ bookmark, onClose, onSubmit }: Props) {
           <input
             required
             autoFocus
+            maxLength={180}
             placeholder="e.g. Omniscient Reader’s Viewpoint"
             value={form.title}
             onChange={(event) =>
@@ -105,6 +142,12 @@ export function BookmarkModal({ bookmark, onClose, onSubmit }: Props) {
             }
             aria-invalid={form.title.length > 0 && !titleIsValid}
           />
+
+          {form.title.trim().length > 180 && (
+            <small className="input-warning" role="alert">
+              Title cannot exceed 180 characters.
+            </small>
+          )}
         </label>
 
         <div className="field-grid">
@@ -118,13 +161,19 @@ export function BookmarkModal({ bookmark, onClose, onSubmit }: Props) {
               placeholder="e.g. 25"
               value={form.chapter}
               onChange={(event) => handleFormChapterChange(event.target.value)}
-              aria-invalid={formChapterWarning}
+              aria-invalid={formChapterWarning || (form.chapter !== "" && !chapterIsValid)}
               required
             />
 
             {formChapterWarning && (
               <small className="input-warning" role="alert">
                 Only numbers are allowed.
+              </small>
+            )}
+
+            {form.chapter !== "" && /^\d+$/.test(form.chapter) && !chapterIsValid && (
+              <small className="input-warning" role="alert">
+                Chapter must be between 0 and 10,000.
               </small>
             )}
           </label>
@@ -157,6 +206,7 @@ export function BookmarkModal({ bookmark, onClose, onSubmit }: Props) {
 
           <input
             type="url"
+            maxLength={1000}
             placeholder="https://..."
             value={form.url}
             onChange={(event) =>
@@ -168,7 +218,13 @@ export function BookmarkModal({ bookmark, onClose, onSubmit }: Props) {
 
           {form.url.length > 0 && !urlIsValid && (
             <small className="input-warning" role="alert">
-              Enter a valid URL beginning with https:// or http://.
+              Enter a valid HTTP or HTTPS URL no longer than 1,000 characters.
+            </small>
+          )}
+
+          {urlIsValid && !dnsIsValid && (
+            <small className="input-warning" role="alert">
+              The extracted website name cannot exceed 128 characters.
             </small>
           )}
         </label>
@@ -182,6 +238,7 @@ export function BookmarkModal({ bookmark, onClose, onSubmit }: Props) {
                 <button
                   type="button"
                   key={number}
+                  disabled={submitting}
                   onMouseEnter={() => setHoverRating(number)}
                   onFocus={() => setHoverRating(number)}
                   onBlur={() => setHoverRating(0)}
@@ -204,9 +261,20 @@ export function BookmarkModal({ bookmark, onClose, onSubmit }: Props) {
           </div>
         </div>
 
+        {submitError && (
+          <p className="input-warning" role="alert">
+            {submitError}
+          </p>
+        )}
+
         {/* Provides actions to cancel the form, submit the new, or updated bookmark. */}
         <div className="modal-edit">
-          <button type="button" className="button cancel" onClick={onClose}>
+          <button
+            type="button"
+            className="button cancel"
+            onClick={onClose}
+            disabled={submitting}
+          >
             Cancel
           </button>
 
@@ -216,7 +284,9 @@ export function BookmarkModal({ bookmark, onClose, onSubmit }: Props) {
             disabled={!canSubmit}
             aria-disabled={!canSubmit}
           >
-            {isEditing ? (
+            {submitting ? (
+              "Saving..."
+            ) : isEditing ? (
               <>
                 <Pencil size={17} />
                 Save changes

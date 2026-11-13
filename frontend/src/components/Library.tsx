@@ -9,7 +9,7 @@ type Props = {
   direction: SortDirection;
   onEdit: (bookmark: Bookmark) => void;
   onDelete: (bookmark: Bookmark) => void;
-  onVisit: (id: number) => void;
+  onVisit: (id: string) => void;
 };
 
 export function Library({
@@ -75,3 +75,4 @@ export function Library({
     </section>
   );
 }
+

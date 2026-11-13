@@ -102,5 +102,5 @@ export function useBookmarks() {
   };
 
   // Exposes bookmark data and its management functions to components that use this hook.
-  return { bookmarks, addBookmark, updateBookmark, deleteBookmark, markVisited };
+  return { bookmarks, loading, error, addBookmark, updateBookmark, deleteBookmark, markVisited };
 }

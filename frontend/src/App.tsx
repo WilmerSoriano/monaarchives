@@ -1,4 +1,5 @@
 
+
 import { useMemo, useState } from "react";
 import type { Bookmark, BookmarkFormData } from "./types/bookmark";
 import { useBookmarks } from "./hooks/useBookmarks";
@@ -13,6 +14,8 @@ import { DeleteConfirmModal } from "./components/DeleteConfirmModal";
 function App() {
   const {
     bookmarks,
+    loading,
+    error,
     addBookmark,
     updateBookmark,
     deleteBookmark,
@@ -21,22 +24,21 @@ function App() {
 
   const filters = useFilters();
 
-  // Destructures individual filter values for useMemo dependencies.
-  const {
-    search,
-    statusFilter,
-    ratingFilter,
-    minChapter,
-    maxChapter,
-    websiteFilter,
-    sortBy,
-    direction,
-  } = filters;
-
   // Controls the add/edit modal and stores the bookmark currently being edited or deleted.
   const [modalOpen, setModalOpen] = useState(false);
   const [editingBookmark, setEditingBookmark] = useState<Bookmark | null>(null);
   const [bookmarkToDelete, setBookmarkToDelete] = useState<Bookmark | null>(null);
+
+  const {
+  search,
+  statusFilter,
+  ratingFilter,
+  minChapter,
+  maxChapter,
+  websiteFilter,
+  sortBy,
+  direction,
+  } = filters;
 
   // Filters and sorts bookmarks based on the current search term and filter settings.
   // useMemo recalculates the visible list only when its dependencies change.
@@ -48,7 +50,7 @@ function App() {
         const matchesSearch =
           !term ||
           bookmark.title.toLowerCase().includes(term) ||
-          bookmark.website.toLowerCase().includes(term);
+          bookmark.dns.toLowerCase().includes(term);
 
         const matchesStatus =
           statusFilter === "ALL" || bookmark.status === statusFilter;
@@ -64,7 +66,7 @@ function App() {
 
         const matchesWebsite =
           !websiteFilter ||
-          bookmark.website.toLowerCase().includes(websiteFilter.toLowerCase());
+          bookmark.dns.toLowerCase().includes(websiteFilter.toLowerCase());
 
         return (
           matchesSearch &&
@@ -113,14 +115,34 @@ function App() {
     setEditingBookmark(null);
   };
 
-  // Saves the submitted form data by either updating an existing bookmark or adding a new one.
-  const handleSubmit = (data: BookmarkFormData) => {
+  // Saves the submitted form data and closes the modal only after the API request succeeds.
+  const handleSubmit = async (data: BookmarkFormData) => {
     if (editingBookmark) {
-      updateBookmark(editingBookmark.id, data);
+      await updateBookmark(editingBookmark.id, data);
     } else {
-      addBookmark(data);
+      await addBookmark(data);
     }
+
     closeModal();
+  };
+
+  // Deletes the selected bookmark and closes the confirmation dialog only after success.
+  const handleDelete = async () => {
+    if (!bookmarkToDelete) return;
+
+    try {
+      await deleteBookmark(bookmarkToDelete.id);
+      setBookmarkToDelete(null);
+    } catch {
+      // Keeps the confirmation dialog open if the deletion request fails.
+    }
+  };
+
+  // Records a visit without allowing a failed API request to create an unhandled promise rejection.
+  const handleVisit = (id: string) => {
+    void markVisited(id).catch(() => {
+      // The hook stores the API error for display.
+    });
   };
 
   // Renders the main application layout and connects the shared state to each UI component.
@@ -139,15 +161,21 @@ function App() {
       {/* Shows the additional filtering and sorting controls when the filter panel is open. */}
       {filters.filtersOpen && <Filters filters={filters} />}
 
+      {/* Displays loading and API error feedback while keeping the bookmark library accessible. */}
+      {loading && <p className="api-status">Loading bookmarks...</p>}
+      {error && <p className="api-error" role="alert">{error}</p>}
+
       {/* Displays the filtered bookmark list and passes down its available actions. */}
-      <Library
-        bookmarks={visibleBookmarks}
-        sortBy={filters.sortBy}
-        direction={filters.direction}
-        onEdit={openEditModal}
-        onDelete={setBookmarkToDelete}
-        onVisit={markVisited}
-      />
+      {!loading && (
+        <Library
+          bookmarks={visibleBookmarks}
+          sortBy={filters.sortBy}
+          direction={filters.direction}
+          onEdit={openEditModal}
+          onDelete={setBookmarkToDelete}
+          onVisit={handleVisit}
+        />
+      )}
 
       {/* Displays the add/edit form when requested. */}
       {modalOpen && (
@@ -163,10 +191,7 @@ function App() {
       {bookmarkToDelete && (
         <DeleteConfirmModal
           onCancel={() => setBookmarkToDelete(null)}
-          onConfirm={() => {
-            deleteBookmark(bookmarkToDelete.id);
-            setBookmarkToDelete(null);
-          }}
+          onConfirm={handleDelete}
         />
       )}
     </main>
