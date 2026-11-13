@@ -1,82 +1,104 @@
-
 import { useEffect, useState } from "react";
 import type { Bookmark, BookmarkFormData } from "../types/bookmark";
-import { INSTANT_EPOCH, STARTER_BOOKMARKS } from "../constants/bookmarks";
-import { getWebsiteName } from "../utils/url";
-
-const STORAGE_KEY = "monaarchives-bookmarks";
-
-// Loads previously saved bookmarks from local storage, restores missing click dates, and falls back to starter data if the saved data is unavailable or invalid.
-function loadBookmarks(): Bookmark[] {
-  try {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (!saved) return STARTER_BOOKMARKS;
-
-    const parsed = JSON.parse(saved);
-    if (!Array.isArray(parsed)) return STARTER_BOOKMARKS;
-
-    return parsed.map((bookmark: Partial<Bookmark>) => ({
-      ...bookmark,
-      dateLastClicked: bookmark.dateLastClicked ?? INSTANT_EPOCH,
-    })) as Bookmark[];
-  } catch {
-    return STARTER_BOOKMARKS;
-  }
-}
+import {
+  getBookmarks,
+  createBookmark as apiCreateBookmark,
+  updateBookmark as apiUpdateBookmark,
+  deleteBookmark as apiDeleteBookmark,
+  markBookmarkVisited,
+} from "../services/bookmarkApi";
 
 export function useBookmarks() {
-  // Manages the bookmark collection and automatically saves every state change to local storage.
-  const [bookmarks, setBookmarks] = useState<Bookmark[]>(loadBookmarks);
+  // Stores bookmarks retrieved from the backend and tracks loading and API errors.
+  const [bookmarks, setBookmarks] = useState<Bookmark[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(bookmarks));
-  }, [bookmarks]);
+  // Loads the bookmark collection when the hook is first mounted.
+  useEffect(() => { let isMounted = true;
 
-  // Creates a new bookmark, extracts its website name from the URL, assigns an ID, and adds it to the library.
-  const addBookmark = (data: BookmarkFormData) => {
-    const website = getWebsiteName(new URL(data.url));
+    async function loadBookmarks() {
+      try {
+        const data = await getBookmarks();
 
-    const newBookmark: Bookmark = {
-      id: Date.now(),
-      title: data.title,
-      chapter: data.chapter,
-      status: data.status,
-      website,
-      rating: data.rating,
-      url: data.url,
-      dateLastClicked: INSTANT_EPOCH,
-    };
+        if (isMounted) {
+          setBookmarks(data);
+          setError(null);
+        }
+      } catch (error) {
+        if (isMounted) {
+          setError(error instanceof Error ? error.message : "Failed to load bookmarks.");
+        }
+      } finally {
+        if (isMounted) {
+          setLoading(false);
+        }
+      }
+    }
 
-    setBookmarks((current) => [...current, newBookmark]);
+    loadBookmarks();
+
+    return () => {isMounted = false;};}, []);
+
+  // Creates a bookmark through the API and adds the returned entity to the collection.
+  const addBookmark = async (data: BookmarkFormData) => {
+    try {
+      const newBookmark = await apiCreateBookmark(data);
+
+      setBookmarks((current) => [...current, newBookmark]);
+      setError(null);
+
+      return newBookmark;
+    } catch (error) {
+      setError(error instanceof Error ? error.message : "Failed to create bookmark.");
+      throw error;
+    }
   };
 
-  // Updates the matching bookmark with the submitted form data while refreshing its website name from the URL.
-  const updateBookmark = (id: number, data: BookmarkFormData) => {
-    const website = getWebsiteName(new URL(data.url));
+  // Replaces the selected bookmark with the updated entity returned by the API.
+  const updateBookmark = async (id: string, data: BookmarkFormData) => {
+    try {
+      const updatedBookmark = await apiUpdateBookmark(id, data);
 
-    setBookmarks((current) =>
-      current.map((bookmark) =>
-        bookmark.id === id ? { ...bookmark, ...data, website } : bookmark
-      )
-    );
+      setBookmarks((current) =>current.map((bookmark) => bookmark.id === id ? updatedBookmark : bookmark));
+
+      setError(null);
+
+      return updatedBookmark;
+    } catch (error) {
+      setError(error instanceof Error ? error.message : "Failed to update bookmark.");
+      throw error;
+    }
   };
 
-  // Removes the selected bookmark from the collection using its unique ID.
-  const deleteBookmark = (id: number) => {
-    setBookmarks((current) =>
-      current.filter((bookmark) => bookmark.id !== id)
-    );
+  // Deletes the selected bookmark through the API and removes it from the collection.
+  const deleteBookmark = async (id: string) => {
+    try {
+      await apiDeleteBookmark(id);
+
+      setBookmarks((current) => current.filter((bookmark) => bookmark.id !== id));
+
+      setError(null);
+    } catch (error) {
+      setError(error instanceof Error ? error.message : "Failed to delete bookmark.");
+      throw error;
+    }
   };
 
-  // Records the latest visit time whenever a bookmark's reading link is opened.
-  const markVisited = (id: number) => {
-    setBookmarks((current) =>
-      current.map((bookmark) =>
-        bookmark.id === id
-          ? { ...bookmark, dateLastClicked: new Date().toISOString() }
-          : bookmark
-      )
-    );
+  // Records a visit through the backend and updates the bookmark with its returned timestamp.
+  const markVisited = async (id: string) => {
+    try {
+      const updatedBookmark = await markBookmarkVisited(id);
+
+      setBookmarks((current) => current.map((bookmark) =>bookmark.id === id ? updatedBookmark : bookmark));
+
+      setError(null);
+
+      return updatedBookmark;
+    } catch (error) {
+      setError(error instanceof Error ? error.message : "Failed to record bookmark visit.");
+      throw error;
+    }
   };
 
   // Exposes bookmark data and its management functions to components that use this hook.
