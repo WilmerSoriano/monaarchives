@@ -18,6 +18,7 @@ import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 // Handle HTTPS request and transfer
 public record CreateBookmarkRequestDto
@@ -29,9 +30,13 @@ public record CreateBookmarkRequestDto
     @Max(value = 10000, message = ERROR_MESSAGE_MAX_LENGTH +" 10,000")
     Integer chapter,
     @NotNull(message = ERROR_MESSAGE_STATUS)
-    BookmarkStatus status, 
+    BookmarkStatus status,
     @NotBlank(message = ERROR_MESSAGE_LINK)
-    String website,
+    @Size(max = 128, message = "DNS "+ ERROR_MESSAGE_MAX_SIZE + " 128 characters")
+    String dns, 
+    @NotBlank(message = ERROR_MESSAGE_LINK)
+    @Size(max = 1000, message = "URL " + ERROR_MESSAGE_MAX_SIZE + " 1000 characters")
+    String url,
     @Min(value = 0, message = ERROR_MESSAGE_MIN_LENGTH + " 0") 
     @Max(value = 5, message = ERROR_MESSAGE_MAX_LENGTH + " 5")
     Integer rating
@@ -51,4 +56,7 @@ public record CreateBookmarkRequestDto
 
         private static final String ERROR_MESSAGE_LINK = 
         "ERROR: A link must be provided";
+
+        private static final String ERROR_MESSAGE_MAX_SIZE = 
+        "ERROR: must not exceed";
 }

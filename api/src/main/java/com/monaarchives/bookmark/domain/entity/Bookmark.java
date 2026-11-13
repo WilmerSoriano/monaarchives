@@ -35,8 +35,11 @@ public class Bookmark {
     @Column (name = "status", nullable = false)
     private BookmarkStatus status;
 
-    @Column (name = "website", nullable = false)
-    private String website;
+    @Column(name = "dns", nullable = false)
+    private String dns;
+
+    @Column (name = "url", nullable = false)
+    private String url;
 
     @Column (name = "rating") // 0-5 stars
     private Integer rating;
@@ -56,13 +59,14 @@ public class Bookmark {
     public Bookmark() {} // Hibernate needs to be able to create an entity by itself.
                         // It's able to inject itself and later populate the fields from database or somewhere else.
 
-    public Bookmark(UUID id, String title, Integer chapter, BookmarkStatus status, String website, Integer rating,
+    public Bookmark(UUID id, String title, Integer chapter, BookmarkStatus status, String url, String dns, Integer rating,
             Instant dateCreated, Instant dateUpdated, Instant dateLastClicked) {
         this.id = id;
         this.title = title;
         this.chapter = chapter;
         this.status = status;
-        this.website = website;
+        this.dns = dns;
+        this.url = url;
         this.rating = rating;
         this.dateCreated = dateCreated;
         this.dateUpdated = dateUpdated;
@@ -103,12 +107,20 @@ public class Bookmark {
         this.status = status;
     }
 
-    public String getWebsite() {
-        return website;
+    public String getDns() {
+        return dns;
     }
 
-    public void setWebsite(String website) {
-        this.website = website;
+    public void setDns(String dns) {
+        this.dns = dns;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public Integer getRating() {
@@ -183,8 +195,9 @@ public class Bookmark {
             "id=" + id + 
             ", title=" + title + 
             ", chapter=" + chapter + 
-            ", status=" + status + 
-            ", website=" + website + 
+            ", status=" + status +
+            ", dns=" + dns + 
+            ", url=" + url + 
             ", rating=" + rating + 
             ", dateCreated=" + dateCreated + 
             ", dateUpdated=" + dateUpdated + 

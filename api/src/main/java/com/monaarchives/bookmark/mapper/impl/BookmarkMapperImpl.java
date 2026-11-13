@@ -30,7 +30,8 @@ public class BookmarkMapperImpl implements BookmarkMapper {
             dto.title(),
             dto.chapter(),
             dto.status(),
-            dto.website(),
+            dto.dns(),
+            dto.url(),
             dto.rating()
         );
     }
@@ -41,7 +42,8 @@ public class BookmarkMapperImpl implements BookmarkMapper {
             dto.title(),
             dto.chapter(),
             dto.status(),
-            dto.website(),
+            dto.dns(),
+            dto.url(),
             dto.rating()
         );
     }
@@ -51,7 +53,8 @@ public class BookmarkMapperImpl implements BookmarkMapper {
             dto.title(),
             dto.chapter(),
             dto.status(),
-            dto.website(),
+            dto.dns(),
+            dto.url(),
             dto.rating()
         );
     }
@@ -63,7 +66,8 @@ public class BookmarkMapperImpl implements BookmarkMapper {
             bookmark.getTitle(),
             bookmark.getChapter(),
             bookmark.getStatus(),
-            bookmark.getWebsite(),
+            bookmark.getDns(),
+            bookmark.getUrl(),
             bookmark.getRating(),
             bookmark.getDateCreated(),
             bookmark.getDateUpdated(),

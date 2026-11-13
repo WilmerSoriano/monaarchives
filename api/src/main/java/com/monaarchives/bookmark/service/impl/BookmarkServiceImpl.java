@@ -45,7 +45,8 @@ public class BookmarkServiceImpl implements BookmarkService{
             request.title(),
             request.chapter(),
             request.status(),
-            request.website(),
+            request.dns(),
+            request.url(),
             request.rating(),
             now,
             now,
@@ -73,7 +74,8 @@ public class BookmarkServiceImpl implements BookmarkService{
         bookmark.setTitle(request.title());
         bookmark.setChapter(request.chapter());
         bookmark.setStatus(request.status());
-        bookmark.setWebsite(request.website());
+        bookmark.setDns(request.dns());
+        bookmark.setUrl(request.url());
         bookmark.setRating(request.rating());
         bookmark.setDateUpdated(newUpdate);
 
@@ -89,7 +91,8 @@ public class BookmarkServiceImpl implements BookmarkService{
         updateIfNotNull(request.title(), bookmark::setTitle);
         updateIfNotNull(request.chapter(), bookmark::setChapter);
         updateIfNotNull(request.status(), bookmark::setStatus);
-        updateIfNotNull(request.website(), bookmark::setWebsite);
+        updateIfNotNull(request.dns(), bookmark::setDns);
+        updateIfNotNull(request.url(), bookmark::setUrl);
         updateIfNotNull(request.rating(), bookmark::setRating);
         
         bookmark.setDateUpdated(newUpdate);
