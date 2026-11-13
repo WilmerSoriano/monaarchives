@@ -7,13 +7,15 @@ export type Status =
   | "AXED";
 
 export type Bookmark = {
-  id: number;
+  id: string;
   title: string;
   chapter: number;
   status: Status;
-  website: string;
-  rating: number;
+  dns: string;
   url: string;
+  rating: number;
+  dateCreated: string;
+  dateUpdated: string;
   dateLastClicked: string;
 };
 
@@ -22,6 +24,7 @@ export type BookmarkFormData = {
   title: string;
   chapter: number;
   status: Status;
+  dns: string,
   url: string;
   rating: number;
 };
