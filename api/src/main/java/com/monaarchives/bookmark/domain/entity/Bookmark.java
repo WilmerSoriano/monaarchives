@@ -59,7 +59,7 @@ public class Bookmark {
     public Bookmark() {} // Hibernate needs to be able to create an entity by itself.
                         // It's able to inject itself and later populate the fields from database or somewhere else.
 
-    public Bookmark(UUID id, String title, Integer chapter, BookmarkStatus status, String url, String dns, Integer rating,
+    public Bookmark(UUID id, String title, Integer chapter, BookmarkStatus status, String dns, String url, Integer rating,
             Instant dateCreated, Instant dateUpdated, Instant dateLastClicked) {
         this.id = id;
         this.title = title;
