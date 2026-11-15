@@ -141,3 +141,12 @@ UI logic, and CSS file updates.
 and update how URL is displayed to user.
 
 - FINALLY... we can start connecting frontend to backend.
+
+> November 12, 2026 - Connection handler
+- Added a TypeScript file purposely to communicate with backend 
+- Adjusted multiple Typescript files to match my backend Entity, variable name, and methods
+- Fixed issue where Spring Boot blocked localhost from React. (Check out Config files for API)
+- Added a new Patch HTTP request to track "DateLastClicked" based on user website clicked.
+
+- Next update: Need to add Docker to compile and run Frontend, Backend, and Database.
+Might need to add a new feature to displayed which bookmark was last clicked (recently visited)
