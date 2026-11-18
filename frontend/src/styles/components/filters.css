@@ -66,6 +66,16 @@
   color: #7257b3;
 }
 
+/*Moved the Rating section for filter more to middle*/
+.rating-group .pills {
+  flex-wrap: nowrap;
+  gap: 6px;
+}
+
+.rating-group {
+  margin-left: -100px;
+}
+
 .chapter-inputs {
   display: flex;
   align-items: center;
