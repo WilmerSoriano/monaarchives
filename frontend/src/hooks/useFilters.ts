@@ -2,7 +2,7 @@
 import { useState } from "react";
 import type { Status } from "../types/bookmark";
 
-export type SortBy = "title" | "chapter" | "rating";
+export type SortBy = "title" | "chapter" | "rating" | "dateLastClicked";
 export type SortDirection = "asc" | "desc";
 
 export function useFilters() {

@@ -40,7 +40,7 @@
   background: transparent;
   border: 1px solid #51475b;
   color: #d1c8d6;
-  font: 500 11px "DM Sans", sans-serif;
+  font: 500 12px "DM Sans", sans-serif;
   cursor: pointer;
 }
 
@@ -120,6 +120,10 @@
 
 .status-line .pill {
   height: 34px;
+}
+
+.sort-group .pills + .pills {
+  margin-top: 8px;
 }
 
 .reset {

@@ -12,21 +12,33 @@ export function Filters({ filters }: Props) {
   return (
     <section className="filters">
       <div className="filter-top">
-        {/* Allows bookmarks to be sorted by title, chapter, or rating, with ascending or descending order. */}
+
+        {/* Allows bookmarks to be sorted by title, chapter, rating, or most recent visit. */}
         <div className="filter-group sort-group">
           <span className="filter-label">Sort by</span>
 
           <div className="pills">
-            {(["title", "chapter", "rating"] as const).map((sort) => (
+            {(["title", "chapter", "rating", "dateLastClicked"] as const).map((sort) => (
               <button
                 key={sort}
                 className={`pill ${filters.sortBy === sort ? "selected" : ""}`}
-                onClick={() => filters.setSortBy(sort)}
+                onClick={() => {
+                  filters.setSortBy(sort);
+
+                  if (sort === "dateLastClicked") {
+                    filters.setDirection("desc");
+                  }
+                }}
               >
-                {sort[0].toUpperCase() + sort.slice(1)}
+                {sort === "dateLastClicked" // Display Recently visited button instead of dateLastClicked button
+                  ? "Recently visited"
+                  : sort[0].toUpperCase() + sort.slice(1)}
               </button>
             ))}
+            </div>
 
+          {/* Controls the sorting direction on a separate row. */}
+          <div className="pills">
             <button
               className={`pill ${filters.direction === "asc" ? "selected" : ""}`}
               onClick={() => filters.setDirection("asc")}

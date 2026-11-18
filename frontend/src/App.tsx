@@ -81,7 +81,10 @@ function App() {
         const result =
           sortBy === "title"
             ? a.title.localeCompare(b.title)
-            : a[sortBy] - b[sortBy];
+            : sortBy === "dateLastClicked"
+              ? new Date(a.dateLastClicked).getTime() -
+                new Date(b.dateLastClicked).getTime()
+              : a[sortBy] - b[sortBy];
 
         return direction === "asc" ? result : -result;
       });
